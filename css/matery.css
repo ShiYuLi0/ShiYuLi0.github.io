@@ -249,6 +249,7 @@ mark {
 
 .bg-color {
     background-image: linear-gradient(to right, ,#623AA2 0%,#F97794 100%);
+	opacity: 1;
 }
 
 .text-color {
@@ -304,6 +305,8 @@ header .brand-logo .logo-img {
 
 header .brand-logo .logo-span {
     font-size: 2rem;
+	font-family: 楷体;
+	color: blue;
 }
 
 header .button-collapse i {
