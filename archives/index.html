@@ -135,6 +135,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/galleries/" class="waves-effect waves-light">
+      
+      <i class="fa-photo" style="zoom: 0.6;"></i>
+      
+      <span>相册</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -233,6 +244,17 @@
 			    <i class="fa-fw fas fa-address-book"></i>
 			
 			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/galleries/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fa-photo"></i>
+			
+			相册
 		</a>
           
         </li>
@@ -475,8 +497,7 @@
                         <a href="/2020/02/08/beautifulsoup-ku/">
                             <div class="card-image">
                                 
-                                
-                                <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Python爬虫——BeautifulSoup库">
+                                <img src="images/1.jpg" class="responsive-img" alt="Python爬虫——BeautifulSoup库">
                                 
                                 <span class="card-title">Python爬虫——BeautifulSoup库</span>
                             </div>
@@ -484,11 +505,7 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    BeautifulSoup库BeautifulSoup库是解析、遍历、维护“标签树”的功能库
-示例：
-import requests
-r=requests.get("http://python123.io/ws/demo.html")
-r.
+                                    Python BeautifulSoup库笔记
                                 
                             </div>
                             <div class="publish-info">
@@ -497,8 +514,12 @@ r.
                                 </span>
                                 <span class="publish-author">
                                     
-                                    <i class="fas fa-user fa-fw"></i>
-                                    李世昱
+                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                    
+                                    <a href="/categories/Python%E7%88%AC%E8%99%AB/" class="post-category">
+                                    Python爬虫
+                                    </a>
+                                    
                                     
                                 </span>
                             </div>
@@ -509,9 +530,9 @@ r.
                             
                             <a href="/tags/Python/"><span class="chip bg-color">Python</span></a>
                             
-                            <a href="/tags/%E7%88%AC%E8%99%AB/"><span class="chip bg-color">爬虫</span></a>
+                            <a href="/tags/BeautifulSoup/"><span class="chip bg-color">BeautifulSoup</span></a>
                             
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/"><span class="chip bg-color">笔记</span></a>
+                            <a href="/tags/%E7%88%AC%E8%99%AB/"><span class="chip bg-color">爬虫</span></a>
                             
                         </div>
                         
@@ -615,25 +636,13 @@ r.
                                 </span>
                                 <span class="publish-author">
                                     
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Markdown/" class="post-category">
-                                    Markdown
-                                    </a>
-                                    
+                                    <i class="fas fa-user fa-fw"></i>
+                                    李世昱
                                     
                                 </span>
                             </div>
                         </div>
 
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/Typora/"><span class="chip bg-color">Typora</span></a>
-                            
-                            <a href="/tags/Markdown/"><span class="chip bg-color">Markdown</span></a>
-                            
-                        </div>
                         
                     </div>
                 </div>
@@ -653,12 +662,10 @@ r.
             Copyright&nbsp;&copy;
             <span id="year">2020</span>
             <a href="https://github.com/ShiYuLi0/ShiYuLi0.github.io" target="_blank">李世昱</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.7k</span>&nbsp;字
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
+                class="white-color">1.6k</span>&nbsp;字
             
             
             
@@ -711,11 +718,11 @@ r.
                         diffMinutes * minutes) / seconds);
                     if (startYear == todayYear) {
                         document.getElementById("year").innerHTML = todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffDays + " 天 " + diffHours +
                             " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     } else {
                         document.getElementById("year").innerHTML = startYear + " - " + todayYear;
-                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                        document.getElementById("sitetime").innerHTML = "本站已勉强运行 " + diffYears + " 年 " + diffDays +
                             " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
                     }
                 }
@@ -831,11 +838,37 @@ $(function () {
     
 
     
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
     
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+	
+	<script type="text/javascript">
+	//只在桌面版网页启用特效
+	var windowWidth = $(window).width();
+	if (windowWidth > 768) {
+	    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+	}
+	</script>
+	
+	<!-- 天气接口控件  李世昱 add 2020.02.09 -->
+	
+	  <!-- 天气接口  李世昱 add 2020.02.09 -->
+<script type="text/javascript">
+  WIDGET = {FID: '1tFpFZ5Mtj'}
+</script>
+<!-- <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script> -->
 
+<script type="text/javascript">
+  //只在桌面版网页启用特效
+  var windowWidth = $(window).width();
+  if (windowWidth > 768) {
+      document.write('<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"><\/script>');
+  }
+  </script>
+	
 </body>
 
 </html>
