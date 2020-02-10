@@ -40,6 +40,12 @@
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> Test </category>
+          
+      </categories>
+      
       
         <tags>
             
@@ -58,6 +64,12 @@
       
         <content type="html"><![CDATA[<p>Welcome to 李世昱的博客<br>博文测试</p>]]></content>
       
+      
+      <categories>
+          
+          <category> Hello World </category>
+          
+      </categories>
       
       
         <tags>
