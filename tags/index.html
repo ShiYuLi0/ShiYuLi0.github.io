@@ -31,7 +31,7 @@
 
 
     <script src="/libs/jquery/jquery.min.js"></script>
-	
+	<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 
 
 
@@ -343,19 +343,8 @@
             <div class="description center-align">
               
                 
-                <span id="subtitle"></span>
-                  
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['千里不辞行路远，时光早晚到天涯。','衣带渐宽终不悔，为伊消得人憔悴。'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 70,
-                        showCursor: true
-                    });
-                </script>
+                
+                <span id="jinrishici-sentence">今日诗词....</span>
                 
             </div>
         </div>
@@ -385,10 +374,19 @@
             <div class="tag-chips">
                 
                 
+                <a href="/tags/Test/" title="Test: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Test" style="background-color: #F9EBEA;">Test
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/Python/" title="Python: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Python" style="background-color: #F9EBEA;">Python
+                            data-tagname="Python" style="background-color: #F5EEF8;">Python
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -397,7 +395,7 @@
                 <a href="/tags/BeautifulSoup/" title="BeautifulSoup: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="BeautifulSoup" style="background-color: #F5EEF8;">BeautifulSoup
+                            data-tagname="BeautifulSoup" style="background-color: #D5F5E3;">BeautifulSoup
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -406,17 +404,8 @@
                 <a href="/tags/%E7%88%AC%E8%99%AB/" title="爬虫: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="爬虫" style="background-color: #D5F5E3;">爬虫
+                            data-tagname="爬虫" style="background-color: #E8F8F5;">爬虫
                         <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Test/" title="Test: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Test" style="background-color: #E8F8F5;">Test
-                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
@@ -444,7 +433,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"Python","weight":1,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/Python/"},{"text":"BeautifulSoup","weight":1,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/BeautifulSoup/"},{"text":"爬虫","weight":1,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/爬虫/"},{"text":"Test","weight":2,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/Test/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"Test","weight":2,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/Test/"},{"text":"Python","weight":1,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/Python/"},{"text":"BeautifulSoup","weight":1,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/BeautifulSoup/"},{"text":"爬虫","weight":1,"link":"https://github.com/ShiYuLi0/ShiYuLi0.github.io/tags/爬虫/"}], {
         autoResize: true
     });
 </script>
@@ -627,10 +616,6 @@ $(function () {
     
 
     <!-- 鼠标点击烟花爆炸效果 -->
-    
-        <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
-        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-        <script type="text/javascript" src="/js/fireworks.js"></script>
     
 
     <!-- 背景雪花飘落特效世昱 add 2020.02.13 -->

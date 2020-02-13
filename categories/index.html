@@ -31,7 +31,7 @@
 
 
     <script src="/libs/jquery/jquery.min.js"></script>
-	
+	<script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
 
 
 
@@ -343,19 +343,8 @@
             <div class="description center-align">
               
                 
-                <span id="subtitle"></span>
-                  
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: ['千里不辞行路远，时光早晚到天涯。','衣带渐宽终不悔，为伊消得人憔悴。'],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 70,
-                        showCursor: true
-                    });
-                </script>
+                
+                <span id="jinrishici-sentence">今日诗词....</span>
                 
             </div>
         </div>
@@ -386,10 +375,10 @@
                 
                 
                 
-                <a href="/categories/Python%E7%88%AC%E8%99%AB/" title="Python爬虫: 1">
+                <a href="/categories/Test/" title="Test: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">Python爬虫
+                            style="background-color: #F9EBEA;">Test
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -404,10 +393,10 @@
                 </a>
                 
                 
-                <a href="/categories/Test/" title="Test: 1">
+                <a href="/categories/Python%E7%88%AC%E8%99%AB/" title="Python爬虫: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">Test
+                            style="background-color: #D5F5E3;">Python爬虫
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -454,7 +443,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"Python爬虫","max":2},{"name":"Hello World","max":2},{"name":"Test","max":2}],
+            indicator: [{"name":"Test","max":2},{"name":"Hello World","max":2},{"name":"Python爬虫","max":2}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -653,10 +642,6 @@ $(function () {
     
 
     <!-- 鼠标点击烟花爆炸效果 -->
-    
-        <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
-        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-        <script type="text/javascript" src="/js/fireworks.js"></script>
     
 
     <!-- 背景雪花飘落特效世昱 add 2020.02.13 -->
