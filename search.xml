@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>GitHub使用小技巧</title>
+      <link href="/2020/02/14/github-shi-yong-xiao-ji-qiao/"/>
+      <url>/2020/02/14/github-shi-yong-xiao-ji-qiao/</url>
+      
+        <content type="html"><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="GitHub小技巧"><a href="#GitHub小技巧" class="headerlink" title="GitHub小技巧"></a>GitHub小技巧</h2><h3 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h3><p>今天修改README.md的时候想在里面插入项目的截图,<br>插入图片的关键就是知道README.md的链接规则,当在README.md中插入链接时可以插入相对路径,这是通用的适用于所有链接<br>例如:<br> <code>![图片](a.png)</code>:显示项目中的 /a.png</p><p><code>![图片b](/screenshots/b.png)</code>显示项目中的 /screenshots/b.png </p><p><a href=""></a>:显示一个链接到LICENSE的链接</p><h3 id="GitHub搜索"><a href="#GitHub搜索" class="headerlink" title="GitHub搜索"></a>GitHub搜索</h3><ol><li><p>搜索名字中带着spring boot，stars数超过3000的仓库</p><pre><code> in:name spring boot stars:&gt;3000</code></pre></li><li><p>搜索名字中带着spring boot，stars数超过3000，forks数超过300的仓库</p><pre><code> in:name spring boot stars:&gt;3000 forks:&gt;300</code></pre></li><li><p>搜索readme中带spring boot的仓库</p><pre><code> in:readme spring boot</code></pre></li><li><p>搜索描述中带有“微服务”关键词，语言为Java，pushed，最新日期要在2019-09-10之后</p><pre><code> in:description 微服务 language:java pushed:&gt;2019-09-10</code></pre></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> GitHub </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> GitHub </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Python爬虫——BeautifulSoup库</title>
       <link href="/2020/02/08/beautifulsoup-ku/"/>
       <url>/2020/02/08/beautifulsoup-ku/</url>
