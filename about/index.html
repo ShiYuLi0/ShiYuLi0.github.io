@@ -575,7 +575,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"Hello World","value":1},{"name":"GitHub","value":1},{"name":"Python爬虫","value":1},{"name":"Test","value":1}],
+                data: [{"name":"Python爬虫","value":1},{"name":"Test","value":1},{"name":"GitHub","value":1},{"name":"Hello World","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -599,7 +599,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["Test","GitHub","Python","BeautifulSoup","爬虫"]
+                data: ["Test","Python","BeautifulSoup","爬虫","GitHub"]
             }
         ],
         yAxis: [
@@ -707,18 +707,6 @@
         <div class="tag-chips center-align">
             
             
-            <a href="/tags/Test/">
-                <span class="chip center-align waves-effect waves-light chip-default">Test</span>
-            </a>
-            
-            
-            
-            <a href="/tags/GitHub/">
-                <span class="chip center-align waves-effect waves-light chip-default">GitHub</span>
-            </a>
-            
-            
-            
             <a href="/tags/Python/">
                 <span class="chip center-align waves-effect waves-light chip-default">Python</span>
             </a>
@@ -733,6 +721,18 @@
             
             <a href="/tags/%E7%88%AC%E8%99%AB/">
                 <span class="chip center-align waves-effect waves-light chip-default">爬虫</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Test/">
+                <span class="chip center-align waves-effect waves-light chip-default">Test</span>
+            </a>
+            
+            
+            
+            <a href="/tags/GitHub/">
+                <span class="chip center-align waves-effect waves-light chip-default">GitHub</span>
             </a>
             
             
@@ -925,6 +925,10 @@ $(function () {
     
 
     <!-- 鼠标点击烟花爆炸效果 -->
+    
+        <canvas class="fireworks" style="position: fixed; left: 0; top: 0; z-index: 1; pointer-events: none;"></canvas>
+        <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+        <script type="text/javascript" src="/js/fireworks.js"></script>
     
 
     <!-- 背景雪花飘落特效世昱 add 2020.02.13 -->
