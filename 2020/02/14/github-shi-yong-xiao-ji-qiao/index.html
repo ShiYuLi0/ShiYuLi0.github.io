@@ -36,7 +36,8 @@
 
 
 
-<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-okaidia.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -514,16 +515,16 @@
 <li><p>搜索描述中带有“微服务”关键词，语言为Java，pushed，最新日期要在2019-09-10之后</p>
 <pre><code> in:description 微服务 language:java pushed:&gt;2019-09-10</code></pre></li>
 </ol>
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="1-添加提交"><a href="#1-添加提交" class="headerlink" title="1. 添加提交"></a>1. 添加提交</h3><pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> init
+<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="1-添加提交"><a href="#1-添加提交" class="headerlink" title="1. 添加提交"></a>1. 添加提交</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init
 <span class="token function">git</span> remote add origin 你新建仓库的HTTP或者SSH地址链接
-<span class="token function">git</span> pull origin master <span class="token comment" spellcheck="true">#将仓库拉取到本地文件夹</span></code></pre>
-<pre class=" language-bash"><code class="language-bash"><span class="token function">git</span> add <span class="token keyword">.</span>    <span class="token comment" spellcheck="true">#(.表示所有的)</span>
+<span class="token function">git</span> pull origin master <span class="token comment" spellcheck="true">#将仓库拉取到本地文件夹</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> add <span class="token keyword">.</span>    <span class="token comment" spellcheck="true">#(.表示所有的)</span>
 <span class="token function">git</span> commit -m <span class="token string">'添加文件内容描述'</span> 
-<span class="token function">git</span> push origin master   <span class="token comment" spellcheck="true">#将本地仓库文件推送到GitHub新建的仓库</span></code></pre>
-<h3 id="2-添加远程关联仓库"><a href="#2-添加远程关联仓库" class="headerlink" title="2. 添加远程关联仓库"></a>2. 添加远程关联仓库</h3><pre class=" language-csharp"><code class="language-csharp">$ git remote <span class="token keyword">add</span> origin https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>guanpengchn<span class="token operator">/</span>demo<span class="token punctuation">.</span>git</code></pre>
-<h3 id="3-查看远程关联"><a href="#3-查看远程关联" class="headerlink" title="3. 查看远程关联"></a>3. 查看远程关联</h3><pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> remote -v
+<span class="token function">git</span> push origin master   <span class="token comment" spellcheck="true">#将本地仓库文件推送到GitHub新建的仓库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-添加远程关联仓库"><a href="#2-添加远程关联仓库" class="headerlink" title="2. 添加远程关联仓库"></a>2. 添加远程关联仓库</h3><pre class="line-numbers language-csharp"><code class="language-csharp">$ git remote <span class="token keyword">add</span> origin https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>guanpengchn<span class="token operator">/</span>demo<span class="token punctuation">.</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-查看远程关联"><a href="#3-查看远程关联" class="headerlink" title="3. 查看远程关联"></a>3. 查看远程关联</h3><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">git</span> remote -v
 origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
-origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span></code></pre>
+origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
