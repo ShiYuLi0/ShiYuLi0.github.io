@@ -477,14 +477,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    13 分
                 </div>
                 
 
@@ -501,11 +501,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><p><strong>1、工作路径</strong></p>
-<p>getwd() 列出当前工作路径；</p>
+                <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="1、工作路径"><a href="#1、工作路径" class="headerlink" title="1、工作路径"></a><strong>1、工作路径</strong></h3><p>getwd() 列出当前工作路径；</p>
 <p>setwd(dir) 设置工作路径，参数dir是要设置的路径。</p>
-<p><strong>2、列出目录下文件</strong></p>
-<p>函数list.files和dir用法完全一样，可以列出路径下所有文件（包括目录）；函数list.dirs只列出路径下所有目录。</p>
+<h3 id="2、列出目录下文件"><a href="#2、列出目录下文件" class="headerlink" title="2、列出目录下文件"></a><strong>2、列出目录下文件</strong></h3><p>函数list.files和dir用法完全一样，可以列出路径下所有文件（包括目录）；函数list.dirs只列出路径下所有目录。</p>
 <pre class=" language-r"><code class="language-r"><span class="token operator">></span> getwd<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#当前工作目录</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"C:/Users/YU/Documents"</span>
 <span class="token operator">></span> getwd<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#当前工作目录</span>
@@ -565,8 +563,7 @@ ls<span class="token punctuation">(</span><span class="token punctuation">)</spa
 <span class="token operator">></span> list.files<span class="token punctuation">(</span>R.home<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>pattern <span class="token operator">=</span> <span class="token string">"doc"</span><span class="token punctuation">,</span>full.names <span class="token operator">=</span> T<span class="token punctuation">)</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"B:/installs/RStudio/path/R-3.6.2/doc"</span>
 <span class="token comment" spellcheck="true">#pattern：匹配文件名，选择自己所需的文件（可选项，默认是全部文件名，包括子文件夹，但是不包括子文件夹的文件），如pattern = "*.XPT$"，表示要输出以.XPT结尾的文件名，如果没有$符号，则输出包含.XPT的文件名</span></code></pre>
-<p><strong>3、删除文件</strong></p>
-<p><strong>file.remove函数</strong></p>
+<h3 id="3、删除文件"><a href="#3、删除文件" class="headerlink" title="3、删除文件"></a><strong>3、删除文件</strong></h3><p><strong>file.remove函数</strong></p>
 <pre class=" language-r"><code class="language-r"><span class="token operator">></span> <span class="token comment" spellcheck="true">#删除文件</span>
  <span class="token operator">></span> <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>file.exists<span class="token punctuation">(</span><span class="token string">"B:/Temp1/冰与火之歌第一季01.mp4"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment" spellcheck="true">#先判断是否有这个文件，没有则创建一个</span>
  <span class="token operator">+</span> file.create<span class="token punctuation">(</span><span class="token string">"B:/Temp1/冰与火之歌第一季01.mp4"</span><span class="token punctuation">)</span>
@@ -590,8 +587,7 @@ In file.remove<span class="token punctuation">(</span>list.files<span class="tok
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token boolean">TRUE</span>
 <span class="token operator">></span> list.files<span class="token punctuation">(</span><span class="token string">"B:/Temp1/A/"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#查看删除结果</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"权力的游戏第一季01.mp4"</span> <span class="token string">"权力的游戏第一季03.mp4"</span> <span class="token string">"权力的游戏第一季04.mp4"</span></code></pre>
-<p><strong>4、复制文件</strong></p>
-<p><strong>file.copy()</strong></p>
+<h3 id="4、复制文件"><a href="#4、复制文件" class="headerlink" title="4、复制文件"></a><strong>4、复制文件</strong></h3><p><strong>file.copy()</strong></p>
 <p>file.copy(from, to, overwrite = recursive, recursive = FALSE,<br>          copy.mode = TRUE, copy.date = FALSE)<br>from是原始文件（目录）名，to是新文件（目录）名，二者可以是vector，但是长度需相同；</p>
 <p>overwrite 若为TRUE，则文件被覆盖；</p>
 <p>recursive 复制目录时recursive需为TRUE；</p>
@@ -610,8 +606,7 @@ In file.remove<span class="token punctuation">(</span>list.files<span class="tok
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"权力的游戏第一季01.mp4"</span> <span class="token string">"权力的游戏第一季03.mp4"</span> <span class="token string">"权力的游戏第一季04.mp4"</span>
 <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token string">"权利的游戏第一季01.mp4"</span> <span class="token string">"权利的游戏第一季02.mp4"</span> <span class="token string">"权利的游戏第一季03.mp4"</span>
 <span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token string">"权利的游戏第一季04.mp4"</span></code></pre>
-<p><strong>5、重命名</strong></p>
-<p><strong>file.rename</strong></p>
+<h3 id="5、重命名"><a href="#5、重命名" class="headerlink" title="5、重命名"></a><strong>5、重命名</strong></h3><p><strong>file.rename</strong></p>
 <pre class=" language-r"><code class="language-r"><span class="token operator">></span> <span class="token comment" spellcheck="true">#重命名-------------------------------------------------</span>
 <span class="token operator">></span> <span class="token comment" spellcheck="true">#获取A文件夹下的文件路径及文件名</span>
 <span class="token operator">></span> fileA<span class="token operator">&lt;-</span>list.files<span class="token punctuation">(</span><span class="token string">"B:/Temp1/A"</span><span class="token punctuation">,</span>full.names <span class="token operator">=</span> T<span class="token punctuation">)</span>
@@ -644,57 +639,206 @@ b
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"lishikjsfkjsdhgkhj"</span>
 c
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"lishiyu"</span></code></pre>
-<p>保存脚本文件</p>
-<p>保存编码为GB18030，否则中文会变成乱码</p>
-<p>查看帮助文档——?加函数名</p>
+<h3 id="6、保存脚本文件"><a href="#6、保存脚本文件" class="headerlink" title="6、保存脚本文件"></a><strong>6、保存脚本文件</strong></h3><p>保存编码为GB18030，否则中文会变成乱码</p>
+<h3 id="7、查看帮助文档"><a href="#7、查看帮助文档" class="headerlink" title="7、查看帮助文档"></a><strong>7、查看帮助文档</strong></h3><p>?加函数名</p>
 <p>例如：?read.csv查看read.csv函数的帮助文档</p>
-<pre class=" language-R"><code class="language-R">rm(list=ls())
-df<-read.csv("B:/hh.csv",header=T)</code></pre>
-<h1 id="Dataframe"><a href="#Dataframe" class="headerlink" title="Dataframe"></a>Dataframe</h1><hr>
-<p><strong>草稿，未完待续……</strong></p>
-<p>df  shift   加4</p>
-<p>seq函数</p>
-<h4 id="R语言-更改R包默认安装路径"><a href="#R语言-更改R包默认安装路径" class="headerlink" title="R语言 更改R包默认安装路径"></a>R语言 更改R包默认安装路径</h4><p>#新建一个初始启动文件<br>file.edit(’~/.Rprofile’)</p>
+<pre class=" language-r"><code class="language-r">rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+df<span class="token operator">&lt;-</span>read.csv<span class="token punctuation">(</span><span class="token string">"B:/hh.csv"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">)</span></code></pre>
+<hr>
+<h2 id="Plots图表"><a href="#Plots图表" class="headerlink" title="Plots图表"></a>Plots图表</h2><p>读取数据文件</p>
+<pre class=" language-r"><code class="language-r"><span class="token operator">></span> rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">></span> data<span class="token operator">=</span>read.csv<span class="token punctuation">(</span><span class="token string">"B:/Temp1/高考.csv"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#读取csv数据,还有read.table</span>
+<span class="token operator">></span> data   <span class="token comment" spellcheck="true">#查看数据</span>
+   地区 年份 中考人数 高考人数
+<span class="token number">1</span>  河北 <span class="token number">2000</span>      <span class="token number">330</span>      <span class="token number">400</span>
+<span class="token number">2</span>  河北 <span class="token number">2001</span>      <span class="token number">332</span>      <span class="token number">405</span>
+<span class="token number">3</span>  河北 <span class="token number">2002</span>      <span class="token number">334</span>      <span class="token number">410</span>
+<span class="token number">4</span>  河北 <span class="token number">2003</span>      <span class="token number">336</span>      <span class="token number">415</span>
+<span class="token number">5</span>  河北 <span class="token number">2004</span>      <span class="token number">338</span>      <span class="token number">420</span>
+<span class="token number">6</span>  河北 <span class="token number">2005</span>      <span class="token number">340</span>      <span class="token number">425</span>
+<span class="token number">7</span>  河南 <span class="token number">2000</span>      <span class="token number">360</span>      <span class="token number">430</span>
+<span class="token number">8</span>  河南 <span class="token number">2001</span>      <span class="token number">365</span>      <span class="token number">435</span>
+<span class="token number">9</span>  河南 <span class="token number">2002</span>      <span class="token number">370</span>      <span class="token number">440</span>
+<span class="token number">10</span> 河南 <span class="token number">2003</span>      <span class="token number">375</span>      <span class="token number">445</span>
+<span class="token number">11</span> 河南 <span class="token number">2004</span>      <span class="token number">380</span>      <span class="token number">450</span>
+<span class="token number">12</span> 河南 <span class="token number">2005</span>      <span class="token number">385</span>      <span class="token number">455</span>
+<span class="token operator">></span> colnames<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"地区"</span>     <span class="token string">"年份"</span>     <span class="token string">"中考人数"</span> <span class="token string">"高考人数"</span>
+<span class="token operator">></span> colnames<span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token operator">&lt;-</span>c<span class="token punctuation">(</span><span class="token string">'Region'</span><span class="token punctuation">,</span><span class="token string">'Year'</span><span class="token punctuation">,</span><span class="token string">'ZhongKao'</span><span class="token punctuation">,</span><span class="token string">'GaoKao'</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#修改列名</span>
+<span class="token operator">></span> colnames<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"Region"</span>   <span class="token string">"Year"</span>     <span class="token string">"ZhongKao"</span> <span class="token string">"GaoKao"</span> </code></pre>
+<p>提取子集、去掉指定列</p>
+<pre class=" language-r"><code class="language-r"><span class="token operator">></span> data_HB<span class="token operator">&lt;-</span>subset<span class="token punctuation">(</span>data<span class="token punctuation">,</span>Region<span class="token operator">==</span><span class="token string">'河北'</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#提取Region为河北的子集</span>
+<span class="token operator">></span> data_HB
+  Region Year ZhongKao GaoKao
+<span class="token number">1</span>   河北 <span class="token number">2000</span>      <span class="token number">330</span>    <span class="token number">400</span>
+<span class="token number">2</span>   河北 <span class="token number">2001</span>      <span class="token number">332</span>    <span class="token number">405</span>
+<span class="token number">3</span>   河北 <span class="token number">2002</span>      <span class="token number">334</span>    <span class="token number">410</span>
+<span class="token number">4</span>   河北 <span class="token number">2003</span>      <span class="token number">336</span>    <span class="token number">415</span>
+<span class="token number">5</span>   河北 <span class="token number">2004</span>      <span class="token number">338</span>    <span class="token number">420</span>
+<span class="token number">6</span>   河北 <span class="token number">2005</span>      <span class="token number">340</span>    <span class="token number">425</span>
+<span class="token operator">></span> write.csv<span class="token punctuation">(</span>data_HB<span class="token punctuation">,</span><span class="token string">"B:/Temp1/A/子集河北.csv"</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#还有write.table</span>
+<span class="token operator">></span> dataNoYear<span class="token operator">&lt;-</span>subset<span class="token punctuation">(</span>data<span class="token punctuation">,</span>select <span class="token operator">=</span> <span class="token operator">-</span>Year<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#去掉Year列的子集，有减号</span>
+<span class="token operator">></span> dataNoYear   <span class="token comment" spellcheck="true">#查看结果</span>
+   Region ZhongKao GaoKao
+<span class="token number">1</span>    河北      <span class="token number">330</span>    <span class="token number">400</span>
+<span class="token number">2</span>    河北      <span class="token number">332</span>    <span class="token number">405</span>
+<span class="token number">3</span>    河北      <span class="token number">334</span>    <span class="token number">410</span>
+<span class="token number">4</span>    河北      <span class="token number">336</span>    <span class="token number">415</span>
+<span class="token number">5</span>    河北      <span class="token number">338</span>    <span class="token number">420</span>
+<span class="token number">6</span>    河北      <span class="token number">340</span>    <span class="token number">425</span>
+<span class="token number">7</span>    河南      <span class="token number">360</span>    <span class="token number">430</span>
+<span class="token number">8</span>    河南      <span class="token number">365</span>    <span class="token number">435</span>
+<span class="token number">9</span>    河南      <span class="token number">370</span>    <span class="token number">440</span>
+<span class="token number">10</span>   河南      <span class="token number">375</span>    <span class="token number">445</span>
+<span class="token number">11</span>   河南      <span class="token number">380</span>    <span class="token number">450</span>
+<span class="token number">12</span>   河南      <span class="token number">385</span>    <span class="token number">455</span>
+<span class="token operator">></span></code></pre>
+<p>Plot</p>
+<pre class=" language-r"><code class="language-r"><span class="token operator">></span> plot<span class="token punctuation">(</span>data<span class="token operator">$</span>Year<span class="token punctuation">,</span>data<span class="token operator">$</span>ZhongKao<span class="token punctuation">)</span></code></pre>
+<p>将画布拖大即可</p>
+<pre class=" language-r"><code class="language-r"><span class="token operator">></span> plot<span class="token punctuation">(</span>data<span class="token operator">$</span>Year<span class="token punctuation">,</span>data<span class="token operator">$</span>ZhongKao<span class="token punctuation">)</span>
+Error <span class="token keyword">in</span> plot.new<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> figure margins too large</code></pre>
+<hr>
+<h2 id="Dataframe"><a href="#Dataframe" class="headerlink" title="Dataframe"></a>Dataframe</h2><pre class=" language-r"><code class="language-r"><span class="token operator">></span> <span class="token comment" spellcheck="true">#Dataframe-------------------------------</span>
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#Dataframe</span>
+<span class="token operator">></span> <span class="token comment" spellcheck="true">##创建Dataframe函数</span>
+<span class="token operator">></span> ls<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"a"</span>  <span class="token string">"df"</span> <span class="token string">"i"</span>  <span class="token string">"l"</span> 
+<span class="token operator">></span> rm<span class="token punctuation">(</span>list <span class="token operator">=</span> ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">></span> ls<span class="token punctuation">(</span><span class="token punctuation">)</span>
+character<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token operator">></span> library<span class="token punctuation">(</span>dplyr<span class="token punctuation">)</span>      <span class="token comment" spellcheck="true">#载入程辑包：‘dplyr’</span>
+<span class="token operator">></span> options<span class="token punctuation">(</span>digits <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#保留整数</span>
+<span class="token operator">></span> set.seed<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#设置种子函数</span>
+<span class="token operator">></span> df<span class="token operator">&lt;-</span>data.frame<span class="token punctuation">(</span>ID<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">12</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>                Class<span class="token operator">=</span>rep<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">#对数组123，重复4遍</span>
+<span class="token operator">+</span>                Chinese<span class="token operator">=</span>runif<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span>min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>max <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token comment" spellcheck="true">#runif随机产生12个0-100的数</span>
+<span class="token operator">+</span>                Math<span class="token operator">=</span>runif<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span>min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>max <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token operator">+</span>                English<span class="token operator">=</span>runif<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span>min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>max <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span>
+<span class="token operator">+</span> <span class="token punctuation">)</span>
+<span class="token operator">></span> df  <span class="token comment" spellcheck="true">#查看Dataframe</span>
+   ID Class Chinese Math English
+<span class="token number">1</span>   <span class="token number">1</span>     <span class="token number">1</span>      <span class="token number">27</span>   <span class="token number">69</span>      <span class="token number">27</span>
+<span class="token number">2</span>   <span class="token number">2</span>     <span class="token number">2</span>      <span class="token number">37</span>   <span class="token number">38</span>      <span class="token number">39</span>
+<span class="token number">3</span>   <span class="token number">3</span>     <span class="token number">3</span>      <span class="token number">57</span>   <span class="token number">77</span>       <span class="token number">1</span>
+<span class="token number">4</span>   <span class="token number">4</span>     <span class="token number">1</span>      <span class="token number">91</span>   <span class="token number">50</span>      <span class="token number">38</span>
+<span class="token number">5</span>   <span class="token number">5</span>     <span class="token number">2</span>      <span class="token number">20</span>   <span class="token number">72</span>      <span class="token number">87</span>
+<span class="token number">6</span>   <span class="token number">6</span>     <span class="token number">3</span>      <span class="token number">90</span>   <span class="token number">99</span>      <span class="token number">34</span>
+<span class="token number">7</span>   <span class="token number">7</span>     <span class="token number">1</span>      <span class="token number">94</span>   <span class="token number">38</span>      <span class="token number">48</span>
+<span class="token number">8</span>   <span class="token number">8</span>     <span class="token number">2</span>      <span class="token number">66</span>   <span class="token number">78</span>      <span class="token number">60</span>
+<span class="token number">9</span>   <span class="token number">9</span>     <span class="token number">3</span>      <span class="token number">63</span>   <span class="token number">93</span>      <span class="token number">49</span>
+<span class="token number">10</span> <span class="token number">10</span>     <span class="token number">1</span>       <span class="token number">6</span>   <span class="token number">21</span>      <span class="token number">19</span>
+<span class="token number">11</span> <span class="token number">11</span>     <span class="token number">2</span>      <span class="token number">21</span>   <span class="token number">65</span>      <span class="token number">83</span>
+<span class="token number">12</span> <span class="token number">12</span>     <span class="token number">3</span>      <span class="token number">18</span>   <span class="token number">13</span>      <span class="token number">67</span>
+<span class="token operator">></span> <span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>ncol<span class="token punctuation">(</span>df<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token operator">+</span>   df<span class="token punctuation">[</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span><span class="token operator">&lt;-</span>as.integer<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#将每列变为integer类型</span>
+<span class="token operator">+</span> <span class="token punctuation">}</span>
+<span class="token operator">></span> df
+   ID Class Chinese Math English
+<span class="token number">1</span>   <span class="token number">1</span>     <span class="token number">1</span>      <span class="token number">26</span>   <span class="token number">68</span>      <span class="token number">26</span>
+<span class="token number">2</span>   <span class="token number">2</span>     <span class="token number">2</span>      <span class="token number">37</span>   <span class="token number">38</span>      <span class="token number">38</span>
+<span class="token number">3</span>   <span class="token number">3</span>     <span class="token number">3</span>      <span class="token number">57</span>   <span class="token number">76</span>       <span class="token number">1</span>
+<span class="token number">4</span>   <span class="token number">4</span>     <span class="token number">1</span>      <span class="token number">90</span>   <span class="token number">49</span>      <span class="token number">38</span>
+<span class="token number">5</span>   <span class="token number">5</span>     <span class="token number">2</span>      <span class="token number">20</span>   <span class="token number">71</span>      <span class="token number">86</span>
+<span class="token number">6</span>   <span class="token number">6</span>     <span class="token number">3</span>      <span class="token number">89</span>   <span class="token number">99</span>      <span class="token number">34</span>
+<span class="token number">7</span>   <span class="token number">7</span>     <span class="token number">1</span>      <span class="token number">94</span>   <span class="token number">38</span>      <span class="token number">48</span>
+<span class="token number">8</span>   <span class="token number">8</span>     <span class="token number">2</span>      <span class="token number">66</span>   <span class="token number">77</span>      <span class="token number">59</span>
+<span class="token number">9</span>   <span class="token number">9</span>     <span class="token number">3</span>      <span class="token number">62</span>   <span class="token number">93</span>      <span class="token number">49</span>
+<span class="token number">10</span> <span class="token number">10</span>     <span class="token number">1</span>       <span class="token number">6</span>   <span class="token number">21</span>      <span class="token number">18</span>
+<span class="token number">11</span> <span class="token number">11</span>     <span class="token number">2</span>      <span class="token number">20</span>   <span class="token number">65</span>      <span class="token number">82</span>
+<span class="token number">12</span> <span class="token number">12</span>     <span class="token number">3</span>      <span class="token number">17</span>   <span class="token number">12</span>      <span class="token number">66</span>
+<span class="token operator">></span> ncol<span class="token punctuation">(</span>df<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#查询行数</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">5</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> l<span class="token operator">=</span><span class="token number">2.3</span>
+<span class="token operator">></span> as.integer<span class="token punctuation">(</span>l<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#转化为整型</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">2</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>ncol<span class="token punctuation">(</span>df<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">#将每一行输出</span>
+<span class="token operator">+</span>   print<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token operator">+</span> <span class="token punctuation">}</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>  <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>  <span class="token number">7</span>  <span class="token number">8</span>  <span class="token number">9</span> <span class="token number">10</span> <span class="token number">11</span> <span class="token number">12</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">26</span> <span class="token number">37</span> <span class="token number">57</span> <span class="token number">90</span> <span class="token number">20</span> <span class="token number">89</span> <span class="token number">94</span> <span class="token number">66</span> <span class="token number">62</span>  <span class="token number">6</span> <span class="token number">20</span> <span class="token number">17</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">68</span> <span class="token number">38</span> <span class="token number">76</span> <span class="token number">49</span> <span class="token number">71</span> <span class="token number">99</span> <span class="token number">38</span> <span class="token number">77</span> <span class="token number">93</span> <span class="token number">21</span> <span class="token number">65</span> <span class="token number">12</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">26</span> <span class="token number">38</span>  <span class="token number">1</span> <span class="token number">38</span> <span class="token number">86</span> <span class="token number">34</span> <span class="token number">48</span> <span class="token number">59</span> <span class="token number">49</span> <span class="token number">18</span> <span class="token number">82</span> <span class="token number">66</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> 
+<span class="token operator">></span> <span class="token comment" spellcheck="true">##花式查询</span>
+<span class="token operator">></span> df<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">#第二行</span>
+  ID Class Chinese Math English
+<span class="token number">2</span>  <span class="token number">2</span>     <span class="token number">2</span>      <span class="token number">37</span>   <span class="token number">38</span>      <span class="token number">38</span>
+<span class="token operator">></span> df<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">#第四列</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">68</span> <span class="token number">38</span> <span class="token number">76</span> <span class="token number">49</span> <span class="token number">71</span> <span class="token number">99</span> <span class="token number">38</span> <span class="token number">77</span> <span class="token number">93</span> <span class="token number">21</span> <span class="token number">65</span> <span class="token number">12</span>
+<span class="token operator">></span> df<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'Math'</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">76</span>
+<span class="token operator">></span> df<span class="token operator">$</span>Math<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">76</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> df<span class="token operator">$</span>Chinese  <span class="token comment" spellcheck="true">#Chinese这一列</span>
+ <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">26</span> <span class="token number">37</span> <span class="token number">57</span> <span class="token number">90</span> <span class="token number">20</span> <span class="token number">89</span> <span class="token number">94</span> <span class="token number">66</span> <span class="token number">62</span>  <span class="token number">6</span> <span class="token number">20</span> <span class="token number">17</span>
+<span class="token operator">></span> df<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>  <span class="token comment" spellcheck="true">#第三列，(也是Chinese这一列)，会有表头输出</span>
+   Chinese
+<span class="token number">1</span>       <span class="token number">26</span>
+<span class="token number">2</span>       <span class="token number">37</span>
+<span class="token number">3</span>       <span class="token number">57</span>
+<span class="token number">4</span>       <span class="token number">90</span>
+<span class="token number">5</span>       <span class="token number">20</span>
+<span class="token number">6</span>       <span class="token number">89</span>
+<span class="token number">7</span>       <span class="token number">94</span>
+<span class="token number">8</span>       <span class="token number">66</span>
+<span class="token number">9</span>       <span class="token number">62</span>
+<span class="token number">10</span>       <span class="token number">6</span>
+<span class="token number">11</span>      <span class="token number">20</span>
+<span class="token number">12</span>      <span class="token number">17</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> typeof<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#查看数值类型</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"integer"</span>
+<span class="token operator">></span> class<span class="token punctuation">(</span>df<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#变量类型</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"data.frame"</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> nrow<span class="token punctuation">(</span>df<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#行数</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">12</span>
+<span class="token operator">></span> ncol<span class="token punctuation">(</span>df<span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#列数</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">5</span>
+<span class="token operator">></span> a<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">5</span>
+<span class="token operator">></span> a
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span>
+<span class="token operator">></span> length<span class="token punctuation">(</span>a<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#长度</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">5</span>
+<span class="token operator">></span> <span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>length<span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token operator">+</span>   print<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token operator">+</span> <span class="token punctuation">}</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">1</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">2</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">3</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">4</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">5</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#which语句，查找符合条件的行</span>
+<span class="token operator">></span> df
+   ID Class Chinese Math English
+<span class="token number">1</span>   <span class="token number">1</span>     <span class="token number">1</span>      <span class="token number">26</span>   <span class="token number">68</span>      <span class="token number">26</span>
+<span class="token number">2</span>   <span class="token number">2</span>     <span class="token number">2</span>      <span class="token number">37</span>   <span class="token number">38</span>      <span class="token number">38</span>
+<span class="token number">3</span>   <span class="token number">3</span>     <span class="token number">3</span>      <span class="token number">57</span>   <span class="token number">76</span>       <span class="token number">1</span>
+<span class="token number">4</span>   <span class="token number">4</span>     <span class="token number">1</span>      <span class="token number">90</span>   <span class="token number">49</span>      <span class="token number">38</span>
+<span class="token number">5</span>   <span class="token number">5</span>     <span class="token number">2</span>      <span class="token number">20</span>   <span class="token number">71</span>      <span class="token number">86</span>
+<span class="token number">6</span>   <span class="token number">6</span>     <span class="token number">3</span>      <span class="token number">89</span>   <span class="token number">99</span>      <span class="token number">34</span>
+<span class="token number">7</span>   <span class="token number">7</span>     <span class="token number">1</span>      <span class="token number">94</span>   <span class="token number">38</span>      <span class="token number">48</span>
+<span class="token number">8</span>   <span class="token number">8</span>     <span class="token number">2</span>      <span class="token number">66</span>   <span class="token number">77</span>      <span class="token number">59</span>
+<span class="token number">9</span>   <span class="token number">9</span>     <span class="token number">3</span>      <span class="token number">62</span>   <span class="token number">93</span>      <span class="token number">49</span>
+<span class="token number">10</span> <span class="token number">10</span>     <span class="token number">1</span>       <span class="token number">6</span>   <span class="token number">21</span>      <span class="token number">18</span>
+<span class="token number">11</span> <span class="token number">11</span>     <span class="token number">2</span>      <span class="token number">20</span>   <span class="token number">65</span>      <span class="token number">82</span>
+<span class="token number">12</span> <span class="token number">12</span>     <span class="token number">3</span>      <span class="token number">17</span>   <span class="token number">12</span>      <span class="token number">66</span>
+<span class="token operator">></span> df<span class="token punctuation">[</span>which<span class="token punctuation">(</span>df<span class="token operator">$</span>ID<span class="token operator">==</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">]</span>
+  ID Class Chinese Math English
+<span class="token number">4</span>  <span class="token number">4</span>     <span class="token number">1</span>      <span class="token number">90</span>   <span class="token number">49</span>      <span class="token number">38</span>
+<span class="token operator">></span> df<span class="token punctuation">[</span>which<span class="token punctuation">(</span>df<span class="token operator">$</span>Chinese<span class="token operator">>=</span><span class="token number">57</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'ID'</span><span class="token punctuation">]</span>   <span class="token comment" spellcheck="true">#查询Chinese>=57的ID是多少</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">6</span> <span class="token number">7</span> <span class="token number">8</span> <span class="token number">9</span></code></pre>
+<h3 id="更改R包默认安装路径"><a href="#更改R包默认安装路径" class="headerlink" title="更改R包默认安装路径"></a>更改R包默认安装路径</h3><p>#新建一个初始启动文件<br>file.edit(’~/.Rprofile’)</p>
 <p>#更改R包默认安装路径<br>.libPaths(“D:/Program Files/R/win-library/3.5”)<br>myPaths &lt;- c(“D:/Program Files/R/win-library/3.5”)<br>.libPaths(myPaths)</p>
 <p>然后把代码复制到初始文件.Rprofile中。<br>重启R，即可。</p>
-<pre class=" language-r"><code class="language-r">
-<span class="token comment" spellcheck="true">#typeof(df[,3]) </span>
-<span class="token comment" spellcheck="true">#class(df)</span>
-<span class="token comment" spellcheck="true">#length(a),nrow(df),ncol(df)</span>
-
-<span class="token comment" spellcheck="true">#a &lt;- 1:5</span>
-<span class="token comment" spellcheck="true">#for(i in 1:length(a))</span>
-<span class="token comment" spellcheck="true">#{</span>
-<span class="token comment" spellcheck="true">#  print(i)</span>
-<span class="token comment" spellcheck="true">#}</span>
-
-<span class="token comment" spellcheck="true">#df[3] #data.frame[列号] 得到一个仅包含该列内容的数据框</span>
-<span class="token comment" spellcheck="true">#df[,3]</span>
-<span class="token comment" spellcheck="true">#class(df[,3])</span>
-rm<span class="token punctuation">(</span>list <span class="token operator">=</span> ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#清除内存</span>
-library<span class="token punctuation">(</span>dplyr<span class="token punctuation">)</span>
-
-df <span class="token operator">&lt;-</span> data.frame<span class="token punctuation">(</span>ID <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">12</span><span class="token punctuation">,</span> Class <span class="token operator">=</span> rep<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                 Chinese <span class="token operator">=</span> runif<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span>min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>max <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
-                 Math <span class="token operator">=</span> runif<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span>min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>max <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-                 English <span class="token operator">=</span> runif<span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span>min <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>max <span class="token operator">=</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
-
-<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> <span class="token number">1</span><span class="token operator">:</span>ncol<span class="token punctuation">(</span>df<span class="token punctuation">)</span><span class="token punctuation">)</span> 
- <span class="token punctuation">{</span>
-  df<span class="token punctuation">[</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;-</span> as.integer<span class="token punctuation">(</span>df<span class="token punctuation">[</span><span class="token punctuation">,</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#将每列类型变为integer型</span>
-<span class="token punctuation">}</span>
-
-<span class="token comment" spellcheck="true">#查找符合条件的行，可采用 which() 函数，得到的类型是数据框</span>
-df<span class="token punctuation">[</span>which<span class="token punctuation">(</span>df<span class="token operator">$</span>ID <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">]</span>
-
-
-<span class="token comment" spellcheck="true">#查询某个值三种方法</span>
-<span class="token comment" spellcheck="true">#df[3,4]</span>
-<span class="token comment" spellcheck="true">#df[3,'Math']</span>
-<span class="token comment" spellcheck="true">#df$Math[3]</span>
-
-df<span class="token punctuation">[</span>which<span class="token punctuation">(</span>df<span class="token operator">$</span>Chinese <span class="token operator">>=</span> <span class="token number">57</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token string">'Math'</span><span class="token punctuation">]</span> <span class="token comment" spellcheck="true">#df[3,'Math']同理</span>
-</code></pre>
 
             </div>
             <hr/>
@@ -1458,7 +1602,7 @@ df<span class="token punctuation">[</span>which<span class="token punctuation">(
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">4.7k</span>&nbsp;字
+                class="white-color">5.8k</span>&nbsp;字
             
             
             
@@ -1675,6 +1819,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
