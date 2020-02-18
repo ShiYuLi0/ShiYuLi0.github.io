@@ -478,14 +478,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.5k
+                    4.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    20 分
                 </div>
                 
 
@@ -640,6 +640,87 @@ b
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"lishikjsfkjsdhgkhj"</span>
 c
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"lishiyu"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>gsub()函数</p>
+<p><a href="http://www.nicetool.net/embed/name_generator.html" target="_blank" rel="noopener">一个有趣的随机姓名生成网站</a></p>
+<p>随机生成50个李姓家族人氏</p>
+<p>于是乎，生成了</p>
+<p>如下结果</p>
+<blockquote>
+<p>李寝叹<br>李秋声<br>李损辞<br>李不庐<br>李幽忽<br>李此回<br>李日者<br>李彼其<br>李应寂<br>李花端<br>李香蒙<br>李园飞<br>李纵追<br>李慕兮<br>李郁而<br>李忆眠<br>李山托<br>李枝花<br>李其伤<br>李兮之<br>李易皮<br>李高低<br>李京和<br>李恢身<br>李还忽<br>李便狂<br>李椒盈<br>李债坡<br>李见兮<br>李傍岩<br>李林禽<br>李聊蟪<br>李在旁<br>李收欿<br>李驖在<br>李路兮<br>李行迈<br>李蕃长<br>李晦兮<br>李叶廊<br>李东帘<br>李看色<br>李师北<br>李沛罔<br>李吉兮<br>李帐不<br>李巨献<br>李降椒<br>李何至<br>李花故</p>
+</blockquote>
+<p>得去掉换行和空格啊</p>
+<pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> a<span class="token operator">=</span>"李寝叹
+<span class="token operator">+</span> 李秋声
+<span class="token operator">+</span> 李损辞
+<span class="token operator">+</span> 李不庐
+<span class="token operator">+</span> 李幽忽
+<span class="token operator">+</span> 李此回
+<span class="token operator">+</span> 李日者
+<span class="token operator">+</span> 李彼其
+<span class="token operator">+</span> 李应寂
+<span class="token operator">+</span> 李花端
+<span class="token operator">+</span> 李香蒙
+<span class="token operator">+</span> 李园飞
+<span class="token operator">+</span> 李纵追
+<span class="token operator">+</span> 李慕兮
+<span class="token operator">+</span> 李郁而
+<span class="token operator">+</span> 李忆眠
+<span class="token operator">+</span> 李山托
+<span class="token operator">+</span> 李枝花
+<span class="token operator">+</span> 李其伤
+<span class="token operator">+</span> 李兮之
+<span class="token operator">+</span> 李易皮
+<span class="token operator">+</span> 李高低
+<span class="token operator">+</span> 李京和
+<span class="token operator">+</span> 李恢身
+<span class="token operator">+</span> 李还忽
+<span class="token operator">+</span> 李便狂
+<span class="token operator">+</span> 李椒盈
+<span class="token operator">+</span> 李债坡
+<span class="token operator">+</span> 李见兮
+<span class="token operator">+</span> 李傍岩
+<span class="token operator">+</span> 李林禽
+<span class="token operator">+</span> 李聊蟪
+<span class="token operator">+</span> 李在旁
+<span class="token operator">+</span> 李收欿
+<span class="token operator">+</span> 李驖在
+<span class="token operator">+</span> 李路兮
+<span class="token operator">+</span> 李行迈
+<span class="token operator">+</span> 李蕃长
+<span class="token operator">+</span> 李晦兮
+<span class="token operator">+</span> 李叶廊
+<span class="token operator">+</span> 李东帘
+<span class="token operator">+</span> 李看色
+<span class="token operator">+</span> 李师北
+<span class="token operator">+</span> 李沛罔
+<span class="token operator">+</span> 李吉兮
+<span class="token operator">+</span> 李帐不
+<span class="token operator">+</span> 李巨献
+<span class="token operator">+</span> 李降椒
+<span class="token operator">+</span> 李何至
+<span class="token operator">+</span> 李花故"
+<span class="token operator">></span> a
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"李寝叹\n李秋声\n李损辞\n李不庐\n李幽忽\n李此回\n李日者\n李彼其\n李应寂\n李花端\n李香蒙\n李园飞\n李纵追\n李慕兮\n李郁而\n李忆眠\n李山托\n李枝花\n李其伤\n李兮之\n李易皮\n李高低\n李京和\n李恢身\n李还忽\n李便狂\n李椒盈\n李债坡\n李见兮\n李傍岩\n李林禽\n李聊蟪\n李在旁\n李收欿\n李驖在\n李路兮\n李行迈\n李蕃长\n李晦兮\n李叶廊\n李东帘\n李看色\n李师北\n李沛罔\n李吉兮\n李帐不\n李巨献\n李降椒\n李何至\n李花故"</span>
+<span class="token operator">></span> b<span class="token operator">=</span>sub<span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">,</span><span class="token string">"、"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
+<span class="token operator">></span> b
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"李寝叹、李秋声\n李损辞\n李不庐\n李幽忽\n李此回\n李日者\n李彼其\n李应寂\n李花端\n李香蒙\n李园飞\n李纵追\n李慕兮\n李郁而\n李忆眠\n李山托\n李枝花\n李其伤\n李兮之\n李易皮\n李高低\n李京和\n李恢身\n李还忽\n李便狂\n李椒盈\n李债坡\n李见兮\n李傍岩\n李林禽\n李聊蟪\n李在旁\n李收欿\n李驖在\n李路兮\n李行迈\n李蕃长\n李晦兮\n李叶廊\n李东帘\n李看色\n李师北\n李沛罔\n李吉兮\n李帐不\n李巨献\n李降椒\n李何至\n李花故"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不对啊，这只替换了第一个，仔细看，因为只有一个  [1]</p>
+<p>gsub()函数</p>
+<pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> c<span class="token operator">=</span>gsub<span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">,</span><span class="token string">"、"</span><span class="token punctuation">,</span>a<span class="token punctuation">)</span>
+<span class="token operator">></span> c
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"李寝叹、李秋声、李损辞、李不庐、李幽忽、李此回、李日者、李彼其、李应寂、李花端、李香蒙、李园飞、李纵追、李慕兮、李郁而、李忆眠、李山托、李枝花、李其伤、李兮之、李易皮、李高低、李京和、李恢身、李还忽、李便狂、李椒盈、李债坡、李见兮、李傍岩、李林禽、李聊蟪、李在旁、李收欿、李驖在、李路兮、李行迈、李蕃长、李晦兮、李叶廊、李东帘、李看色、李师北、李沛罔、李吉兮、李帐不、李巨献、李降椒、李何至、李花故"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>OK~!</strong></p>
+<hr>
+<p>其他字符串</p>
+<blockquote>
+<p>获取字符串长度：nchar()  </p>
+<p>字符串分割：strsplit()  </p>
+<p>字符串拼接：paste()<br>字符串截取：substr()  </p>
+<p>字符串替代：gsub() chartr() sub()  </p>
+<p>字符串匹配：grep()  </p>
+<p>大小写替换：toupper() tolower()</p>
+</blockquote>
+<hr>
 <h3 id="6、保存脚本文件"><a href="#6、保存脚本文件" class="headerlink" title="6、保存脚本文件"></a><strong>6、保存脚本文件</strong></h3><p>保存编码为GB18030，否则中文会变成乱码</p>
 <h3 id="7、查看帮助文档"><a href="#7、查看帮助文档" class="headerlink" title="7、查看帮助文档"></a><strong>7、查看帮助文档</strong></h3><p>?加函数名</p>
 <p>例如：?read.csv查看read.csv函数的帮助文档</p>
@@ -1696,7 +1777,7 @@ character<span class="token punctuation">(</span><span class="token number">0</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">8.8k</span>&nbsp;字
             
             
             
@@ -1913,6 +1994,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>

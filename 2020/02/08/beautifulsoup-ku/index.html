@@ -486,14 +486,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    19 分
                 </div>
                 
 
@@ -852,8 +852,7 @@ Python <span class="token keyword">is</span> a wonderful general<span class="tok
 <p>.next_siblings</p>
 <p>.previous_siblings</p>
 <h2 id="信息标记"><a href="#信息标记" class="headerlink" title="信息标记"></a>信息标记</h2><p>国际公认的一般信息标记形式</p>
-<p><strong>XML、JSON、YAML</strong></p>
-<ul>
+<h3 id="XML、JSON、YAML"><a href="#XML、JSON、YAML" class="headerlink" title="XML、JSON、YAML"></a><strong>XML、JSON、YAML</strong></h3><ul>
 <li>XML</li>
 </ul>
 <p>XML是基于html发展来的通用表达形式。通过标签内容表达信息。</p>
@@ -893,6 +892,109 @@ Python <span class="token keyword">is</span> a wonderful general<span class="tok
 <li><p>键值对之间可以嵌套</p>
 </li>
 </ul>
+<h3 id="三种比较"><a href="#三种比较" class="headerlink" title="三种比较"></a>三种比较</h3><p>XML最早的通用信息标记语言，可扩展性好，但繁琐。一般应用于Internation 信息交互传递</p>
+<p>JSON信息有类型，适合程序处理，较XML简洁。一般程序接口处理应用。</p>
+<p>YAML信息无类型，文本信息比例最高，可读性好。多用于系统配置文件。</p>
+<h2 id="信息提取方法"><a href="#信息提取方法" class="headerlink" title="信息提取方法"></a>信息提取方法</h2><p>方法一：完整解析信息的标记形式，再提取关键信息<br>XML JSON YAML<br>需要标记解析器，例如：bs4库的标签树遍历<br>优点：信息解析准确<br>缺点：提取过程繁琐，速度慢</p>
+<p>方法二：无视标记形式，直接搜索关键信息<br>搜索<br>对信息的文本查找函数即可<br>优点：提取过程简洁，速度较快<br>缺点：提取结果准确性与信息内容相关</p>
+<p>融合方法</p>
+<p>实例</p>
+<p>提取HTML中所有的URL链接</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> requests
+<span class="token operator">>></span><span class="token operator">></span> r<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"http://python123.io/ws/demo.html"</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> demo<span class="token operator">=</span>r<span class="token punctuation">.</span>text
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token operator">>></span><span class="token operator">></span> soup<span class="token operator">=</span>BeautifulSoup<span class="token punctuation">(</span>demo<span class="token punctuation">,</span><span class="token string">"html.parser"</span><span class="token punctuation">)</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> link <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+SyntaxError<span class="token punctuation">:</span> invalid syntax
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> link <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>link<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'href'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>icourse163<span class="token punctuation">.</span>org<span class="token operator">/</span>course<span class="token operator">/</span>BIT<span class="token number">-268001</span>
+http<span class="token punctuation">:</span><span class="token operator">//</span>www<span class="token punctuation">.</span>icourse163<span class="token punctuation">.</span>org<span class="token operator">/</span>course<span class="token operator">/</span>BIT<span class="token number">-1001870001</span>
+<span class="token operator">>></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="find-all-函数"><a href="#find-all-函数" class="headerlink" title="find_all()函数"></a>find_all()函数</h3><p>&lt;&gt;.find_all(name, attrs, recursive, string, **kwargs)<br>返回一个列表类型，存储查找的结果</p>
+<h4 id="第一个参数——-name"><a href="#第一个参数——-name" class="headerlink" title="第一个参数—— name"></a>第一个参数—— name</h4><p> 对标签名称的检索字符串</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#查询a标签</span>
+<span class="token operator">>></span><span class="token operator">></span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py1"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-268001"</span> id<span class="token operator">=</span><span class="token string">"link1"</span><span class="token operator">></span>Basic Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py2"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-1001870001"</span> id<span class="token operator">=</span><span class="token string">"link2"</span><span class="token operator">></span>Advanced Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+
+
+<span class="token comment" spellcheck="true">#同时查询a标签与b标签</span>
+<span class="token operator">>></span><span class="token operator">></span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token operator">&lt;</span>b<span class="token operator">></span>The demo python introduces several python courses<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py1"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-268001"</span> id<span class="token operator">=</span><span class="token string">"link1"</span><span class="token operator">></span>Basic Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py2"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-1001870001"</span> id<span class="token operator">=</span><span class="token string">"link2"</span><span class="token operator">></span>Advanced Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>find_all(True)</p>
+<p>会将显示所有标签</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> Tag <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>Tag<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+html
+head
+title
+body
+p
+b
+p
+a
+a
+<span class="token operator">>></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>检索所有包含b字母的标签</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> re    <span class="token comment" spellcheck="true">#正则表达式库，暂不详解</span>
+
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> tag <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'b'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>tag<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+
+body
+b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="第二个参数——attr"><a href="#第二个参数——attr" class="headerlink" title="第二个参数——attr"></a>第二个参数——attr</h4><p>标签中属性是否含有某字符</p>
+<p>∙attrs: 对标签属性值的检索字符串，可标注属性检索</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'p'</span><span class="token punctuation">,</span><span class="token string">'course'</span><span class="token punctuation">)</span>   <span class="token comment" spellcheck="true">#p标签中包含“coursre”</span>
+<span class="token punctuation">[</span><span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"course"</span><span class="token operator">></span>Python <span class="token keyword">is</span> a wonderful general<span class="token operator">-</span>purpose programming language<span class="token punctuation">.</span> You can learn Python <span class="token keyword">from</span> novice to professional by tracking the following courses<span class="token punctuation">:</span>
+
+<span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py1"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-268001"</span> id<span class="token operator">=</span><span class="token string">"link1"</span><span class="token operator">></span>Basic Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span> <span class="token operator">and</span> <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py2"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-1001870001"</span> id<span class="token operator">=</span><span class="token string">"link2"</span><span class="token operator">></span>Advanced Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>对属性做约束</p>
+<pre class="line-numbers language-py"><code class="language-py">>>> soup.find_all(id='link1')   #id属性等于1的标签
+
+[<a class="py1" href="http://www.icourse163.org/course/BIT-268001" target="_blank" rel="noopener" id="link1">Basic Python</a>]
+>>> soup.find_all(id="link")
+[]
+
+
+
+>>> soup.find_all(id=re.compile('link'))   #使用正则表达式来查找id中包含link的标签
+[<a class="py1" href="http://www.icourse163.org/course/BIT-268001" target="_blank" rel="noopener" id="link1">Basic Python</a>, <a class="py2" href="http://www.icourse163.org/course/BIT-1001870001" target="_blank" rel="noopener" id="link2">Advanced Python</a>]
+>>> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="第三个参数——recursive"><a href="#第三个参数——recursive" class="headerlink" title="第三个参数——recursive"></a>第三个参数——recursive</h4><p>是都对子孙全部检索，布尔型，默认True</p>
+<p>也就是，若设为False，则只检索其下一个子孙节点</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py1"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-268001"</span> id<span class="token operator">=</span><span class="token string">"link1"</span><span class="token operator">></span>Basic Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">,</span> <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py2"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-1001870001"</span> id<span class="token operator">=</span><span class="token string">"link2"</span><span class="token operator">></span>Advanced Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">,</span>recursive<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="第四个参数——string"><a href="#第四个参数——string" class="headerlink" title="第四个参数——string"></a>第四个参数——string</h4><p> string: &lt;&gt;…&lt;/&gt;中字符串区域的检索字符串</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> soup
+<span class="token operator">&lt;</span>html<span class="token operator">></span><span class="token operator">&lt;</span>head<span class="token operator">></span><span class="token operator">&lt;</span>title<span class="token operator">></span>This <span class="token keyword">is</span> a python demo page<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span><span class="token operator">&lt;</span>b<span class="token operator">></span>The demo python introduces several python courses<span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>b<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"course"</span><span class="token operator">></span>Python <span class="token keyword">is</span> a wonderful general<span class="token operator">-</span>purpose programming language<span class="token punctuation">.</span> You can learn Python <span class="token keyword">from</span> novice to professional by tracking the following courses<span class="token punctuation">:</span>
+<span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py1"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-268001"</span> id<span class="token operator">=</span><span class="token string">"link1"</span><span class="token operator">></span>Basic Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span> <span class="token operator">and</span> <span class="token operator">&lt;</span>a <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"py2"</span> href<span class="token operator">=</span><span class="token string">"http://www.icourse163.org/course/BIT-1001870001"</span> id<span class="token operator">=</span><span class="token string">"link2"</span><span class="token operator">></span>Advanced Python<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span><span class="token punctuation">.</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">></span>
+<span class="token operator">>></span><span class="token operator">></span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>string<span class="token operator">=</span><span class="token string">'Basic Python'</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token string">'Basic Python'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> 
+
+
+<span class="token comment" spellcheck="true">#使用正则表达式检索所有包含‘Python’字符的String域</span>
+<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> re
+<span class="token operator">>></span><span class="token operator">></span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>string<span class="token operator">=</span>re<span class="token punctuation">.</span>compile<span class="token punctuation">(</span><span class="token string">'Python'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token string">'Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:\r\n'</span><span class="token punctuation">,</span> <span class="token string">'Basic Python'</span><span class="token punctuation">,</span> <span class="token string">'Advanced Python'</span><span class="token punctuation">]</span>
+<span class="token operator">>></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="简写"><a href="#简写" class="headerlink" title="简写"></a>简写</h4><blockquote>
+<p><tag>(..) 等价于 .find_all(..)<br>soup(..) 等价于 soup.find_all(..)</p>
+</blockquote>
+<h4 id="七个扩展方法"><a href="#七个扩展方法" class="headerlink" title="七个扩展方法"></a>七个扩展方法</h4><p>&lt;&gt;.find() 搜索且只返回一个结果，同.find_all()参数<br>&lt;&gt;.find_parents() 在先辈节点中搜索，返回列表类型，同.find_all()参数<br>&lt;&gt;.find_parent() 在先辈节点中返回一个结果，同.find()参数<br>&lt;&gt;.find_next_siblings() 在后续平行节点中搜索，返回列表类型，同.find_all()参数<br>&lt;&gt;.find_next_sibling() 在后续平行节点中返回一个结果，同.find()参数<br>&lt;&gt;.find_previous_siblings() 在前序平行节点中搜索，返回列表类型，同.find_all()参数<br>&lt;&gt;.find_previous_sibling() 在前序平行节点中返回一个结果，同.find()参数</p>
 
             </div>
             <hr/>
@@ -1662,7 +1764,7 @@ Python <span class="token keyword">is</span> a wonderful general<span class="tok
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">6.7k</span>&nbsp;字
+                class="white-color">8.8k</span>&nbsp;字
             
             
             
@@ -1879,6 +1981,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
