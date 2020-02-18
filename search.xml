@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Hexo</title>
+      <link href="/2020/02/18/hexo/"/>
+      <url>/2020/02/18/hexo/</url>
+      
+        <content type="html"><![CDATA[<h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> i -S hexo-prism-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>修改博客根目录下_config.yml的配置。</p><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">highlight</span><span class="token punctuation">:</span>  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false </span><span class="token comment" spellcheck="true">#关闭默认高亮</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>新增如下配置</p><pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># hexo-prism-plugin 代码高亮插件</span><span class="token key atrule">prism_plugin</span><span class="token punctuation">:</span>  <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token string">'preprocess'</span>    <span class="token comment" spellcheck="true"># realtime(实时处理)/preprocess(预处理)</span>  <span class="token key atrule">theme</span><span class="token punctuation">:</span> <span class="token string">'okaidia'</span>     <span class="token comment" spellcheck="true"># 主题 </span>  <span class="token comment" spellcheck="true">#theme: 'tomorrow'   </span>  <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">false     </span><span class="token comment" spellcheck="true"># 开启行数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><a href="https://github.com/PrismJS/prism-themes.git" target="_blank" rel="noopener">其他代码高亮主题</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>空间建模与分析(一)</title>
       <link href="/2020/02/17/kong-jian-jian-mo-yu-fen-xi-yi/"/>
       <url>/2020/02/17/kong-jian-jian-mo-yu-fen-xi-yi/</url>
