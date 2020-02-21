@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>高程点生成等值线</title>
+      <link href="/2020/02/21/gao-cheng-dian-sheng-cheng-deng-zhi-xian/"/>
+      <url>/2020/02/21/gao-cheng-dian-sheng-cheng-deng-zhi-xian/</url>
+      
+        <content type="html"><![CDATA[<ol><li><h2 id="准备矢量高程点数据"><a href="#准备矢量高程点数据" class="headerlink" title="准备矢量高程点数据"></a><strong>准备矢量高程点数据</strong></h2></li></ol><hr><ol start="2"><li><h2 id="使用RBF插值工具"><a href="#使用RBF插值工具" class="headerlink" title="使用RBF插值工具"></a>使用RBF插值工具</h2></li></ol><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/arcgisRBF%E6%8F%92%E5%80%BC.JPG" alt=""></p><p>注意输出</p><p><strong>地统计图层与栅格图层有些不同</strong></p><p>输出地统计图层和输出栅格结果对比</p><p>输出栅格选项结果更详细，但不可用在GA图层转等值线</p><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/arcgisRBF%E6%8F%92%E5%80%BC%E7%BB%93%E6%9E%9C%E5%AF%B9%E6%AF%94.JPG" alt=""></p><hr><ol start="3"><li><h2 id="GA图层转等值线"><a href="#GA图层转等值线" class="headerlink" title="GA图层转等值线"></a><strong>GA图层转等值线</strong></h2></li></ol><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/arcgisGA%E5%9B%BE%E5%B1%82%E8%BD%AC%E7%AD%89%E5%80%BC%E7%BA%BF.JPG" alt=""></p><p>输出结果</p><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/arcgisresult.JPG" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ArcGIS </category>
+          
+          <category> GIS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 高程点生成等值线 </tag>
+            
+            <tag> 径向基函数RBF插值法 </tag>
+            
+            <tag> GA图层转等值线 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DDA直线生成算法</title>
       <link href="/2020/02/19/dda-zhi-xian-sheng-cheng-suan-fa/"/>
       <url>/2020/02/19/dda-zhi-xian-sheng-cheng-suan-fa/</url>
@@ -139,36 +170,11 @@
     
     
     <entry>
-      <title>testblog</title>
-      <link href="/2020/01/31/testblog/"/>
-      <url>/2020/01/31/testblog/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> Test </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Test </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hello World</title>
       <link href="/2020/01/15/hello-world/"/>
       <url>/2020/01/15/hello-world/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to 李世昱的博客</p><p>:slightly_smiling_face:</p><p>:laughing:<br>博文测试</p>]]></content>
+        <content type="html"><![CDATA[<p>Welcome to 李世昱的博客</p><p>:slightly_smiling_face:</p><p>:laughing:</p>]]></content>
       
       
       <categories>
