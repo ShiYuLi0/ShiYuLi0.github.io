@@ -13,8 +13,6 @@
       
       <categories>
           
-          <category> ArcGIS </category>
-          
           <category> GIS </category>
           
       </categories>
@@ -27,6 +25,8 @@
             <tag> 栅格计算器 </tag>
             
             <tag> Con函数 </tag>
+            
+            <tag> ArcGIS </tag>
             
         </tags>
       
@@ -71,8 +71,6 @@
       
       <categories>
           
-          <category> ArcGIS </category>
-          
           <category> GIS </category>
           
       </categories>
@@ -85,6 +83,8 @@
             <tag> 径向基函数RBF插值法 </tag>
             
             <tag> GA图层转等值线 </tag>
+            
+            <tag> ArcGIS </tag>
             
         </tags>
       
@@ -117,7 +117,7 @@
             
             <tag> GDI+ </tag>
             
-            <tag> CSharp </tag>
+            <tag> C# </tag>
             
         </tags>
       
