@@ -20,13 +20,13 @@
       
         <tags>
             
-            <tag> ArcGIS </tag>
-            
             <tag> 栅格属性表 </tag>
             
             <tag> 栅格计算器 </tag>
             
             <tag> Con函数 </tag>
+            
+            <tag> ArcGIS </tag>
             
         </tags>
       
@@ -78,13 +78,13 @@
       
         <tags>
             
+            <tag> ArcGIS </tag>
+            
             <tag> 高程点生成等值线 </tag>
             
             <tag> 径向基函数RBF插值法 </tag>
             
             <tag> GA图层转等值线 </tag>
-            
-            <tag> ArcGIS </tag>
             
         </tags>
       
@@ -102,22 +102,22 @@
       
       <categories>
           
-          <category> 算法 </category>
-          
           <category> 计算机图形学 </category>
+          
+          <category> 算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> C# </tag>
-            
             <tag> 计算机图形学 </tag>
             
             <tag> DDA生成直线算法 </tag>
             
             <tag> GDI+ </tag>
+            
+            <tag> C# </tag>
             
         </tags>
       

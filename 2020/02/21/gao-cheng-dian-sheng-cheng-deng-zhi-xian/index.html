@@ -439,6 +439,10 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/ArcGIS/">
+                                <span class="chip bg-color">ArcGIS</span>
+                            </a>
+                        
                             <a href="/tags/%E9%AB%98%E7%A8%8B%E7%82%B9%E7%94%9F%E6%88%90%E7%AD%89%E5%80%BC%E7%BA%BF/">
                                 <span class="chip bg-color">高程点生成等值线</span>
                             </a>
@@ -449,10 +453,6 @@
                         
                             <a href="/tags/GA%E5%9B%BE%E5%B1%82%E8%BD%AC%E7%AD%89%E5%80%BC%E7%BA%BF/">
                                 <span class="chip bg-color">GA图层转等值线</span>
-                            </a>
-                        
-                            <a href="/tags/ArcGIS/">
-                                <span class="chip bg-color">ArcGIS</span>
                             </a>
                         
                     </div>
@@ -615,6 +615,10 @@
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/ArcGIS/">
+                                    <span class="chip bg-color">ArcGIS</span>
+                                </a>
+                            
                                 <a href="/tags/%E9%AB%98%E7%A8%8B%E7%82%B9%E7%94%9F%E6%88%90%E7%AD%89%E5%80%BC%E7%BA%BF/">
                                     <span class="chip bg-color">高程点生成等值线</span>
                                 </a>
@@ -625,10 +629,6 @@
                             
                                 <a href="/tags/GA%E5%9B%BE%E5%B1%82%E8%BD%AC%E7%AD%89%E5%80%BC%E7%BA%BF/">
                                     <span class="chip bg-color">GA图层转等值线</span>
-                                </a>
-                            
-                                <a href="/tags/ArcGIS/">
-                                    <span class="chip bg-color">ArcGIS</span>
                                 </a>
                             
                         </div>
@@ -1135,12 +1135,12 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
                             <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
                                     计算机图形学
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -1149,10 +1149,6 @@
                 </div>
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
                     
                     <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
                         <span class="chip bg-color">计算机图形学</span>
@@ -1166,6 +1162,10 @@
                         <span class="chip bg-color">GDI+</span>
                     </a>
                     
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1176,43 +1176,6 @@
 
 </div>
 
-
-<script>
-    $('#articleContent').on('copy', function (e) {
-        // IE8 or earlier browser is 'undefined'
-        if (typeof window.getSelection === 'undefined') return;
-
-        var selection = window.getSelection();
-        // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('1000')) {
-            return;
-        }
-
-        // create a div outside of the visible area and fill it with the selected text.
-        var bodyElement = document.getElementsByTagName('body')[0];
-        var newdiv = document.createElement('div');
-        newdiv.style.position = 'absolute';
-        newdiv.style.left = '-99999px';
-        bodyElement.appendChild(newdiv);
-        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
-
-        // we need a <pre> tag workaround.
-        // otherwise the text inside "pre" loses all the line breaks!
-        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
-            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
-        }
-
-        var url = document.location.href;
-        newdiv.innerHTML += '<br />'
-            + '来源: 世昱<br />'
-            + '文章作者: 李世昱<br />'
-            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
-            + '本文章著作权归作者李世昱所有，任何形式的转载都请注明出处。';
-
-        selection.selectAllChildren(newdiv);
-        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
-    });
-</script>
 
 
 <!-- 代码块功能依赖 -->
@@ -1562,6 +1525,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
 
 </html>
