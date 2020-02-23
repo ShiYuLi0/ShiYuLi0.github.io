@@ -471,21 +471,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-19
+                    2020-02-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.5k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    22 分
                 </div>
                 
 
@@ -588,6 +588,17 @@ In file.remove<span class="token punctuation">(</span>list.files<span class="tok
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token boolean">TRUE</span>
 <span class="token operator">></span> list.files<span class="token punctuation">(</span><span class="token string">"B:/Temp1/A/"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#查看删除结果</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"权力的游戏第一季01.mp4"</span> <span class="token string">"权力的游戏第一季03.mp4"</span> <span class="token string">"权力的游戏第一季04.mp4"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>注意</strong></p>
+<p>file.remove只能移除文件，不能移除文件夹</p>
+<pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> list.dirs<span class="token punctuation">(</span><span class="token string">"B:/Temp2"</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"B:/Temp2"</span>           <span class="token string">"B:/Temp2/.text"</span>     <span class="token string">"B:/Temp2/text"</span>     
+<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span> <span class="token string">"B:/Temp2/text.text"</span> <span class="token string">"B:/Temp2/text.txt"</span> 
+<span class="token operator">></span> file.remove<span class="token punctuation">(</span><span class="token string">"B:/Temp2/text"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#text是文件夹</span>
+
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token boolean">FALSE</span>
+Warning message<span class="token operator">:</span>
+In file.remove<span class="token punctuation">(</span><span class="token string">"B:/Temp2/text"</span><span class="token punctuation">)</span> <span class="token operator">:</span>
+  无法删除文件<span class="token string">'B:/Temp2/text'</span>，原因是<span class="token string">'Permission denied'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4、复制文件"><a href="#4、复制文件" class="headerlink" title="4、复制文件"></a><strong>4、复制文件</strong></h3><p><strong>file.copy()</strong></p>
 <p>file.copy(from, to, overwrite = recursive, recursive = FALSE,<br>          copy.mode = TRUE, copy.date = FALSE)<br>from是原始文件（目录）名，to是新文件（目录）名，二者可以是vector，但是长度需相同；</p>
 <p>overwrite 若为TRUE，则文件被覆盖；</p>
@@ -642,6 +653,10 @@ c
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"lishiyu"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>gsub()函数</p>
 <p><a href="http://www.nicetool.net/embed/name_generator.html" target="_blank" rel="noopener">一个有趣的随机姓名生成网站</a></p>
+<blockquote>
+<p>谁把他变成付费的了:weary:</p>
+<p>是我进的太多了吗……:sob::sob:</p>
+</blockquote>
 <p>随机生成50个李姓家族人氏</p>
 <p>于是乎，生成了</p>
 <p>如下结果</p>
@@ -793,10 +808,34 @@ df<span class="token operator">&lt;-</span>read.csv<span class="token punctuatio
 <span class="token comment" spellcheck="true">#b纵坐标</span>
 <span class="token comment" spellcheck="true">#type节点类型</span>
 <span class="token comment" spellcheck="true">#……</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>各参数详解</strong></p>
+<blockquote>
+<p>bg为节点底色<br>cex为节点大小<br>lty=6为线条类型，实线，虚线……<br>lwd=2为线条粗细<br>main为表格标题<br>col.main=”black”为标题字体颜色为黑色<br>ylab = “人数/万”为纵坐标标题<br>col.lab=rgb(0,0.5,0.5)为纵坐标标题字体颜色<br>font.lab=2为纵坐标标题字体大小</p>
+<p>xlim = c(2000,2018),col=”blue”,bty=”l”没细追究，嘻嘻</p>
+</blockquote>
+<p><strong>注意</strong></p>
+<p>不能这么赋值。</p>
+<pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> a<span class="token operator">=</span><span class="token number">2000</span><span class="token operator">:</span><span class="token number">2018</span>
+Warning messages<span class="token operator">:</span>
+<span class="token number">1</span><span class="token operator">:</span> In doTryCatch<span class="token punctuation">(</span>return<span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> parentenv<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">:</span>
+  显示串列没有完全被刷新
+<span class="token number">2</span><span class="token operator">:</span> In doTryCatch<span class="token punctuation">(</span>return<span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> parentenv<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">:</span>
+  invalid graphics state
+<span class="token number">3</span><span class="token operator">:</span> In doTryCatch<span class="token punctuation">(</span>return<span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> parentenv<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">:</span>
+  invalid graphics state
+<span class="token number">4</span><span class="token operator">:</span> In doTryCatch<span class="token punctuation">(</span>return<span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> parentenv<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">:</span>
+  显示串列没有完全被刷新
+<span class="token number">5</span><span class="token operator">:</span> In doTryCatch<span class="token punctuation">(</span>return<span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> parentenv<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">:</span>
+  invalid graphics state
+<span class="token number">6</span><span class="token operator">:</span> In doTryCatch<span class="token punctuation">(</span>return<span class="token punctuation">(</span>expr<span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> parentenv<span class="token punctuation">,</span> handler<span class="token punctuation">)</span> <span class="token operator">:</span>
+  invalid graphics state
+<span class="token operator">></span> a<span class="token operator">&lt;-</span><span class="token number">2000</span><span class="token operator">:</span><span class="token number">2018</span>
+<span class="token operator">></span> length<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">19</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在RStudio的Plots中结果出图</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/R/%E4%B8%80Rplot2.jpeg" alt=""></p>
 <hr>
-<h3 id="问题【悬而未决】"><a href="#问题【悬而未决】" class="headerlink" title="问题【悬而未决】"></a>问题【悬而未决】</h3><p>不能在Plots和输出文件中同时输出</p>
+<h3 id="输出Plot图-有问题【悬而未决】"><a href="#输出Plot图-有问题【悬而未决】" class="headerlink" title="输出Plot图  (有问题【悬而未决】)"></a>输出Plot图  (有问题【悬而未决】)</h3><p>不能在Plots和输出文件中同时输出</p>
 <p>如下则只能输出文件，在Plots中不能显示</p>
 <pre class="line-numbers language-r"><code class="language-r">a<span class="token operator">&lt;-</span><span class="token number">2000</span><span class="token operator">:</span><span class="token number">2018</span>
 length<span class="token punctuation">(</span>a<span class="token punctuation">)</span>
@@ -859,18 +898,19 @@ dev.off<span class="token punctuation">(</span><span class="token punctuation">)
 <span class="token operator">></span> a
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>seq(length.out= )</strong></p>
-<p>生成从1开始，步长为1，长度为length.out的向量</p>
+<p>输出限定范围内的leng.out个数，</p>
 <pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> seq<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
  <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token number">1</span>  <span class="token number">2</span>  <span class="token number">3</span>  <span class="token number">4</span>  <span class="token number">5</span>  <span class="token number">6</span>  <span class="token number">7</span>  <span class="token number">8</span>  <span class="token number">9</span> <span class="token number">10</span> <span class="token number">11</span> <span class="token number">12</span> <span class="token number">13</span> <span class="token number">14</span> <span class="token number">15</span> <span class="token number">16</span> <span class="token number">17</span> <span class="token number">18</span> <span class="token number">19</span> <span class="token number">20</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>seq(from, to, length.out= )</strong></p>
-<pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> seq<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span>length.out <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> seq<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span>length.out <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#输出1-10三个数。取中间值</span>
   <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>  <span class="token number">1.0</span>  <span class="token number">5.5</span> <span class="token number">10.0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="已知错误"><a href="#已知错误" class="headerlink" title="已知错误"></a>已知错误</h3><ol>
 <li><p>中文路径。</p>
 <p> 尽量不要用中文路径，中文文件名称。在Plot中，输出路径为中文路径，导致输出图片为空白</p>
 </li>
 <li><p>使用Plot画布无法显示，出现Error。</p>
-<pre><code> 将画布拖大即可</code></pre></li>
+<p>将画布拖大即可</p>
+</li>
 </ol>
 <pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> plot<span class="token punctuation">(</span>data<span class="token operator">$</span>Year<span class="token punctuation">,</span>data<span class="token operator">$</span>ZhongKao<span class="token punctuation">)</span>
 Error <span class="token keyword">in</span> plot.new<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> figure margins too large<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -1758,7 +1798,7 @@ character<span class="token punctuation">(</span><span class="token number">0</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">10.9k</span>&nbsp;字
+                class="white-color">11.2k</span>&nbsp;字
             
             
             
@@ -1975,6 +2015,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
