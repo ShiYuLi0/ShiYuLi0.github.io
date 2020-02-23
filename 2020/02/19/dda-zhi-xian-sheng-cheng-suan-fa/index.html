@@ -1138,6 +1138,10 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/ArcGIS/">
+                        <span class="chip bg-color">ArcGIS</span>
+                    </a>
+                    
                     <a href="/tags/%E9%AB%98%E7%A8%8B%E7%82%B9%E7%94%9F%E6%88%90%E7%AD%89%E5%80%BC%E7%BA%BF/">
                         <span class="chip bg-color">高程点生成等值线</span>
                     </a>
@@ -1148,10 +1152,6 @@
                     
                     <a href="/tags/GA%E5%9B%BE%E5%B1%82%E8%BD%AC%E7%AD%89%E5%80%BC%E7%BA%BF/">
                         <span class="chip bg-color">GA图层转等值线</span>
-                    </a>
-                    
-                    <a href="/tags/ArcGIS/">
-                        <span class="chip bg-color">ArcGIS</span>
                     </a>
                     
                 </div>
@@ -1220,7 +1220,7 @@
 
         var selection = window.getSelection();
         // if the selection is short let's not annoy our users.
-        if (('' + selection).length < Number.parseInt('30')) {
+        if (('' + selection).length < Number.parseInt('400')) {
             return;
         }
 
