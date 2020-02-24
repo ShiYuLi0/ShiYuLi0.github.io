@@ -471,21 +471,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-23
+                    2020-02-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    23 分
                 </div>
                 
 
@@ -741,6 +741,51 @@ c
 <p>例如：?read.csv查看read.csv函数的帮助文档</p>
 <pre class="line-numbers language-r"><code class="language-r">rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 df<span class="token operator">&lt;-</span>read.csv<span class="token punctuation">(</span><span class="token string">"B:/hh.csv"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="8、"><a href="#8、" class="headerlink" title="8、"></a>8、</h3><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> <span class="token comment" spellcheck="true">#拆分</span>
+<span class="token operator">></span> a<span class="token operator">&lt;-</span><span class="token string">'2020/2/24'</span>
+<span class="token operator">></span> b<span class="token operator">&lt;-</span>strsplit<span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token string">"/"</span><span class="token punctuation">)</span>
+<span class="token operator">></span> a1<span class="token operator">&lt;-</span>b<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token operator">></span> a2<span class="token operator">&lt;-</span>b<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token operator">></span> a3<span class="token operator">&lt;-</span>b<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span>
+<span class="token operator">></span> a1
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"2020"</span>
+<span class="token operator">></span> a2
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"2"</span>
+<span class="token operator">></span> a3
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"24"</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#类型转换</span>
+<span class="token operator">></span> x<span class="token operator">=</span><span class="token string">'123'</span>
+<span class="token operator">></span> typeof<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"character"</span>
+<span class="token operator">></span> y<span class="token operator">&lt;-</span>as.numeric<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token operator">></span> typeof<span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"double"</span>
+<span class="token operator">></span> y1<span class="token operator">&lt;-</span>as.integer<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token operator">></span> typeof<span class="token punctuation">(</span>y1<span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"integer"</span>
+<span class="token operator">></span> 
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#文件去后缀</span>
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#需要导包，tools包</span>
+<span class="token operator">></span> library<span class="token punctuation">(</span>tools<span class="token punctuation">)</span>
+<span class="token operator">></span> flie0<span class="token operator">=</span>file_path_sans_ext<span class="token punctuation">(</span><span class="token string">"B:/Temp2/新建文本文档.txt"</span><span class="token punctuation">)</span>
+<span class="token operator">></span> flie0
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"B:/Temp2/新建文本文档"</span>
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#原文件不改变</span>
+<span class="token operator">></span> list.files<span class="token punctuation">(</span><span class="token string">"B:/Temp2/"</span><span class="token punctuation">)</span>
+<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"data"</span>                         <span class="token string">"dd"</span>                          
+<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token string">"DXY-COVID-19-Data-master"</span>     <span class="token string">"DXY-COVID-19-Data-master.zip"</span>
+<span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span> <span class="token string">"text"</span>                         <span class="token string">"text.text"</span>                   
+<span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">]</span> <span class="token string">"text.txt"</span>                     <span class="token string">"河北.csv"</span>                    
+<span class="token punctuation">[</span><span class="token number">9</span><span class="token punctuation">]</span> <span class="token string">"新建文本文档.txt"</span>            
+<span class="token operator">></span> 
+<span class="token operator">></span> 
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#读取excel文件</span>
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#需要安装readxl包</span>
+<span class="token operator">></span> <span class="token comment" spellcheck="true">#install.packages("readxl")</span>
+<span class="token operator">></span> library<span class="token punctuation">(</span>readxl<span class="token punctuation">)</span>
+<span class="token operator">></span> a<span class="token operator">=</span>read_xlsx<span class="token punctuation">(</span><span class="token string">"B:/Temp2/dd/新建 Microsoft Excel 工作表.xlsx"</span><span class="token punctuation">)</span>
+<span class="token operator">></span> a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="Plots图表"><a href="#Plots图表" class="headerlink" title="Plots图表"></a>Plots图表</h2><h3 id="读取数据文件"><a href="#读取数据文件" class="headerlink" title="读取数据文件"></a>读取数据文件</h3><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token operator">></span> data<span class="token operator">=</span>read.csv<span class="token punctuation">(</span><span class="token string">"B:/Temp1/高考.csv"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#读取csv数据,还有read.table</span>
@@ -810,6 +855,7 @@ df<span class="token operator">&lt;-</span>read.csv<span class="token punctuatio
 <span class="token comment" spellcheck="true">#……</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>各参数详解</strong></p>
 <blockquote>
+<p>type为类型。</p>
 <p>bg为节点底色<br>cex为节点大小<br>lty=6为线条类型，实线，虚线……<br>lwd=2为线条粗细<br>main为表格标题<br>col.main=”black”为标题字体颜色为黑色<br>ylab = “人数/万”为纵坐标标题<br>col.lab=rgb(0,0.5,0.5)为纵坐标标题字体颜色<br>font.lab=2为纵坐标标题字体大小</p>
 <p>xlim = c(2000,2018),col=”blue”,bty=”l”没细追究，嘻嘻</p>
 </blockquote>
@@ -1798,7 +1844,7 @@ character<span class="token punctuation">(</span><span class="token number">0</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">11.2k</span>&nbsp;字
+                class="white-color">11.4k</span>&nbsp;字
             
             
             
