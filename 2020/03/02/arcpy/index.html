@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020, 世昱">
-    <meta name="description" content="2020 | 世昱">
+    <meta name="keywords" content="Arcpy, 世昱">
+    <meta name="description" content="Arcpy">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>2020 | 世昱</title>
+    <title>Arcpy | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -317,12 +317,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020</h1>
+                    <h1 class="description center-align post-title">Arcpy</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,33 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/ArcGIS/">
+                                <span class="chip bg-color">ArcGIS</span>
+                            </a>
+                        
+                            <a href="/tags/Arcpy/">
+                                <span class="chip bg-color">Arcpy</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ArcGIS/" class="post-category">
+                                -ArcGIS
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -451,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-12
+                    2020-03-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-12
+                    2020-03-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    52
+                    153
                 </div>
                 
 
@@ -489,7 +510,36 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <script>
+                <h3 id="裁切"><a href="#裁切" class="headerlink" title="裁切"></a>裁切</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> arcpy
+
+arcpy<span class="token punctuation">.</span>gp<span class="token punctuation">.</span>overwriteOutput<span class="token operator">=</span><span class="token number">1</span> <span class="token comment" spellcheck="true">#设置覆盖</span>
+
+
+input_f <span class="token operator">=</span> <span class="token string">'B:/Temp2/data/road.shp'</span>
+clip_f <span class="token operator">=</span> <span class="token string">'B:/Temp2/data/jjj.shp'</span>
+output_f <span class="token operator">=</span> <span class="token string">'B:/Temp2/data/clip.shp'</span>
+
+arcpy<span class="token punctuation">.</span>Clip_analysis<span class="token punctuation">(</span>input_f<span class="token punctuation">,</span> clip_f<span class="token punctuation">,</span> output_f<span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> <span class="token string">'done'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="裁剪"><a href="#裁剪" class="headerlink" title="裁剪"></a>裁剪</h3><pre class="line-numbers language-python"><code class="language-python">
+<span class="token keyword">import</span> arcpy
+arcpy<span class="token punctuation">.</span>gp<span class="token punctuation">.</span>overwriteOutput <span class="token operator">=</span> <span class="token number">1</span>
+arcpy<span class="token punctuation">.</span>env<span class="token punctuation">.</span>workspace <span class="token operator">=</span> <span class="token string">"B:\\Temp2\\datas"</span>
+inputs_f <span class="token operator">=</span> arcpy<span class="token punctuation">.</span>ListFiles<span class="token punctuation">(</span><span class="token string">"*.shp"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span> inputs_f
+clip_f <span class="token operator">=</span> <span class="token string">'B:Temp2/data/j.shp'</span>
+
+<span class="token keyword">for</span> i <span class="token keyword">in</span> inputs_f<span class="token punctuation">:</span>
+    name <span class="token operator">=</span> i<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'ascii'</span><span class="token punctuation">)</span>
+    output_f <span class="token operator">=</span> <span class="token string">'B:Temp2/data/'</span><span class="token operator">+</span>name<span class="token operator">+</span><span class="token string">'_clip'</span><span class="token operator">+</span><span class="token string">'.shp'</span>
+    arcpy<span class="token punctuation">.</span>Clip_analysis<span class="token punctuation">(</span>inputs_f<span class="token punctuation">,</span> clip_f<span class="token punctuation">,</span> output_f<span class="token punctuation">,</span> <span class="token string">"#"</span><span class="token punctuation">)</span>  # 这一句是有问题的不能出输
+
+    <span class="token keyword">print</span> output_f
+<span class="token keyword">print</span> <span class="token string">'done'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -532,7 +582,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/galleries/2020/index.html">https://lishiyu.vip/galleries/2020/index.html</a>
+                    <a href="https://lishiyu.vip/2020/03/02/arcpy/">https://lishiyu.vip/2020/03/02/arcpy/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -569,7 +619,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/ArcGIS/">
+                                    <span class="chip bg-color">ArcGIS</span>
+                                </a>
+                            
+                                <a href="/tags/Arcpy/">
+                                    <span class="chip bg-color">Arcpy</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1001,37 +1063,54 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/galleries/2020/index.html">
+                <a href="/2020/03/02/arcpy/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2020">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Arcpy">
                         
-                        <span class="card-title">2020</span>
+                        <span class="card-title">Arcpy</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            Arcpy
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            李世昱
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ArcGIS/" class="post-category">
+                                    -ArcGIS
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/ArcGIS/">
+                        <span class="chip bg-color">ArcGIS</span>
+                    </a>
+                    
+                    <a href="/tags/Arcpy/">
+                        <span class="chip bg-color">Arcpy</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1039,40 +1118,51 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/galleries/2020/index.html">
+                <a href="/2020/02/25/plot/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Ryiqing.JPG" class="responsive-img" alt="Plot">
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2020">
-                        
-                        <span class="card-title">2020</span>
+                        <span class="card-title">Plot</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return
+                            Plot函数
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            李世昱
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/R/" class="post-category">
+                                    R
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Plot%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">Plot函数</span>
+                    </a>
+                    
+                    <a href="/tags/R/">
+                        <span class="chip bg-color">R</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
