@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DDA直线生成算法, 世昱">
-    <meta name="description" content="DDA直线生成算法">
+    <meta name="keywords" content="DDA直线生成算法(1), 世昱">
+    <meta name="description" content="DDA &amp; Bresenham算法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>DDA直线生成算法 | 世昱</title>
+    <title>DDA直线生成算法(1) | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -322,7 +322,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DDA直线生成算法</h1>
+                    <h1 class="description center-align post-title">DDA直线生成算法(1)</h1>
                 </div>
             </div>
         </div>
@@ -443,8 +443,8 @@
                                 <span class="chip bg-color">计算机图形学</span>
                             </a>
                         
-                            <a href="/tags/DDA%E7%94%9F%E6%88%90%E7%9B%B4%E7%BA%BF%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">DDA生成直线算法</span>
+                            <a href="/tags/DDA/">
+                                <span class="chip bg-color">DDA</span>
                             </a>
                         
                             <a href="/tags/GDI/">
@@ -453,6 +453,10 @@
                         
                             <a href="/tags/C/">
                                 <span class="chip bg-color">C#</span>
+                            </a>
+                        
+                            <a href="/tags/Bresenham/">
+                                <span class="chip bg-color">Bresenham</span>
                             </a>
                         
                     </div>
@@ -487,21 +491,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-22
+                    2020-03-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    396
+                    636
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -519,7 +523,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>计算机图形学是研究怎样用数字计算机生成、处理和显示图形的一门学科。</p>
-<h2 id="DDA经典生成直线算法"><a href="#DDA经典生成直线算法" class="headerlink" title="DDA经典生成直线算法"></a><strong>DDA经典生成直线算法</strong></h2><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+<h2 id="DDA"><a href="#DDA" class="headerlink" title="DDA"></a>DDA</h2><p>数字微分分析 <strong>Digital Differential Analyzer</strong></p>
+<h2 id="一、预备知识"><a href="#一、预备知识" class="headerlink" title="一、预备知识"></a><strong>一、预备知识</strong></h2><h3 id="屏幕坐标系"><a href="#屏幕坐标系" class="headerlink" title="屏幕坐标系"></a><strong>屏幕坐标系</strong></h3><p>屏幕左上角为(0,0)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDAzbx.JPG" alt=""></p>
+<h3 id="经改造的二维笛卡尔坐标系"><a href="#经改造的二维笛卡尔坐标系" class="headerlink" title="经改造的二维笛卡尔坐标系"></a><strong>经改造的二维笛卡尔坐标系</strong></h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDAdk.JPG" alt=""></p>
+<h3 id="直线的生成算法"><a href="#直线的生成算法" class="headerlink" title="直线的生成算法"></a><strong>直线的生成算法</strong></h3><blockquote>
+<p><strong>在光栅显示器的荧光屏上生成一个对象，实质上是往帧缓存寄存器的相应单元中填入数据。画一条从（x1, y1）到（x2, y2）的直线，实质上是一个发现最佳逼近直线的象素序列，并填入色彩数据的过程。这个过程也称为直线光栅化。</strong></p>
+</blockquote>
+<h2 id="DDA经典生成直线算法"><a href="#DDA经典生成直线算法" class="headerlink" title="DDA经典生成直线算法"></a><strong>DDA经典生成直线算法</strong></h2><h3 id="rainbow-C-绘图环境（bitmap方式）"><a href="#rainbow-C-绘图环境（bitmap方式）" class="headerlink" title=":rainbow:C#绘图环境（bitmap方式）"></a><strong>:rainbow:C#绘图环境（bitmap方式）</strong></h3><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Drawing<span class="token punctuation">;</span>
 <span class="token keyword">using</span> System<span class="token punctuation">.</span>Windows<span class="token punctuation">.</span>Forms<span class="token punctuation">;</span>
 
@@ -570,14 +581,79 @@
     <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="窗体"><a href="#窗体" class="headerlink" title="窗体"></a><strong>窗体</strong></h3><p>在From中所用到的控件有，Panel和Button。</p>
+<h4 id="图解"><a href="#图解" class="headerlink" title="图解"></a>图解</h4><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E5%9D%90%E6%A0%87.JPG" alt=""></p>
+<h4 id="窗体"><a href="#窗体" class="headerlink" title="窗体"></a><strong>窗体</strong></h4><p>在From中所用到的控件有，Panel和Button。</p>
 <p>Panel是画布的容器，画布是位图的容器。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/cadDDA.jpg" alt=""></p>
+<hr>
+<h3 id="C-绘图环境（dll方式）不会dll"><a href="#C-绘图环境（dll方式）不会dll" class="headerlink" title="C#绘图环境（dll方式）不会dll"></a>C#绘图环境（dll方式）不会dll</h3><h4 id="引用部分"><a href="#引用部分" class="headerlink" title="引用部分"></a><strong>引用部分</strong></h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.Runtime.InteropServices; //外部<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="声明部分"><a href="#声明部分" class="headerlink" title="声明部分"></a>声明部分</h4><pre class="line-numbers language-c#"><code class="language-c#">namespace WindowsApplication1
+{    
+    public partial class Form1 : Form
+    {
+        [DllImport("gdi32.dll")]
+        private static extern int SetPixel(IntPtr hdc, int x1, int y1, int color);
+        public Form1()
+        {
+            InitializeComponent();
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="取颜色函数"><a href="#取颜色函数" class="headerlink" title="取颜色函数"></a>取颜色函数</h4><pre class="line-numbers language-c#"><code class="language-c#">private uint RGB(Color color)
+{
+// 返回由RGB构成的位uint
+uint R = color.R;
+uint G = color.G;
+uint B = color.B;
+G <<= 8;
+B <<= 16;
+return ((uint)(R | G | B));
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="使用部分"><a href="#使用部分" class="headerlink" title="使用部分"></a>使用部分</h4><pre class="line-numbers language-c#"><code class="language-c#">SetPixel(g.GetHdc(), (int)x, (int)y, (int)RGB(color));
+    g.ReleaseHdc();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="直线的DDA实现程序-TC2-0-不会c"><a href="#直线的DDA实现程序-TC2-0-不会c" class="headerlink" title="直线的DDA实现程序(TC2.0)不会c"></a>直线的DDA实现程序(TC2.0)不会c</h3><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;stdio.h></span></span>
+<span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;graphics.h></span></span>
+<span class="token keyword">void</span> <span class="token function">dda</span><span class="token punctuation">(</span>x1<span class="token punctuation">,</span>y1<span class="token punctuation">,</span>x2<span class="token punctuation">,</span>y2<span class="token punctuation">,</span>c<span class="token punctuation">)</span>
+<span class="token keyword">int</span> x1<span class="token punctuation">,</span>y1<span class="token punctuation">,</span>x2<span class="token punctuation">,</span>y2<span class="token punctuation">,</span>c<span class="token punctuation">;</span>
+<span class="token punctuation">{</span>    <span class="token keyword">float</span> x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>xincre<span class="token punctuation">,</span>yincre<span class="token punctuation">;</span>
+      <span class="token keyword">int</span> k<span class="token punctuation">,</span>i<span class="token punctuation">;</span>
+      k<span class="token operator">=</span><span class="token function">abs</span><span class="token punctuation">(</span>x2<span class="token operator">-</span>x1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">abs</span><span class="token punctuation">(</span>y2<span class="token operator">-</span>y1<span class="token punctuation">)</span><span class="token operator">></span>k<span class="token punctuation">)</span>
+            k<span class="token operator">=</span><span class="token function">abs</span><span class="token punctuation">(</span>y2<span class="token operator">-</span>y1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    xincre<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token punctuation">(</span>x2<span class="token operator">-</span>x1<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>k<span class="token punctuation">;</span>
+    yincre<span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span><span class="token punctuation">(</span>y2<span class="token operator">-</span>y1<span class="token punctuation">)</span><span class="token operator">/</span><span class="token punctuation">(</span><span class="token keyword">float</span><span class="token punctuation">)</span>k<span class="token punctuation">;</span>
+    x<span class="token operator">=</span>x1<span class="token punctuation">;</span>
+    y<span class="token operator">=</span>y1<span class="token punctuation">;</span>
+      <span class="token keyword">for</span><span class="token punctuation">(</span>i<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>k<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span>
+      <span class="token punctuation">{</span>     <span class="token function">putpixel</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>y<span class="token punctuation">,</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+         x<span class="token operator">+</span><span class="token operator">=</span>xincre<span class="token punctuation">;</span>
+         y<span class="token operator">+</span><span class="token operator">=</span>yincre<span class="token punctuation">;</span> <span class="token punctuation">}</span>    
+<span class="token punctuation">}</span>
+
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> graphmode <span class="token punctuation">,</span> i；
+    <span class="token keyword">int</span>  graphdiver <span class="token operator">=</span>DETECT<span class="token punctuation">;</span>
+    <span class="token function">initgraph</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span>graphdriver<span class="token punctuation">,</span> <span class="token operator">&amp;</span>graphmode <span class="token punctuation">,</span> <span class="token constant">NULL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">dda</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">,</span><span class="token number">600</span><span class="token punctuation">,</span><span class="token number">350</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">getch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <h2 id="GIE色度图"><a href="#GIE色度图" class="headerlink" title="GIE色度图"></a><strong>GIE色度图</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/cadGIE%E8%89%B2%E5%BA%A6%E5%9B%BE.JPG" alt=""></p>
 <h2 id="RGB"><a href="#RGB" class="headerlink" title="RGB"></a><strong>RGB</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/cadRGB.JPG" alt=""></p>
 <h2 id="CMY"><a href="#CMY" class="headerlink" title="CMY"></a><strong>CMY</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/cadCMY.JPG" alt=""></p>
 <h2 id="HSV"><a href="#HSV" class="headerlink" title="HSV"></a><strong>HSV</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/cadHSV.JPG" alt=""></p>
+<hr>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -663,8 +739,8 @@
                                     <span class="chip bg-color">计算机图形学</span>
                                 </a>
                             
-                                <a href="/tags/DDA%E7%94%9F%E6%88%90%E7%9B%B4%E7%BA%BF%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">DDA生成直线算法</span>
+                                <a href="/tags/DDA/">
+                                    <span class="chip bg-color">DDA</span>
                                 </a>
                             
                                 <a href="/tags/GDI/">
@@ -673,6 +749,10 @@
                             
                                 <a href="/tags/C/">
                                     <span class="chip bg-color">C#</span>
+                                </a>
+                            
+                                <a href="/tags/Bresenham/">
+                                    <span class="chip bg-color">Bresenham</span>
                                 </a>
                             
                         </div>
@@ -1344,7 +1424,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">13.9k</span>&nbsp;字
+                class="white-color">15.2k</span>&nbsp;字
             
             
             

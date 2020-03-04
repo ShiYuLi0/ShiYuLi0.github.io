@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="委托, 世昱">
-    <meta name="description" content="委托">
+    <meta name="keywords" content="中点画圆算法, 世昱">
+    <meta name="description" content="中点画圆法、圆弧扫描算法以及角度DDA法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>委托 | 世昱</title>
+    <title>中点画圆算法 | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -317,12 +317,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/bannergjh.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA中点画圆.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">委托</h1>
+                    <h1 class="description center-align post-title">中点画圆算法</h1>
                 </div>
             </div>
         </div>
@@ -439,12 +439,24 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                <span class="chip bg-color">计算机图形学</span>
+                            </a>
+                        
+                            <a href="/tags/DDA/">
+                                <span class="chip bg-color">DDA</span>
+                            </a>
+                        
+                            <a href="/tags/GDI/">
+                                <span class="chip bg-color">GDI+</span>
+                            </a>
+                        
                             <a href="/tags/C/">
                                 <span class="chip bg-color">C#</span>
                             </a>
                         
-                            <a href="/tags/%E5%A7%94%E6%89%98/">
-                                <span class="chip bg-color">委托</span>
+                            <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
+                                <span class="chip bg-color">中点画圆法</span>
                             </a>
                         
                     </div>
@@ -454,6 +466,10 @@
                     
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                计算机图形学
+                            </a>
                         
                             <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
                                 算法
@@ -468,21 +484,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-21
+                    2020-03-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-22
+                    2020-03-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    435
+                    437
                 </div>
                 
 
@@ -506,81 +522,176 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>定义委托，相当于自定义委托声明的类。</p>
-<p>委托可看出是一个函数的“容器”，将某一函数装入后，可把委托当作函数一样使用。</p>
-<h2 id="例一："><a href="#例一：" class="headerlink" title="例一："></a><strong>例一：</strong></h2><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
+                <h2 id="一、中点画圆法"><a href="#一、中点画圆法" class="headerlink" title="一、中点画圆法"></a>一、中点画圆法</h2><h3 id="1、算法分析"><a href="#1、算法分析" class="headerlink" title="1、算法分析"></a>1、算法分析</h3><p>利用圆的对称性，只须讨论1/8圆。</p>
+<p>开局一张图:smile:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDAyuan.JPG" alt=""></p>
+<p>P为当前点亮象素，那么，下一个点亮的象素可能是P1（Xi+1，Yi）或P2（Xi +1，Yi -1)。</p>
+<blockquote>
+<p>构造函数：</p>
+<p>F（X，Y）=X2 + Y2 - R2 ；则</p>
+<p>F（X，Y）= 0 （X，Y）在圆上；</p>
+<p>F（X，Y）&lt; 0 （X，Y）在圆内；</p>
+<p>F（X，Y）&gt; 0 （X，Y）在圆外。</p>
+<p>设M为P1、P2间的中点，M=(Xi+1,Yi-1/2)</p>
+<p>有如下结论：</p>
+<p> F（M）&lt; 0 → M在圆内 取P1</p>
+<p> F（M）&gt;= 0 → M在圆外 取P2</p>
+</blockquote>
+<blockquote>
+<p>为此，可采用如下判别式： </p>
+<p>di = F(M) = F (xi + 1,yi – 1/2)</p>
+<p>​        =(xi + 1)2 + (yi - 1/2) 2 - R2 </p>
+<p>若d&lt;0, 则P1 为下一个象素，那么再下一个象素的判别式为：</p>
+<p>​     di+1 = F (xi + 2, yi – 1/2)</p>
+<p>​       = (xi + 2)2 + (yi - 1/2) 2 - R2</p>
+<p>​             = di + 2xi +3</p>
+<p>  即di 的增量为 2xi +3.</p>
+<p>  若d&gt;=0, 则P2 为下一个象素，那么再下一个象素的判别式为：</p>
+<p>​    di = F (xi + 2, yi – 3/2)</p>
+<p>​       = (xi + 2)2 + (yi – 3/2) 2 - R2</p>
+<p>​           = di + （2xi + 3）+（-2 yi + 2）</p>
+<p>  即di的增量为 2 (xi - yi) +5.</p>
+<p>  di的初值:</p>
+<p>  d0 = F(1, R-1/2)</p>
+<p>​     = 1 + (R-1/2)2 - R2</p>
+<p>​     = 1/4 - R</p>
+</blockquote>
+<h3 id="2、算法实现C"><a href="#2、算法实现C" class="headerlink" title="2、算法实现C#"></a>2、算法实现C#</h3><h4 id="①代码结构"><a href="#①代码结构" class="headerlink" title="①代码结构"></a>①代码结构</h4><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%AE%A1%E7%90%86%E5%99%A8.JPG" alt=""></p>
+<h4 id="star-②算法部分-star"><a href="#star-②算法部分-star" class="headerlink" title=":star:②算法部分:star:"></a>:star:②算法部分:star:</h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-<span class="token keyword">namespace</span> Delegate0
-<span class="token punctuation">{</span>
+namespace DDABresenham
+{
+    public partial class MainForm : Form
+    {
+        public void Circle(int x0,int y0,int r,Color color)
+        {
+            int x, y, p;//x、y为动态坐标，p为判别式
+            x = 0;
+            y = r;//初始化
+            p = 1 / 4 - r;//2的整数次幂，对计算机来说很“简单”，1/4不足道也
 
-    <span class="token comment" spellcheck="true">//可以将方法动态的赋给参数，可避免在程序中大量使用if-else，或Switch语句。有更好灵活性和可扩展性。</span>
-    <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">operclass</span>
-    <span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//定义委托，注意委托的参数类型和返回值类型；参数类型为int，返回值类型为int；</span>
-        <span class="token comment" spellcheck="true">//相当于自定义类，其生成的对象可以生成一切委托类型的函数名。</span>
-        <span class="token keyword">public</span> <span class="token keyword">delegate</span> <span class="token keyword">int</span> <span class="token function">Mydelegate</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            drawponits(x0, y0, x, y, color);
+            while (x<=y)//当为True，为b系
+            {
+                x++;
+                if (p<0)//真正圆上的点处于中点上方，y无增量
+                {
+                    p+=2*x + 3;
+                }
+                else //真正圆上的点处于中点下方，y-1
+                {
+                    p+=2*(x - y) + 5;
+                    y--;
+                }
+                drawponits(x0, y0, x, y, color);
+            }
+        }
+        public void drawponits(int x0,int y0,int x,int y,Color color)
+        {
+            #region 同时画八个象限的点
 
-        <span class="token comment" spellcheck="true">//任何参数类型为两个int，返回值为int的函数名，都可作为第三个参数的实参</span>
-        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">oper</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">,</span> Mydelegate mydelegate<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token function">mydelegate</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token keyword">add</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//两数相加方法</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> x <span class="token operator">+</span> y<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">sub</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">,</span> <span class="token keyword">int</span> y<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">//两数相加方法</span>
-        <span class="token punctuation">{</span>
-            <span class="token keyword">return</span> x <span class="token operator">-</span> y<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
+            bitmap.SetPixel(x0 + x, y0 + y, color);//1b
+            bitmap.SetPixel(x0 + y, y0 + x, color);//1a
 
-    <span class="token keyword">class</span> <span class="token class-name">Program</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
-        <span class="token punctuation">{</span>
-            operclass myoperclass <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">operclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"1+1={0}"</span><span class="token punctuation">,</span> myoperclass<span class="token punctuation">.</span><span class="token function">oper</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> myoperclass<span class="token punctuation">.</span><span class="token keyword">add</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"1-1={0}"</span><span class="token punctuation">,</span>myoperclass<span class="token punctuation">.</span><span class="token function">oper</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>myoperclass<span class="token punctuation">.</span>sub<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>输出：</p>
-<pre class="line-numbers language-csharp"><code class="language-csharp">add10<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="例二："><a href="#例二：" class="headerlink" title="例二："></a>例二：</h2><pre class="line-numbers language-csharp"><code class="language-csharp"><span class="token keyword">using</span> System<span class="token punctuation">;</span>
-<span class="token keyword">public</span> <span class="token keyword">delegate</span> <span class="token keyword">void</span> <span class="token function">greet</span><span class="token punctuation">(</span><span class="token keyword">string</span> s<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//定义委托</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">greetclass</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">public</span> greet greetdelegate<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//实例化委托</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Englisgreet</span><span class="token punctuation">(</span><span class="token keyword">string</span> name<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">Chinesegreet</span><span class="token punctuation">(</span><span class="token keyword">string</span> name<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"你好"</span><span class="token operator">+</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">greeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>greetdelegate<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">//绑定委托，则因此句触发。</span>
-        <span class="token punctuation">{</span>
-            <span class="token function">greetdelegate</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">main</span>
-<span class="token punctuation">{</span>
-    <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        greetclass greetclass <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">greetclass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        greetclass<span class="token punctuation">.</span>greetdelegate <span class="token operator">=</span> greetclass<span class="token punctuation">.</span>Englisgreet<span class="token punctuation">;</span>
-        greetclass<span class="token punctuation">.</span>greetdelegate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">greet</span><span class="token punctuation">(</span>greetclass<span class="token punctuation">.</span>Chinesegreet<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//重新实例化委托greet</span>
-        greetclass<span class="token punctuation">.</span>greetdelegate <span class="token operator">+</span><span class="token operator">=</span> greetclass<span class="token punctuation">.</span>Englisgreet<span class="token punctuation">;</span>
-        greetclass<span class="token punctuation">.</span>greetdelegate <span class="token operator">+</span><span class="token operator">=</span> greetclass<span class="token punctuation">.</span>Chinesegreet<span class="token punctuation">;</span>
-        greetclass<span class="token punctuation">.</span><span class="token function">greetdelegate</span><span class="token punctuation">(</span><span class="token string">"hhhhhhhhhhhhhhhhh"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        greetclass<span class="token punctuation">.</span><span class="token function">greeting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            bitmap.SetPixel(x0 - y, y0 + x, color);//2a
+            bitmap.SetPixel(x0 - x, y0 + y, color);//2b
+
+            bitmap.SetPixel(x0 - x, y0 - y, color);//3b
+            bitmap.SetPixel(x0 - y, y0 - x, color);//3a
+
+            bitmap.SetPixel(x0 + x, y0 - y, color);//4b
+            bitmap.SetPixel(x0 + y, y0 - x, color);//4a
+
+            #endregion
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="③实现部分"><a href="#③实现部分" class="headerlink" title="③实现部分"></a>③实现部分</h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace DDABresenham
+{
+    public partial class MainForm : Form
+    {
+        Graphics graphics;
+        Bitmap bitmap;
+        public MainForm()
+        {
+            InitializeComponent();
+            graphics = panel1.CreateGraphics();
+            bitmap = new Bitmap(panel1.Width,panel1.Height);
+        }
+
+        private void buttonDDA_Click(object sender, EventArgs e)
+        {
+            DDA(300, 300, 800, 400, Color.Blue);//1a
+            graphics.DrawImage(bitmap,0,0,panel1.Width,panel1.Height);
+        }
+
+        private void buttonBresenham_Click(object sender, EventArgs e)
+        {
+            Bresenham(300, 300, 500, 500, Color.Red);//一象限对角线
+            Bresenham(300, 300, 100, 500, Color.Blue);//二象限对角线
+            Bresenham(300, 300, 100, 100, Color.Black);//三象限对角线
+            Bresenham(300, 300, 500, 100, Color.DarkOrange);//四象限对角线
+
+
+            Bresenham(300, 300, 300, 600, Color.Red);//向下
+            Bresenham(300, 300, 300, 100, Color.Blue);//2a
+            Bresenham(300, 300, 100, 300, Color.Black);//3a
+            Bresenham(300, 300, 500, 300, Color.Yellow);//4a
+
+
+            Bresenham(300, 300, 400, 500, Color.Green);//1b
+            Bresenham(300, 300, 250, 500, Color.Blue);//2b
+            Bresenham(300, 300, 250, 100, Color.Black);//3b
+            Bresenham(300, 300, 350, 100, Color.DarkBlue);//4b
+
+
+            Bresenham(300, 300, 500, 400, Color.Red);//1a
+            Bresenham(300, 300, 0, 400, Color.Blue);//2a
+            Bresenham(300, 300, 100, 250, Color.Black);//3a
+            Bresenham(300, 300, 500, 200, Color.Yellow);//4a
+
+            graphics.DrawImage(bitmap, 0, 0, panel1.Width, panel1.Height);
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void buttoncircle_Click(object sender, EventArgs e)
+        {
+
+            Circle(300, 300, 200, Color.Red);
+            graphics.DrawImage(bitmap, 0, 0, panel1.Width, panel1.Height);
+
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="3、Visio流程图-cool-sparkles"><a href="#3、Visio流程图-cool-sparkles" class="headerlink" title="3、Visio流程图:cool::sparkles:"></a>3、Visio流程图<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f192.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f192.png?v8">🆒</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">✨</span></h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86.jpg" alt=""></p>
+<h3 id="4、运行结果-1"><a href="#4、运行结果-1" class="headerlink" title="4、运行结果:+1:"></a>4、运行结果:+1:</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.JPG" alt=""></p>
+<hr>
+<h2 id="二、圆弧扫描算法（未尝试）"><a href="#二、圆弧扫描算法（未尝试）" class="headerlink" title="二、圆弧扫描算法（未尝试）"></a>二、圆弧扫描算法（未尝试）</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E5%9C%86%E5%BC%A7.JPG" alt=""></p>
+<hr>
+<h2 id="三、角度DDA法（未尝试）"><a href="#三、角度DDA法（未尝试）" class="headerlink" title="三、角度DDA法（未尝试）"></a>三、角度DDA法（未尝试）</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E5%9C%86%E5%BC%A7.JPG" alt=""></p>
+<hr>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -624,7 +735,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/02/21/wei-tuo/">https://lishiyu.vip/2020/02/21/wei-tuo/</a>
+                    <a href="https://lishiyu.vip/2020/03/04/zhong-dian-hua-yuan-suan-fa/">https://lishiyu.vip/2020/03/04/zhong-dian-hua-yuan-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -662,12 +773,24 @@
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                    <span class="chip bg-color">计算机图形学</span>
+                                </a>
+                            
+                                <a href="/tags/DDA/">
+                                    <span class="chip bg-color">DDA</span>
+                                </a>
+                            
+                                <a href="/tags/GDI/">
+                                    <span class="chip bg-color">GDI+</span>
+                                </a>
+                            
                                 <a href="/tags/C/">
                                     <span class="chip bg-color">C#</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A7%94%E6%89%98/">
-                                    <span class="chip bg-color">委托</span>
+                                <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
+                                    <span class="chip bg-color">中点画圆法</span>
                                 </a>
                             
                         </div>
@@ -1096,57 +1219,67 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/22/zha-ge-shu-xing-biao-chu-li/">
+                <a href="/2020/03/04/zhong-dian-hua-yuan-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/arcgis数据.JPG" class="responsive-img" alt="处理栅格属性">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA中点画圆.jpg" class="responsive-img" alt="中点画圆算法">
                         
-                        <span class="card-title">处理栅格属性</span>
+                        <span class="card-title">中点画圆算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            栅格属性处理
+                            中点画圆法、圆弧扫描算法以及角度DDA法
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/GIS/" class="post-category">
-                                    GIS
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    计算机图形学
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ArcGIS/">
-                        <span class="chip bg-color">ArcGIS</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                        <span class="chip bg-color">计算机图形学</span>
                     </a>
                     
-                    <a href="/tags/%E6%A0%85%E6%A0%BC%E5%B1%9E%E6%80%A7%E8%A1%A8/">
-                        <span class="chip bg-color">栅格属性表</span>
+                    <a href="/tags/DDA/">
+                        <span class="chip bg-color">DDA</span>
                     </a>
                     
-                    <a href="/tags/%E6%A0%85%E6%A0%BC%E8%AE%A1%E7%AE%97%E5%99%A8/">
-                        <span class="chip bg-color">栅格计算器</span>
+                    <a href="/tags/GDI/">
+                        <span class="chip bg-color">GDI+</span>
                     </a>
                     
-                    <a href="/tags/Con%E5%87%BD%E6%95%B0/">
-                        <span class="chip bg-color">Con函数</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
+                        <span class="chip bg-color">中点画圆法</span>
                     </a>
                     
                 </div>
@@ -1160,30 +1293,34 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/21/gao-cheng-dian-sheng-cheng-deng-zhi-xian/">
+                <a href="/2020/03/04/zhi-xian-bresenham-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/arcgisRBF插值结果.JPG" class="responsive-img" alt="高程点生成等值线">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDAbrese.jpg" class="responsive-img" alt="直线Bresenham算法(2)">
                         
-                        <span class="card-title">高程点生成等值线</span>
+                        <span class="card-title">直线Bresenham算法(2)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            高程点生成等值线ArcGIS工具
+                            Bresenham直线生成算法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/GIS/" class="post-category">
-                                    GIS
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    计算机图形学
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -1193,20 +1330,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ArcGIS/">
-                        <span class="chip bg-color">ArcGIS</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                        <span class="chip bg-color">计算机图形学</span>
                     </a>
                     
-                    <a href="/tags/%E9%AB%98%E7%A8%8B%E7%82%B9%E7%94%9F%E6%88%90%E7%AD%89%E5%80%BC%E7%BA%BF/">
-                        <span class="chip bg-color">高程点生成等值线</span>
+                    <a href="/tags/GDI/">
+                        <span class="chip bg-color">GDI+</span>
                     </a>
                     
-                    <a href="/tags/%E5%BE%84%E5%90%91%E5%9F%BA%E5%87%BD%E6%95%B0RBF%E6%8F%92%E5%80%BC%E6%B3%95/">
-                        <span class="chip bg-color">径向基函数RBF插值法</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/GA%E5%9B%BE%E5%B1%82%E8%BD%AC%E7%AD%89%E5%80%BC%E7%BA%BF/">
-                        <span class="chip bg-color">GA图层转等值线</span>
+                    <a href="/tags/Bresenham/">
+                        <span class="chip bg-color">Bresenham</span>
                     </a>
                     
                 </div>
