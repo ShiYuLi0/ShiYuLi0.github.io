@@ -471,21 +471,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-27
+                    2020-03-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    23 分
+                    27 分
                 </div>
                 
 
@@ -502,9 +502,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="1、工作路径"><a href="#1、工作路径" class="headerlink" title="1、工作路径"></a><strong>1、工作路径</strong></h3><p>getwd() 列出当前工作路径；</p>
+                <h2 id="一、文件操作"><a href="#一、文件操作" class="headerlink" title="一、文件操作"></a>一、文件操作</h2><h3 id="1、工作路径"><a href="#1、工作路径" class="headerlink" title="1、工作路径"></a><strong>1、工作路径</strong></h3><p>getwd() 列出当前工作路径；</p>
 <p>setwd(dir) 设置工作路径，参数dir是要设置的路径。</p>
-<h3 id="2、列出目录下文件"><a href="#2、列出目录下文件" class="headerlink" title="2、列出目录下文件"></a><strong>2、列出目录下文件</strong></h3><p>函数list.files和dir用法完全一样，可以列出路径下所有文件（包括目录）；函数list.dirs只列出路径下所有目录。</p>
+<h3 id="2、list-files函数列出目录下文件"><a href="#2、list-files函数列出目录下文件" class="headerlink" title="2、list.files函数列出目录下文件"></a><strong>2、list.files函数列出目录下文件</strong></h3><p>函数list.files和dir用法完全一样，可以列出路径下所有文件（包括目录）；函数list.dirs只列出路径下所有目录。</p>
 <pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> getwd<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#当前工作目录</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"C:/Users/YU/Documents"</span>
 <span class="token operator">></span> getwd<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#当前工作目录</span>
@@ -787,8 +787,96 @@ df<span class="token operator">&lt;-</span>read.csv<span class="token punctuatio
 <span class="token operator">></span> y1<span class="token operator">&lt;-</span>as.integer<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
 <span class="token operator">></span> typeof<span class="token punctuation">(</span>y1<span class="token punctuation">)</span>
 <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token string">"integer"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4）paste函数"><a href="#4）paste函数" class="headerlink" title="4）paste函数"></a>4）paste函数</h4><pre class="line-numbers language-R"><code class="language-R">#paste函数--------------------------------------
+paste("a","b",sep = "=")##注意到用等号分隔了
+# "a=b"
+
+paste("a",1:5,sep = "")#会自动每个元素与a相连
+#"a1" "a2" "a3" "a4" "a5"
+
+paste("a",1:5,".pdf", sep = "")#比如想批量输出文件名
+#"a1.pdf" "a2.pdf" "a3.pdf" "a4.pdf" "a5.pdf"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>paste函数未完待续……</p>
+<h4 id="5）dir函数"><a href="#5）dir函数" class="headerlink" title="5）dir函数"></a>5）dir函数</h4><h5 id="代码解释"><a href="#代码解释" class="headerlink" title="代码解释"></a>代码解释</h5><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("B:/Temp2/")
+#查看当前目录的子目录和文件--------------------------
+#同list.files()
+dir() 
+#列出以2开头的文件或子目录---------------------------
+dir(path="B:/Temp2/",pattern='^2') 
+# 列出目录下所有的目录和文件，包括隐藏文件------------
+#同list.files(".",all.files=TRUE)
+dir(path="B:/Temp2/",all.files=TRUE) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="控制台运行结果"><a href="#控制台运行结果" class="headerlink" title="控制台运行结果"></a>控制台运行结果</h5><blockquote>
+<p>rm(list = ls())<br>setwd(“B:/Temp2/“)<br>#查看当前目录的子目录和文件———————–<br>#同list.files()<br>dir()<br> [1] “201401.tif”           “a1”                   “data”                 “test”                 “数据.zip”             “外文件夹_1”<br> [7] “外文件夹_10”          “外文件夹_2”           “外文件夹_3”           “外文件夹_4”           “外文件夹_5”           “外文件夹_6”<br>[13] “外文件夹_7”           “外文件夹_8”           “外文件夹_9”           “外文件夹1”            “外文件夹10”           “外文件夹2”<br>[19] “外文件夹3”            “外文件夹4”            “外文件夹5”            “外文件夹6”            “外文件夹7”            “外文件夹8”<br>[25] “外文件夹9”            “月数据格点数据集”     “月数据格点数据集.zip”<br>#列出以2开头的文件或子目录—————————<br>dir(path=”B:/Temp2/“,pattern=’^2’)<br>[1] “201401.tif”</p>
+<p>#列出目录下所有的目录和文件，包括隐藏文件——</p>
+<p>#同list.files(“.”,all.files=TRUE)<br>dir(path=”B:/Temp2/“,all.files=TRUE)<br> [1] “.”                    “..”                   “201401.tif”           “a1”                   “data”                 “test”<br> [7] “数据.zip”             “外文件夹_1”           “外文件夹_10”          “外文件夹_2”           “外文件夹_3”           “外文件夹_4”<br>[13] “外文件夹_5”           “外文件夹_6”           “外文件夹_7”           “外文件夹_8”           “外文件夹_9”           “外文件夹1”<br>[19] “外文件夹10”           “外文件夹2”            “外文件夹3”            “外文件夹4”            “外文件夹5”            “外文件夹6”<br>[25] “外文件夹7”            “外文件夹8”            “外文件夹9”            “月数据格点数据集”     “月数据格点数据集.zip”</p>
+</blockquote>
 <hr>
-<h2 id="Plots图表"><a href="#Plots图表" class="headerlink" title="Plots图表"></a>Plots图表</h2><h3 id="读取数据文件"><a href="#读取数据文件" class="headerlink" title="读取数据文件"></a>读取数据文件</h3><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<h3 id="9、终极boss之——批量生成文件夹、文件树"><a href="#9、终极boss之——批量生成文件夹、文件树" class="headerlink" title="9、终极boss之——批量生成文件夹、文件树"></a>9、终极boss之——批量生成文件夹、文件树</h3><pre class="line-numbers language-R"><code class="language-R">
+#批量生成文件夹---------------------------------
+rm(list = ls())
+setwd("B:/Temp2/")
+for (i in 1:10) {
+   if (file.exists(paste('外文件夹',i,sep = '_'))) {
+    print("文件已经存在啦~")
+  }
+  else{
+    dir.create(paste('外文件夹',i,sep = ''))
+   }
+}
+
+ #在每个文件夹下分别生成一个文件夹---------------
+ for (i in 1:10) {
+   a<-paste('外文件夹',i,sep = '','/内文件夹')
+   print(a)
+   dir.create(paste('外文件夹',i,sep = '','/内文件夹'))#相当于又加了个路径
+}
+#[1] "外文件夹1/内文件夹"
+#[1] "外文件夹2/内文件夹"
+#[1] "外文件夹3/内文件夹"
+#[1] "外文件夹4/内文件夹"
+#[1] "外文件夹5/内文件夹"
+#[1] "外文件夹6/内文件夹"
+#[1] "外文件夹7/内文件夹"
+#[1] "外文件夹8/内文件夹"
+#[1] "外文件夹9/内文件夹"
+#[1] "外文件夹10/内文件夹"
+
+#列出文件树------------------------------------
+system("tree")
+
+#卷 新加卷 的文件夹 PATH 列表
+#卷序列号为 3001-56A6
+#B:.
+#├─data
+#├─test
+#├─外文件夹1
+#│  └─内文件夹
+#├─外文件夹10
+#│  └─内文件夹
+#├─外文件夹2
+#│  └─内文件夹
+#├─外文件夹3
+#│  └─内文件夹
+#├─外文件夹4
+#│  └─内文件夹
+#├─外文件夹5
+#│  └─内文件夹
+#├─外文件夹6
+#│  └─内文件夹
+#├─外文件夹7
+#│  └─内文件夹
+#├─外文件夹8
+#│  └─内文件夹
+#├─外文件夹9
+#│  └─内文件夹
+#└─月数据格点数据集
+#   ├─气温
+#    └─降水
+#[1] 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h2 id="二、Plots图表"><a href="#二、Plots图表" class="headerlink" title="二、Plots图表"></a>二、Plots图表</h2><h3 id="读取数据文件"><a href="#读取数据文件" class="headerlink" title="读取数据文件"></a>读取数据文件</h3><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token operator">></span> data<span class="token operator">=</span>read.csv<span class="token punctuation">(</span><span class="token string">"B:/Temp1/高考.csv"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#读取csv数据,还有read.table</span>
 <span class="token operator">></span> data   <span class="token comment" spellcheck="true">#查看数据</span>
    地区 年份 中考人数 高考人数
@@ -962,7 +1050,7 @@ dev.off<span class="token punctuation">(</span><span class="token punctuation">)
 <pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> plot<span class="token punctuation">(</span>data<span class="token operator">$</span>Year<span class="token punctuation">,</span>data<span class="token operator">$</span>ZhongKao<span class="token punctuation">)</span>
 Error <span class="token keyword">in</span> plot.new<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">:</span> figure margins too large<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <hr>
-<h2 id="Dataframe"><a href="#Dataframe" class="headerlink" title="Dataframe"></a>Dataframe</h2><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> <span class="token comment" spellcheck="true">#Dataframe-------------------------------</span>
+<h2 id="三、Dataframe"><a href="#三、Dataframe" class="headerlink" title="三、Dataframe"></a>三、Dataframe</h2><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> <span class="token comment" spellcheck="true">#Dataframe-------------------------------</span>
 <span class="token operator">></span> <span class="token comment" spellcheck="true">#Dataframe</span>
 <span class="token operator">></span> <span class="token comment" spellcheck="true">##创建Dataframe函数</span>
 <span class="token operator">></span> ls<span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -1103,6 +1191,223 @@ character<span class="token punctuation">(</span><span class="token number">0</s
 <p>#更改R包默认安装路径<br>.libPaths(“D:/Program Files/R/win-library/3.5”)<br>myPaths &lt;- c(“D:/Program Files/R/win-library/3.5”)<br>.libPaths(myPaths)</p>
 <p>然后把代码复制到初始文件.Rprofile中。<br>重启R，即可。</p>
 <hr>
+<h2 id="四、批量生成文件夹"><a href="#四、批量生成文件夹" class="headerlink" title="四、批量生成文件夹"></a>四、批量生成文件夹</h2><h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><pre class="line-numbers language-R"><code class="language-R">#批量生成文件夹---------------------------------
+rm(list = ls())
+setwd("B:/Temp2/")
+for (i in 1:10) {
+  if (file.exists(paste('外文件夹',i,sep = '_'))) {
+    print("文件已经存在啦~")
+  }
+  else{
+    dir.create(paste('外文件夹',i,sep = '_'))
+  }
+}
+dir()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><blockquote>
+<blockquote>
+<p>#批量生成文件夹———————————<br>rm(list = ls())<br>setwd(“B:/Temp2/“)<br>for (i in 1:10) {</p>
+<ul>
+<li>if (file.exists(paste(‘外文件夹’,i,sep = ‘_’))) {</li>
+<li>print(“文件已经存在啦~”)</li>
+<li>}</li>
+<li>else{</li>
+<li>dir.create(paste(‘外文件夹’,i,sep = ‘_’))</li>
+<li>}</li>
+</ul>
+</blockquote>
+<ul>
+<li>}<br>[1] “文件已经存在啦<del>“<br>[1] “文件已经存在啦</del>“<br>[1] “文件已经存在啦<del>“<br>[1] “文件已经存在啦</del>“<br>[1] “文件已经存在啦<del>“<br>[1] “文件已经存在啦</del>“<br>[1] “文件已经存在啦<del>“<br>[1] “文件已经存在啦</del>“<br>[1] “文件已经存在啦<del>“<br>[1] “文件已经存在啦</del>“</li>
+</ul>
+<blockquote>
+<p>dir()<br> [1] “201401.tif”           “a1”                   “data”                 “test”                 “数据.zip”             “外文件夹_1”<br> [7] “外文件夹_10”          “外文件夹_2”           “外文件夹_3”           “外文件夹_4”           “外文件夹_5”           “外文件夹_6”<br>[13] “外文件夹_7”           “外文件夹_8”           “外文件夹_9”           “外文件夹1”            “外文件夹10”           “外文件夹2”<br>[19] “外文件夹3”            “外文件夹4”            “外文件夹5”            “外文件夹6”            “外文件夹7”            “外文件夹8”<br>[25] “外文件夹9”            “月数据格点数据集”     “月数据格点数据集.zip”</p>
+</blockquote>
+</blockquote>
+<h2 id="五、批量新建子目录"><a href="#五、批量新建子目录" class="headerlink" title="五、批量新建子目录"></a>五、批量新建子目录</h2><h3 id="1、”笨”办法"><a href="#1、”笨”办法" class="headerlink" title="1、”笨”办法"></a>1、”笨”办法</h3><pre class="line-numbers language-R"><code class="language-R">#在每个文件夹下分别生成一个文件夹---------------
+rm(list = ls())
+setwd("B:/Temp2/")
+for (i in 1:10) {
+  a<-paste('外文件夹',i,sep = '','/内文件夹')
+  print(a)
+  if (file.exists(paste('外文件夹',i,sep = '','/内文件夹'))) {
+    print("文件已经存在啦~")
+  }
+  else{
+    dir.create(paste('外文件夹',i,sep = '','/内文件夹'))#相当于又加了个路径
+  }
+}
+system("tree")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>运行结果</p>
+<blockquote>
+<blockquote>
+<p>#在每个文件夹下分别生成一个文件夹—————<br>rm(list = ls())<br>setwd(“B:/Temp2/“)<br>for (i in 1:10) {</p>
+<ul>
+<li>a&lt;-paste(‘外文件夹’,i,sep = ‘’,’/内文件夹’)</li>
+<li>print(a)</li>
+<li>if (file.exists(paste(‘外文件夹’,i,sep = ‘’,’/内文件夹’))) {</li>
+<li>print(“文件已经存在啦~”)</li>
+<li>}</li>
+<li>else{</li>
+<li>dir.create(paste(‘外文件夹’,i,sep = ‘’,’/内文件夹’))#相当于又加了个路径</li>
+<li>}</li>
+</ul>
+</blockquote>
+<ul>
+<li>}<br>[1] “外文件夹1/内文件夹”<br>[1] “文件已经存在啦<del>“<br>[1] “外文件夹2/内文件夹”<br>[1] “文件已经存在啦</del>“<br>[1] “外文件夹3/内文件夹”<br>[1] “文件已经存在啦<del>“<br>[1] “外文件夹4/内文件夹”<br>[1] “文件已经存在啦</del>“<br>[1] “外文件夹5/内文件夹”<br>[1] “文件已经存在啦<del>“<br>[1] “外文件夹6/内文件夹”<br>[1] “文件已经存在啦</del>“<br>[1] “外文件夹7/内文件夹”<br>[1] “文件已经存在啦<del>“<br>[1] “外文件夹8/内文件夹”<br>[1] “文件已经存在啦</del>“<br>[1] “外文件夹9/内文件夹”<br>[1] “文件已经存在啦<del>“<br>[1] “外文件夹10/内文件夹”<br>[1] “文件已经存在啦</del>“<blockquote>
+<p>system(“tree”)<br>卷 新加卷 的文件夹 PATH 列表<br>卷序列号为 3001-56A6<br>B:.<br>├─a1<br>│  └─b2<br>│      └─c3<br>├─data<br>├─test<br>│  └─3组李世昱组<br>│      ├─2017016427李世昱<br>│      │  ├─R脚本<br>│      │  └─tiff文件<br>│      ├─2017016427李世昱1<br>│      └─2017016427李世昱2<br>├─外文件夹1<br>│  └─内文件夹<br>├─外文件夹10<br>│  └─内文件夹<br>├─外文件夹2<br>│  └─内文件夹<br>├─外文件夹3<br>│  └─内文件夹<br>├─外文件夹4<br>│  └─内文件夹<br>├─外文件夹5<br>│  └─内文件夹<br>├─外文件夹6<br>│  └─内文件夹<br>├─外文件夹7<br>│  └─内文件夹<br>├─外文件夹8<br>│  └─内文件夹<br>├─外文件夹9<br>│  └─内文件夹<br>├─外文件夹_1<br>├─外文件夹_10<br>├─外文件夹_2<br>├─外文件夹_3<br>├─外文件夹_4<br>├─外文件夹_5<br>├─外文件夹_6<br>├─外文件夹_7<br>├─外文件夹_8<br>├─外文件夹_9<br>└─月数据格点数据集<br>├─气温<br>└─降水<br>[1] 0</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<p>system(“tree”)真是个有趣的操作</p>
+<hr>
+<h3 id="2、-star-巧方法"><a href="#2、-star-巧方法" class="headerlink" title="2、:star: 巧方法"></a>2、:star: 巧方法</h3><h4 id="使用recursive参数"><a href="#使用recursive参数" class="headerlink" title="使用recursive参数"></a>使用recursive参数</h4><pre class="line-numbers language-R"><code class="language-R">#创建一个3级子目录./a1/b2/c3
+setwd("B:/Temp2/")
+getwd()
+list.dirs()
+dir.create(path = "a1/b2/c3") #直接创建，出错
+dir.create(path="a1/b2/c3",recursive = TRUE)
+system("tree")
+list.dirs()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="控制台运行结果-1"><a href="#控制台运行结果-1" class="headerlink" title="控制台运行结果"></a>控制台运行结果</h4><blockquote>
+<p>#创建一个3级子目录./a1/b2/c3<br>setwd(“B:/Temp2/“)<br>getwd()<br>[1] “B:/Temp2”<br>list.dirs()<br> [1] “.”                                            “./data”                                       “./test”<br> [4] “./test/3组李世昱组”                           “./test/3组李世昱组/2017016427李世昱”          “./test/3组李世昱组/2017016427李世昱/R脚本”<br> [7] “./test/3组李世昱组/2017016427李世昱/tiff文件” “./test/3组李世昱组/2017016427李世昱1”         “./test/3组李世昱组/2017016427李世昱2”<br>[10] “./外文件夹_1”                                 “./外文件夹_10”                                “./外文件夹_2”<br>[13] “./外文件夹_3”                                 “./外文件夹_4”                                 “./外文件夹_5”<br>[16] “./外文件夹_6”                                 “./外文件夹_7”                                 “./外文件夹_8”<br>[19] “./外文件夹_9”                                 “./外文件夹1”                                  “./外文件夹1/内文件夹”<br>[22] “./外文件夹10”                                 “./外文件夹10/内文件夹”                        “./外文件夹2”<br>[25] “./外文件夹2/内文件夹”                         “./外文件夹3”                                  “./外文件夹3/内文件夹”<br>[28] “./外文件夹4”                                  “./外文件夹4/内文件夹”                         “./外文件夹5”<br>[31] “./外文件夹5/内文件夹”                         “./外文件夹6”                                  “./外文件夹6/内文件夹”<br>[34] “./外文件夹7”                                  “./外文件夹7/内文件夹”                         “./外文件夹8”<br>[37] “./外文件夹8/内文件夹”                         “./外文件夹9”                                  “./外文件夹9/内文件夹”<br>[40] “./月数据格点数据集”                           “./月数据格点数据集/降水”                      “./月数据格点数据集/气温”<br>dir.create(path = “a1/b2/c3”) #直接创建，出错<br>Warning message:<br>In dir.create(path = “a1/b2/c3”) :<br>由于’No such file or directory’的原因，无法建立’a1\b2\c3’文件目录<br>dir.create(path=”a1/b2/c3”,recursive = TRUE)<br>system(“tree”)<br>卷 新加卷 的文件夹 PATH 列表<br>卷序列号为 3001-56A6<br>B:.<br>├─a1<br>│  └─b2<br>│      └─c3<br>├─data<br>├─test<br>│  └─3组李世昱组<br>│      ├─2017016427李世昱<br>│      │  ├─R脚本<br>│      │  └─tiff文件<br>│      ├─2017016427李世昱1<br>│      └─2017016427李世昱2<br>├─外文件夹1<br>│  └─内文件夹<br>├─外文件夹10<br>│  └─内文件夹<br>├─外文件夹2<br>│  └─内文件夹<br>├─外文件夹3<br>│  └─内文件夹<br>├─外文件夹4<br>│  └─内文件夹<br>├─外文件夹5<br>│  └─内文件夹<br>├─外文件夹6<br>│  └─内文件夹<br>├─外文件夹7<br>│  └─内文件夹<br>├─外文件夹8<br>│  └─内文件夹<br>├─外文件夹9<br>│  └─内文件夹<br>├─外文件夹_1<br>├─外文件夹_10<br>├─外文件夹_2<br>├─外文件夹_3<br>├─外文件夹_4<br>├─外文件夹_5<br>├─外文件夹_6<br>├─外文件夹_7<br>├─外文件夹_8<br>├─外文件夹_9<br>└─月数据格点数据集<br>├─气温<br>└─降水<br>[1] 0</p>
+</blockquote>
+<h2 id="Paste函数"><a href="#Paste函数" class="headerlink" title="Paste函数"></a>Paste函数</h2><blockquote>
+<pre><code>paste(..., sep = " ", collapse = NULL)</code></pre><p><strong>…</strong> - 表示要组合的任何数量的参数。</p>
+<p><strong>sep</strong> - 表示参数之间的分隔符。它是任选的。</p>
+<p><strong>collapse</strong> - 用于消除两个字符串之间的空间。但不是在一个字符串的两个词的空间</p>
+</blockquote>
+<pre class="line-numbers language-R"><code class="language-R">paste("a","b",sep = "=")#注意到用等号分隔了
+
+paste("a",1:5,sep = "")#会自动每个元素与a相连
+
+paste("a",1:5,".pdf", sep = "")#比如想批量输出文件名
+
+#collapse用于消除两个字符串之间的空间。但不是在一个字符串的两个词的空间
+a<-"李世昱"
+b<-"一定会上岸"
+c<-"的！"
+paste(a,b,c,sep = "") 
+paste("a","b",sep = "",collapse = "") <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>控制台运行结果</p>
+<blockquote>
+<p>paste(“a”,”b”,sep = “=”)#注意到用等号分隔了<br>[1] “a=b”</p>
+<p>paste(“a”,1:5,sep = “”)#会自动每个元素与a相连<br>[1] “a1” “a2” “a3” “a4” “a5”</p>
+<p>paste(“a”,1:5,”.pdf”, sep = “”)#比如想批量输出文件名<br>[1] “a1.pdf” “a2.pdf” “a3.pdf” “a4.pdf” “a5.pdf”</p>
+<p>#collapse用于消除两个字符串之间的空间。但不是在一个字符串的两个词的空间<br>a&lt;-“李世昱”<br>b&lt;-“一定会上岸”<br>c&lt;-“的！”<br>paste(a,b,c,sep = “”)<br>[1] “李世昱一定会上岸的！”<br>paste(a,b,c,sep = “”,collapse = “”)<br>[1] “李世昱一定会上岸的！”</p>
+</blockquote>
+<p><strong>好像collapse并没有起什么作用:wheel_of_dharma:</strong></p>
+<hr>
+<h2 id="六、空间数据操作"><a href="#六、空间数据操作" class="headerlink" title="六、空间数据操作"></a>六、空间数据操作</h2><h3 id="shp"><a href="#shp" class="headerlink" title="shp"></a>shp</h3><h4 id="将CSV输出为shp"><a href="#将CSV输出为shp" class="headerlink" title="将CSV输出为shp"></a>将CSV输出为shp</h4><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("B:/Temp2")
+#导包-------------------------------------
+library(maptools)
+library(rgdal)
+library(sp)
+
+#若无，则安装包----------------------------------
+#install.packages("maptools")
+#install.packages("rgdal")
+#install.packages("sp")
+
+#读取数据-------------------------------
+df<-read.csv("data/StationInfo.csv",header = T)
+
+#设定经纬度字段--------------------------
+coordinates(df)<-~Lon+Lat 
+#设置投影参数-----------------------------
+proj4string(df)<-CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0") #设置投影
+#writeOGR函数导出数据----------------------
+writeOGR(df,
+         dsn = "B:/Temp2/test",#设置输出路径
+         layer = "stationinfo1",#设置保存名称
+         driver = "ESRI Shapefile",#设置输出类型
+         overwrite_layer = T #是否覆盖
+         )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="raster"><a href="#raster" class="headerlink" title="raster"></a>raster</h3><h4 id="自造数据并plot造出来的raster"><a href="#自造数据并plot造出来的raster" class="headerlink" title="自造数据并plot造出来的raster"></a>自造数据并plot造出来的raster</h4><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+library(raster)
+#生成矩阵，72行，128列，数值为1--------------------
+df<-matrix(nrow = 72,ncol = 128,1)
+#生成矩阵，72行，128列，数值为0-999之间随机的72个数-------------------
+#df<-matrix(nrow = 72,ncol = 128,runif(72,0,999))
+
+#生成raster数据-----------------------------------------------
+
+df1<-raster(df,#数据源
+            xmn=72,#x轴最小值
+            xmx=128,#x最大值
+            ymn=18,
+            ymx=54,
+            crs<-CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")#投影
+            )
+plot(df1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当自造数据为</p>
+<blockquote>
+<p>df&lt;-matrix(nrow = 72,ncol = 128,runif(72,0,999))</p>
+</blockquote>
+<p>其plot输出为</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Rraster.jpeg" alt=""></p>
+<h4 id="输出raster——writeRaster函数"><a href="#输出raster——writeRaster函数" class="headerlink" title="输出raster——writeRaster函数"></a>输出raster——writeRaster函数</h4><pre class="line-numbers language-R"><code class="language-R">setwd("B:/Temp2/月数据格点数据集/降水/")
+r<-raster("SURF_CLI_CHN_PRE_MON_GRID_0.5-201401.txt")
+proj4string(r)<-CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+writeRaster(r,#数据源
+            filename = '201401.tiff',#可写全路径，输出指定位置
+            format="GTiff",#输出格式
+            overwrite=T#是否覆盖
+            )<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="raster作业1：求年降水量的总和"><a href="#raster作业1：求年降水量的总和" class="headerlink" title="raster作业1：求年降水量的总和"></a>raster作业1：求年降水量的总和</h3><h4 id="文件、目录环境"><a href="#文件、目录环境" class="headerlink" title="文件、目录环境"></a>文件、目录环境</h4><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R%E9%99%8D%E6%B0%B4.JPG" alt=""></p>
+<p><strong>单个文件</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R%E9%99%8D%E6%B0%B4%E6%96%87%E4%BB%B6.JPG" alt=""></p>
+<h4 id="代码解释-1"><a href="#代码解释-1" class="headerlink" title="代码解释"></a><strong>代码解释</strong></h4><pre class="line-numbers language-R"><code class="language-R">#降水年总和--------------------------------------------------------------
+rm(list = ls())
+library(raster)
+library(sp)
+setwd("B:/Temp2/月数据格点数据集/降水/")
+
+#文件名存入列表中-----------------------
+PrecipitationFiles<-list.files()
+
+#得指定初始r，在此基础上累加------------
+r<-raster(PrecipitationFiles[1])
+
+#以for循环进行累加----------------------
+for (i in PrecipitationFiles) {
+  r<-raster(i)+r
+  proj4string(r)<-CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+}
+writeRaster(r,
+            filename = "Sum2014",
+            format="GTiff",#输出格式
+            overwrite=T#是否覆盖
+            )
+print(r) #查看栅格信息
+print("Succeeded！ 完成年降水总和计算")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="作业2：求各年降水的最大值的平均值"><a href="#作业2：求各年降水的最大值的平均值" class="headerlink" title="作业2：求各年降水的最大值的平均值"></a>作业2：求各年降水的最大值的平均值</h3><h4 id="文件、目录环境-1"><a href="#文件、目录环境-1" class="headerlink" title="文件、目录环境"></a>文件、目录环境</h4><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Rqi.JPG" alt=""></p>
+<p><strong>单个文件</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R%E6%B0%94%E6%B8%A9%E6%96%87%E4%BB%B6.JPG" alt=""></p>
+<h4 id="代码解释-2"><a href="#代码解释-2" class="headerlink" title="代码解释"></a><strong>代码解释</strong></h4><pre class="line-numbers language-R"><code class="language-R">#各年最高气温平均-------------------------------------------------------------
+rm(list = ls())
+library(raster)
+library(sp)
+setwd("B:/Temp2/月数据格点数据集/气温/")
+#筛选出最高气温-------------------------
+AirTemperatureFlies<-list.files(pattern = "MAX")
+
+#得指定初始r，在此基础上累加------------
+r<-raster(AirTemperatureFlies[1])
+
+for (i in AirTemperatureFlies) {
+  r<-raster(i)+r
+  proj4string(r)<-CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+  }
+#在循环累加完成后，进行平均值计算并输出
+writeRaster(r/12,
+            filename = "Max_Mean",
+            format="GTiff",#输出格式
+            overwrite=T#是否覆盖
+)
+print(r/12) #查看栅格信息
+print("Succeeded! 完成各年最高气温平均计算")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1146,7 +1451,7 @@ character<span class="token punctuation">(</span><span class="token number">0</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/02/17/kong-jian-jian-mo-yu-fen-xi-yi/">https://lishiyu.vip/2020/02/17/kong-jian-jian-mo-yu-fen-xi-yi/</a>
+                    <a href="https://lishiyu.vip/2020/02/17/kong-jian-jian-mo-yu-fen-xi/">https://lishiyu.vip/2020/02/17/kong-jian-jian-mo-yu-fen-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1845,7 +2150,7 @@ character<span class="token punctuation">(</span><span class="token number">0</s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">15.2k</span>&nbsp;字
+                class="white-color">16.1k</span>&nbsp;字
             
             
             
@@ -2062,6 +2367,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
