@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="处理栅格属性, 世昱">
-    <meta name="description" content="栅格属性处理">
+    <meta name="keywords" content="区域填充算法, 世昱">
+    <meta name="description" content="计算机图形学中种子填色(Seed Filling)算法、扫描线填色(Scan-Line Filling)算法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>处理栅格属性 | 世昱</title>
+    <title>区域填充算法 | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -317,12 +317,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/arcgis数据.JPG')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">处理栅格属性</h1>
+                    <h1 class="description center-align post-title">区域填充算法</h1>
                 </div>
             </div>
         </div>
@@ -439,20 +439,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ArcGIS/">
-                                <span class="chip bg-color">ArcGIS</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                <span class="chip bg-color">计算机图形学</span>
                             </a>
                         
-                            <a href="/tags/%E6%A0%85%E6%A0%BC%E5%B1%9E%E6%80%A7%E8%A1%A8/">
-                                <span class="chip bg-color">栅格属性表</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C#</span>
                             </a>
                         
-                            <a href="/tags/%E6%A0%85%E6%A0%BC%E8%AE%A1%E7%AE%97%E5%99%A8/">
-                                <span class="chip bg-color">栅格计算器</span>
+                            <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
+                                <span class="chip bg-color">种子填色</span>
                             </a>
                         
-                            <a href="/tags/Con%E5%87%BD%E6%95%B0/">
-                                <span class="chip bg-color">Con函数</span>
+                            <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
+                                <span class="chip bg-color">扫描线填色</span>
                             </a>
                         
                     </div>
@@ -463,8 +463,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/GIS/" class="post-category">
-                                GIS
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                计算机图形学
+                            </a>
+                        
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -476,28 +480,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-22
+                    2020-03-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-29
+                    2020-03-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    706
+                    341
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -514,50 +518,29 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>使用工具：</p>
-<p><strong>ArcMap</strong></p>
-<p><strong>栅格计算器-Con函数</strong></p>
-<p>数据：</p>
-<p>土地利用栅格数据</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/arcgis%E6%95%B0%E6%8D%AE.JPG" alt=""></p>
-<hr>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a><strong>目的</strong></h2><p>如何将栅格属性表中的value字段的值“参差不齐”的合并处理呢</p>
-<p>什么意思呢？<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f633.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f633.png?v8">😳</span><br>举个栗子，<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f447.png?v8">👇</span></p>
-<p>在一个土地利用的栅格数据中，</p>
-<p>以全球30米地表覆盖数据（GlobeLand30）为例， 共包括10个类型，分别是：耕地、森林、草地、灌丛地、水体、湿地、苔原、人造覆盖、裸地、冰川与永久积雪。</p>
-<p>若想要将其合并为较少的数据。比如将森林和灌丛地合并，则需要按属性合并。</p>
-<p>做毕业论文的学姐有如下理由：① 类太多作图做表都不合适 ②没有代表性③ 因为全球范围太大了</p>
-<hr>
-<h2 id="重分类"><a href="#重分类" class="headerlink" title="重分类"></a><strong>重分类</strong></h2><p>开始的思路为利用重分类工具。</p>
-<p>发现重分类工具适合连续性分类，比如，1-5合并为0，6-10合并为1这样分类。</p>
-<p>若要1和11合并为0；  2、3、4合并为1，这就有点麻烦了。</p>
-<p>但也有一种思路。</p>
-<p>就是新添加字段，按照需要合并的顺序，将1和11赋值排序，将二者排在第一第二位，这样，可直接利用新字段进行重分类，即可达到目的。</p>
-<p><strong>但是，这样很蠢</strong>，面对数据量很大的情况，立马给跪。</p>
-<p>放弃它！</p>
-<hr>
-<h2 id="Con函数"><a href="#Con函数" class="headerlink" title="Con函数"></a><strong>Con函数</strong></h2><p>Con函数为栅格计算器下的一个工具。</p>
-<p>其正确的语法是：</p>
-<p><strong>Con(判断条件，条件为True区域的栅格输出值，条件为False区域的栅格输出值)</strong></p>
-<p><strong><u>可以嵌套！</u></strong></p>
-<blockquote>
-<p>1.简单用法：<br>Con(in_conditional_raster, true_raster, {false_raster})<br>2.嵌套（多条件）：<br>OutRas = Con(InRas1 &lt; 5, Sin(InRas1), Con(InRas1 &lt; 20, Cos(InRas1), Con(InRas1 &gt; 50, 100, 0)))<br>植入布尔运算：<br>OutRas = Con((InRas1 &gt; 5) &amp; (InRas1 &lt; 10), 5, 100)<br>3.多图层，多条件，多语句：<br>OutRas = Con(InRas1 &gt; 23, 5, Con(InRas1 &gt; 20, 12, Con((InRas1 &gt; 2) &amp; (InRas1 &lt; 17), Sin(InRas1), 100)))<br>多图层：<br>OutRas = Con(InRas1 + InRas2 &gt; 7, Sin(InRas1), Cos(InRas2))<br>OutRas2 = Con(InRas1 &lt; 9, InRas1 * InRas2 + Tan(InRas3), Cos(InRas1))</p>
+                <hr>
+<h1 id="一、区域填充算法"><a href="#一、区域填充算法" class="headerlink" title="一、区域填充算法"></a>一、区域填充算法</h1><h2 id="分为两大类："><a href="#分为两大类：" class="headerlink" title="分为两大类："></a><strong>分为两大类：</strong></h2><h3 id="1、种子填色算法-Seed-Filling"><a href="#1、种子填色算法-Seed-Filling" class="headerlink" title="1、种子填色算法(Seed Filling)"></a>1、种子填色算法(Seed Filling)</h3><blockquote>
+<p>这类算法建立在多边形边边界的图象形式数据之上，并还需提供多边形界内一点的坐标。所以，它一般只能用于人机交互填色，而难以用于程序填色。</p>
 </blockquote>
-<p><strong>参数如下</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/arcgis%E6%A0%85%E6%A0%BC%E8%AE%A1%E7%AE%97%E5%99%A8.JPG" alt=""></p>
-<p>公式如下</p>
-<blockquote>
-<p>rastercalc6=Con(“landuse_2001.tif” == 0 | 11,0,Con(“landuse_2001.tif” ==1 | 2 | 3 | 4 | 5 ,1,Con(“landuse_2001.tif” == 6 | 7 | 8 | 9 | 10,2,Con(“landuse_2001.tif” == 12 | 14,3,Con(“landuse_2001.tif” == 13,4,5)))))</p>
+<p>GIS中用于栅格填色</p>
+<h3 id="2、扫描线填色算法-Scan-Line-Filling"><a href="#2、扫描线填色算法-Scan-Line-Filling" class="headerlink" title="2、扫描线填色算法(Scan-Line Filling)"></a>2、扫描线填色算法(Scan-Line Filling)</h3><blockquote>
+<p>这类算法建立在多边形边边界的矢量形式数据之上，可用于程序填色，也可用交互填色。</p>
 </blockquote>
-<blockquote>
-<p>更正：以上错误了</p>
-<p>rastercalc1=Con((“landuse_2001.tif” == 0) | (“landuse_2001.tif” == 11),1,Con((“landuse_2001.tif” &gt;= 1) &amp; (“landuse_2001.tif” &lt;= 5),2,Con((“landuse_2001.tif” &gt;= 6) &amp; (“landuse_2001.tif” &lt;= 10),3,Con((“landuse_2001.tif” == 12) | (“landuse_2001.tif” == 14),4,Con(“landuse_2001.tif” == 13,5,Con((“landuse_2001.tif” == 15) | (“landuse_2001.tif” == 16),6,7))))))</p>
+<hr>
+<h1 id="二、种子填色算法-Seed-Filling"><a href="#二、种子填色算法-Seed-Filling" class="headerlink" title="二、种子填色算法(Seed Filling)"></a>二、种子填色算法(Seed Filling)</h1><blockquote>
+<p>种子填色又称边界填色（Boundary Filling）。</p>
+<p>它的功能是：给出多边形光栅化后的边界位置及边界色代码boundary，以及多边形之内的一点x, y位置，要求将颜色color填满多边形。 </p>
 </blockquote>
-<p>【注意】<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f44a.png?v8">👊</span></p>
-<p>公式中的rastercalc6，即要和输出栅格的名称一致。</p>
-<p>时刻树立数据库意识。在数据库中处理数据。</p>
-<p>结果如下，</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/arcgis%E7%BB%93%E6%9E%9C.JPG" alt=""></p>
+<h2 id="算法分类"><a href="#算法分类" class="headerlink" title="算法分类"></a>算法分类</h2><p>分为四邻法（4-connected）和八邻法。 </p>
+<p>C#实现</p>
+<p>种子填充更适合用于栅格像元填色，知识有限。暂且用GDL+的矢量像元代替。</p>
+<p>算法流程思路</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span>自认为很棒的思路哈哈哈~<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2Seed%E6%B5%81%E7%A8%8B.jpg" alt=""></p>
+<p>代码实现(很奇葩的思路 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60c.png?v8">😌</span> )</p>
+<p>hhhhhh……</p>
+<p>运行结果</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C0.gif" alt=""></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -601,7 +584,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/02/22/zha-ge-shu-xing-biao-chu-li/">https://lishiyu.vip/2020/02/22/zha-ge-shu-xing-biao-chu-li/</a>
+                    <a href="https://lishiyu.vip/2020/03/14/qu-yu-tian-chong-suan-fa/">https://lishiyu.vip/2020/03/14/qu-yu-tian-chong-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,20 +622,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ArcGIS/">
-                                    <span class="chip bg-color">ArcGIS</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                                    <span class="chip bg-color">计算机图形学</span>
                                 </a>
                             
-                                <a href="/tags/%E6%A0%85%E6%A0%BC%E5%B1%9E%E6%80%A7%E8%A1%A8/">
-                                    <span class="chip bg-color">栅格属性表</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C#</span>
                                 </a>
                             
-                                <a href="/tags/%E6%A0%85%E6%A0%BC%E8%AE%A1%E7%AE%97%E5%99%A8/">
-                                    <span class="chip bg-color">栅格计算器</span>
+                                <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
+                                    <span class="chip bg-color">种子填色</span>
                                 </a>
                             
-                                <a href="/tags/Con%E5%87%BD%E6%95%B0/">
-                                    <span class="chip bg-color">Con函数</span>
+                                <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
+                                    <span class="chip bg-color">扫描线填色</span>
                                 </a>
                             
                         </div>
@@ -1081,49 +1064,63 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/25/plot/">
+                <a href="/2020/03/14/qu-yu-tian-chong-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Ryiqing.JPG" class="responsive-img" alt="Plot">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/6.jpg" class="responsive-img" alt="区域填充算法">
                         
-                        <span class="card-title">Plot</span>
+                        <span class="card-title">区域填充算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Plot函数
+                            计算机图形学中种子填色(Seed Filling)算法、扫描线填色(Scan-Line Filling)算法
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/R/" class="post-category">
-                                    R
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    计算机图形学
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Plot%E5%87%BD%E6%95%B0/">
-                        <span class="chip bg-color">Plot函数</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                        <span class="chip bg-color">计算机图形学</span>
                     </a>
                     
-                    <a href="/tags/R/">
-                        <span class="chip bg-color">R</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
+                        <span class="chip bg-color">种子填色</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
+                        <span class="chip bg-color">扫描线填色</span>
                     </a>
                     
                 </div>
@@ -1137,27 +1134,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/21/wei-tuo/">
+                <a href="/2020/03/04/zhong-dian-hua-yuan-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/bannergjh.jpg" class="responsive-img" alt="委托">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-13738e5d68444eb.gif" class="responsive-img" alt="中点画圆算法">
                         
-                        <span class="card-title">委托</span>
+                        <span class="card-title">中点画圆算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            委托
+                            中点画圆法、圆弧扫描算法以及角度DDA法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    计算机图形学
+                                </a>
                             
                             <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
                                     算法
@@ -1170,12 +1171,20 @@
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                        <span class="chip bg-color">计算机图形学</span>
+                    </a>
+                    
+                    <a href="/tags/DDA/">
+                        <span class="chip bg-color">DDA</span>
+                    </a>
+                    
                     <a href="/tags/C/">
                         <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/%E5%A7%94%E6%89%98/">
-                        <span class="chip bg-color">委托</span>
+                    <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
+                        <span class="chip bg-color">中点画圆法</span>
                     </a>
                     
                 </div>

@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>区域填充算法</title>
+      <link href="/2020/03/14/qu-yu-tian-chong-suan-fa/"/>
+      <url>/2020/03/14/qu-yu-tian-chong-suan-fa/</url>
+      
+        <content type="html"><![CDATA[<hr><h1 id="一、区域填充算法"><a href="#一、区域填充算法" class="headerlink" title="一、区域填充算法"></a>一、区域填充算法</h1><h2 id="分为两大类："><a href="#分为两大类：" class="headerlink" title="分为两大类："></a><strong>分为两大类：</strong></h2><h3 id="1、种子填色算法-Seed-Filling"><a href="#1、种子填色算法-Seed-Filling" class="headerlink" title="1、种子填色算法(Seed Filling)"></a>1、种子填色算法(Seed Filling)</h3><blockquote><p>这类算法建立在多边形边边界的图象形式数据之上，并还需提供多边形界内一点的坐标。所以，它一般只能用于人机交互填色，而难以用于程序填色。</p></blockquote><p>GIS中用于栅格填色</p><h3 id="2、扫描线填色算法-Scan-Line-Filling"><a href="#2、扫描线填色算法-Scan-Line-Filling" class="headerlink" title="2、扫描线填色算法(Scan-Line Filling)"></a>2、扫描线填色算法(Scan-Line Filling)</h3><blockquote><p>这类算法建立在多边形边边界的矢量形式数据之上，可用于程序填色，也可用交互填色。</p></blockquote><hr><h1 id="二、种子填色算法-Seed-Filling"><a href="#二、种子填色算法-Seed-Filling" class="headerlink" title="二、种子填色算法(Seed Filling)"></a>二、种子填色算法(Seed Filling)</h1><blockquote><p>种子填色又称边界填色（Boundary Filling）。</p><p>它的功能是：给出多边形光栅化后的边界位置及边界色代码boundary，以及多边形之内的一点x, y位置，要求将颜色color填满多边形。 </p></blockquote><h2 id="算法分类"><a href="#算法分类" class="headerlink" title="算法分类"></a>算法分类</h2><p>分为四邻法（4-connected）和八邻法。 </p><p>C#实现</p><p>种子填充更适合用于栅格像元填色，知识有限。暂且用GDL+的矢量像元代替。</p><p>算法流程思路</p><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span>自认为很棒的思路哈哈哈~<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2Seed%E6%B5%81%E7%A8%8B.jpg" alt=""></p><p>代码实现(很奇葩的思路 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60c.png?v8">😌</span> )</p><p>hhhhhh……</p><p>运行结果</p><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C0.gif" alt=""></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机图形学 </category>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机图形学 </tag>
+            
+            <tag> C# </tag>
+            
+            <tag> 种子填色 </tag>
+            
+            <tag> 扫描线填色 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>中点画圆算法</title>
       <link href="/2020/03/04/zhong-dian-hua-yuan-suan-fa/"/>
       <url>/2020/03/04/zhong-dian-hua-yuan-suan-fa/</url>
@@ -25,8 +58,6 @@
             <tag> 计算机图形学 </tag>
             
             <tag> DDA </tag>
-            
-            <tag> GDI+ </tag>
             
             <tag> C# </tag>
             
@@ -58,8 +89,6 @@
         <tags>
             
             <tag> 计算机图形学 </tag>
-            
-            <tag> GDI+ </tag>
             
             <tag> C# </tag>
             
