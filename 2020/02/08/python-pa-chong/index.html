@@ -479,21 +479,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-20
+                    2020-03-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.9k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    19 分
+                    21 分
                 </div>
                 
 
@@ -995,6 +995,54 @@ b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
 <p><tag>(..) 等价于 .find_all(..)<br>soup(..) 等价于 soup.find_all(..)</tag></p>
 </blockquote>
 <h4 id="七个扩展方法"><a href="#七个扩展方法" class="headerlink" title="七个扩展方法"></a>七个扩展方法</h4><p>&lt;&gt;.find() 搜索且只返回一个结果，同.find_all()参数<br>&lt;&gt;.find_parents() 在先辈节点中搜索，返回列表类型，同.find_all()参数<br>&lt;&gt;.find_parent() 在先辈节点中返回一个结果，同.find()参数<br>&lt;&gt;.find_next_siblings() 在后续平行节点中搜索，返回列表类型，同.find_all()参数<br>&lt;&gt;.find_next_sibling() 在后续平行节点中返回一个结果，同.find()参数<br>&lt;&gt;.find_previous_siblings() 在前序平行节点中搜索，返回列表类型，同.find_all()参数<br>&lt;&gt;.find_previous_sibling() 在前序平行节点中返回一个结果，同.find()参数</p>
+<hr>
+<h2 id="中国大学排名爬取实例"><a href="#中国大学排名爬取实例" class="headerlink" title="中国大学排名爬取实例"></a>中国大学排名爬取实例</h2><h3 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> requests
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">import</span> bs4
+
+<span class="token comment" spellcheck="true">#getHTMLText函数获取url链接，返回该链接的HTML内容</span>
+<span class="token keyword">def</span> <span class="token function">getHTMLText</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        r<span class="token operator">=</span>requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span>timeout<span class="token operator">=</span><span class="token number">30</span><span class="token punctuation">)</span>
+        r<span class="token punctuation">.</span>raise_for_status<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        r<span class="token punctuation">.</span>encoding<span class="token operator">=</span>r<span class="token punctuation">.</span>apparent_encoding
+        <span class="token keyword">return</span> r<span class="token punctuation">.</span>text
+    <span class="token keyword">except</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">"url获取网页失败"</span>
+
+<span class="token comment" spellcheck="true">#fillUnivlist解析出HTML需要的有价值的内容，将其放在一个列表里</span>
+<span class="token keyword">def</span> <span class="token function">fillUnivlist</span><span class="token punctuation">(</span>ulist<span class="token punctuation">,</span> html<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>html<span class="token punctuation">,</span> <span class="token string">"html.parser"</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> tr <span class="token keyword">in</span> soup<span class="token punctuation">.</span>find<span class="token punctuation">(</span><span class="token string">'tbody'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>children<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> isinstance<span class="token punctuation">(</span>tr<span class="token punctuation">,</span> bs4<span class="token punctuation">.</span>element<span class="token punctuation">.</span>Tag<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            tds <span class="token operator">=</span> tr<span class="token punctuation">(</span><span class="token string">'td'</span><span class="token punctuation">)</span>
+            ulist<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>tds<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>string<span class="token punctuation">,</span> tds<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>string<span class="token punctuation">,</span> tds<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">.</span>string<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#输出结果。将列表输出。</span>
+<span class="token keyword">def</span> <span class="token function">printUnivList</span><span class="token punctuation">(</span>ulist<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token comment" spellcheck="true">#\t表示空四个字符，也称缩进，相当于按一下Tab键</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:^10}\t{:^6}\t{:^10}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span><span class="token string">"排名"</span><span class="token punctuation">,</span> <span class="token string">"学校名称"</span><span class="token punctuation">,</span> <span class="token string">"总分"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        u <span class="token operator">=</span> ulist<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"{:^10}\t{:^6}\t{:^10}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>u<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> u<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> u<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#调用函数</span>
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    uinfo <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    url <span class="token operator">=</span> <span class="token string">'http://www.zuihaodaxue.com/zuihaodaxuepaiming2019.html'</span>
+    html <span class="token operator">=</span> getHTMLText<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
+    fillUnivlist<span class="token punctuation">(</span>uinfo<span class="token punctuation">,</span> html<span class="token punctuation">)</span>
+    printUnivList<span class="token punctuation">(</span>uinfo<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">#使用主函数</span>
+main<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><a href="http://www.zuihaodaxue.com/zuihaodaxuepaiming2019.html" target="_blank" rel="noopener">http://www.zuihaodaxue.com/zuihaodaxuepaiming2019.html</a></p>
+</blockquote>
+<p>查看其网页源代码</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/python%E4%B8%AD%E5%9B%BD%E5%A4%A7%E5%AD%A6%E6%8E%92%E5%90%8D.JPG" alt=""></p>
+<p>……</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1038,7 +1086,7 @@ b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/02/08/beautifulsoup-ku/">https://lishiyu.vip/2020/02/08/beautifulsoup-ku/</a>
+                    <a href="https://lishiyu.vip/2020/02/08/python-pa-chong/">https://lishiyu.vip/2020/02/08/python-pa-chong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1745,7 +1793,7 @@ b<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">17.3k</span>&nbsp;字
+                class="white-color">17.6k</span>&nbsp;字
             
             
             
@@ -1962,6 +2010,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
