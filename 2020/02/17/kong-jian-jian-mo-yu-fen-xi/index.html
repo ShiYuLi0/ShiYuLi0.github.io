@@ -471,21 +471,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-10
+                    2020-03-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6k
+                    6.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    27 分
+                    28 分
                 </div>
                 
 
@@ -875,7 +875,35 @@ system("tree")
 #   ├─气温
 #    └─降水
 #[1] 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<hr>
+<h3 id="10、时间-amp-计算运算效率"><a href="#10、时间-amp-计算运算效率" class="headerlink" title="10、时间&amp;计算运算效率"></a>10、时间&amp;计算运算效率</h3><h4 id="①proc-time"><a href="#①proc-time" class="headerlink" title="①proc.time()"></a>①proc.time()</h4><pre class="line-numbers language-R"><code class="language-R">
+#计算代码运行时间,设置t1为开始时间
+t1<-proc.time()
+
+……
+……代码块
+……
+
+t2<-proc.time()
+t=t2-t1
+print(paste0("运行时间为 ",t[3][[1]],' 秒')) #不清楚t[3][[1]]什么含义<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="②date-、Sys-time-和difftime"><a href="#②date-、Sys-time-和difftime" class="headerlink" title="②date()、Sys.time()和difftime()"></a>②date()、Sys.time()和difftime()</h4><pre class="line-numbers language-R"><code class="language-R">> #有关时间运算----
+> #第一种
+> date()
+[1] "Mon Mar 16 22:21:13 2020"
+> 
+> m1=Sys.time()
+> m1
+[1] "2020-03-16 22:21:13 CST"
+> m2=Sys.time()
+> difftime(m1,m2,units = "auto") #时间差
+Time difference of -0.1538639 secs
+> 
+> t2<-proc.time()
+> t2
+  用户   系统   流逝 
+  3.59   0.76 203.90<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="11、source"><a href="#11、source" class="headerlink" title="11、source()"></a>11、source()</h3><p>引用并运行其他位置的代码文件</p>
+<pre><code>source("B:/Temps/降水年总和批量输出.R",encoding='GB18030')</code></pre><hr>
 <h2 id="二、Plots图表"><a href="#二、Plots图表" class="headerlink" title="二、Plots图表"></a>二、Plots图表</h2><h3 id="读取数据文件"><a href="#读取数据文件" class="headerlink" title="读取数据文件"></a>读取数据文件</h3><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token operator">></span> data<span class="token operator">=</span>read.csv<span class="token punctuation">(</span><span class="token string">"B:/Temp1/高考.csv"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#读取csv数据,还有read.table</span>
 <span class="token operator">></span> data   <span class="token comment" spellcheck="true">#查看数据</span>
@@ -2150,7 +2178,7 @@ print("Succeeded! 完成各年最高气温平均计算")<span aria-hidden="true"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">17.2k</span>&nbsp;字
+                class="white-color">17.3k</span>&nbsp;字
             
             
             
@@ -2367,6 +2395,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
 
 </html>
