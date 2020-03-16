@@ -487,21 +487,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-14
+                    2020-03-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    341
+                    864
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -532,15 +532,93 @@
 <p>它的功能是：给出多边形光栅化后的边界位置及边界色代码boundary，以及多边形之内的一点x, y位置，要求将颜色color填满多边形。 </p>
 </blockquote>
 <h2 id="算法分类"><a href="#算法分类" class="headerlink" title="算法分类"></a>算法分类</h2><p>分为四邻法（4-connected）和八邻法。 </p>
-<p>C#实现</p>
-<p>种子填充更适合用于栅格像元填色，知识有限。暂且用GDL+的矢量像元代替。</p>
-<p>算法流程思路</p>
-<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span>自认为很棒的思路哈哈哈~<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p>
+<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C#实现"></a>C#实现</h3><p>种子填充更适合用于栅格像元填色，知识有限。暂且用GDL+的矢量像元代替。</p>
+<h4 id="算法流程思路"><a href="#算法流程思路" class="headerlink" title="算法流程思路"></a>算法流程思路</h4><p>:satisfied:自认为很棒的思路哈哈哈~:laughing:</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2Seed%E6%B5%81%E7%A8%8B.jpg" alt=""></p>
-<p>代码实现(很奇葩的思路 <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60c.png?v8">😌</span> )</p>
+<h4 id="代码实现-很巧-qi-妙-pa-的思路-relieved"><a href="#代码实现-很巧-qi-妙-pa-的思路-relieved" class="headerlink" title="代码实现(很巧(qi)妙(pa)的思路 :relieved: )"></a>代码实现(很巧(qi)妙(pa)的思路 :relieved: )</h4><h5 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h5><ol>
+<li><p>需要填充颜色的图形的边界颜色:rainbow:</p>
+</li>
+<li><p>需要填充的颜色是什么:rainbow:</p>
+</li>
+<li><p>种子点，即填充图形内部中尚未填充颜色的任意一点，也是填充的起始点。:eight_pointed_black_star:</p>
+<p>(星星之火:fire:可以燎原呐~ )</p>
+</li>
+</ol>
+<h5 id="具体思路"><a href="#具体思路" class="headerlink" title="具体思路"></a>具体思路</h5><p>利用中点画圆算法(中点画圆算法文章中已详细阐述)，画两个圆。</p>
+<ul>
+<li>第一个圆为目标填充圆，即，需要填充颜色的圆。</li>
+<li>第二个圆为取色圆，取其边界颜色，将其作为第一个圆填充的颜色。</li>
+</ul>
+<p>其实要定义第一个圆的填充颜色，亦可用交互方式来定义，即用户自定义颜色。有点麻烦，不想搞那么花里胡哨的了。</p>
+<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><p>硬核算法部分</p>
+<pre class="line-numbers language-c#"><code class="language-c#">using System.Drawing;
+
+namespace scan
+{
+    partial class Form1
+    {
+        public static void seedfill(Color boundcolor,Point pointseed,Color fillcolor,Bitmap bitmap)
+        {
+            //取出种子点(需要填充的图形边界内一点)的颜色
+            Color c = bitmap.GetPixel(pointseed.X, pointseed.Y);
+
+            //四邻法，对种子点的颜色进行判断。
+            if (c!=fillcolor && c!=boundcolor)
+            {
+                bitmap.SetPixel(pointseed.X, pointseed.Y, fillcolor);
+                seedfill(boundcolor, new Point(pointseed.X, pointseed.Y + 1), fillcolor, bitmap);
+                seedfill(boundcolor, new Point(pointseed.X, pointseed.Y - 1), fillcolor, bitmap);
+                seedfill(boundcolor, new Point(pointseed.X + 1, pointseed.Y), fillcolor, bitmap);
+                seedfill(boundcolor, new Point(pointseed.X - 1, pointseed.Y), fillcolor, bitmap);
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用部分</p>
+<pre class="line-numbers language-c#"><code class="language-c#">using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace scan
+{
+    public partial class Form1 : Form
+    {
+        Graphics graphics;
+        Bitmap bitmap;
+        public Form1()
+        {
+            InitializeComponent();
+            graphics = panel1.CreateGraphics();
+            bitmap = new Bitmap(panel1.Width, panel1.Height);
+        }
+        private void ButtonDraw_Click(object sender, EventArgs e)
+        {
+            //第一个圆为填充图形
+            circle(100, 100, 30, Color.Red);
+
+            //第二个圆为取色图形
+            circle(290, 200, 10, Color.Blue);
+
+            graphics.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
+        }
+        private void ButtonFill_Click(object sender, EventArgs e)
+        {
+            //填充开始的点(种子点)，为第一个圆的圆心。
+            Point point = new Point(100, 100);
+
+            //参数1图形边界颜色：取点(100,90)。
+            //参数2开始填充的种子点：point(100,100).其为圆心。
+            //参数3想要填充的颜色：取自第二个圆的边界颜色，即点(200,190)。
+            //参数4在bitmap上进行操作。
+            seedfill(bitmap.GetPixel(100, 70), point, bitmap.GetPixel(290, 190), bitmap);
+            graphics.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
+        }
+    }
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>hhhhhh……</p>
-<p>运行结果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C0.gif" alt=""></p>
+<h5 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C0.gif" alt=""></p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1064,63 +1142,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/03/14/qu-yu-tian-chong-suan-fa/">
+                <a href="/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/6.jpg" class="responsive-img" alt="区域填充算法">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis编辑器内圆角工具.gif" class="responsive-img" alt="ArcGIS编辑器及其高级编辑">
                         
-                        <span class="card-title">区域填充算法</span>
+                        <span class="card-title">ArcGIS编辑器及其高级编辑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计算机图形学中种子填色(Seed Filling)算法、扫描线填色(Scan-Line Filling)算法
+                            ArcGIS编辑器、高级编辑
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-14
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                    计算机图形学
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/GIS/" class="post-category">
+                                    GIS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                        <span class="chip bg-color">计算机图形学</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
-                        <span class="chip bg-color">种子填色</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
-                        <span class="chip bg-color">扫描线填色</span>
+                    <a href="/tags/ArcGIS/">
+                        <span class="chip bg-color">ArcGIS</span>
                     </a>
                     
                 </div>
@@ -1329,7 +1389,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">16.4k</span>&nbsp;字
+                class="white-color">17.2k</span>&nbsp;字
             
             
             
@@ -1546,6 +1606,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>

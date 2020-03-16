@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GitHub使用小技巧, 世昱">
-    <meta name="description" content="总结一些零碎的GitHub小知识">
+    <meta name="keywords" content="ArcGIS编辑器及其高级编辑, 世昱">
+    <meta name="description" content="ArcGIS编辑器、高级编辑">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>GitHub使用小技巧 | 世昱</title>
+    <title>ArcGIS编辑器及其高级编辑 | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -317,12 +317,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis编辑器内圆角工具.gif')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">GitHub使用小技巧</h1>
+                    <h1 class="description center-align post-title">ArcGIS编辑器及其高级编辑</h1>
                 </div>
             </div>
         </div>
@@ -439,8 +439,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/GitHub/">
-                                <span class="chip bg-color">GitHub</span>
+                            <a href="/tags/ArcGIS/">
+                                <span class="chip bg-color">ArcGIS</span>
                             </a>
                         
                     </div>
@@ -451,8 +451,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/GitHub/" class="post-category">
-                                GitHub
+                            <a href="/categories/GIS/" class="post-category">
+                                GIS
                             </a>
                         
                     </div>
@@ -464,21 +464,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-14
+                    2020-03-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-02-15
+                    2020-03-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    402
+                    305
                 </div>
                 
 
@@ -502,29 +502,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="GitHub小技巧"><a href="#GitHub小技巧" class="headerlink" title="GitHub小技巧"></a>GitHub小技巧</h1><h2 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h2><p>想在README.md里面插入项目的截图,<br>插入图片的关键就是知道README.md的链接规则,当在README.md中插入链接时可以插入相对路径,这是通用的适用于所有链接<br>例如:<br> <code>![图片](a.png)</code>:显示项目中的 /a.png</p>
-<p><code>![图片b](/screenshots/b.png)</code>显示项目中的 /screenshots/b.png </p>
-<p>“<a href=""></a>“ :”[]”中为名称，‘“()”中为链接地址。显示一个链接到其他地址的链接</p>
-<h2 id="GitHub搜索"><a href="#GitHub搜索" class="headerlink" title="GitHub搜索"></a>GitHub搜索</h2><ol>
-<li><p>搜索名字中带着spring boot，stars数超过3000的仓库</p>
-<pre><code> in:name spring boot stars:&gt;3000</code></pre></li>
-<li><p>搜索名字中带着spring boot，stars数超过3000，forks数超过300的仓库</p>
-<pre><code> in:name spring boot stars:&gt;3000 forks:&gt;300</code></pre></li>
-<li><p>搜索readme中带spring boot的仓库</p>
-<pre><code> in:readme spring boot</code></pre></li>
-<li><p>搜索描述中带有“微服务”关键词，语言为Java，pushed，最新日期要在2019-09-10之后</p>
-<pre><code> in:description 微服务 language:java pushed:&gt;2019-09-10</code></pre></li>
+                <hr>
+<h2 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h2><p><strong>之前被这工具搞得死去活来</strong>，特别是高级编辑工具<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">😭</span>，这次主要是填坑<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f573.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f573.png?v8">🕳</span> <span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f624.png?v8">😤</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a2.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a2.png?v8">💢</span></p>
+<p>当然，还没完全填完……</p>
+<h1 id="一、编辑器-sparkling-heart"><a href="#一、编辑器-sparkling-heart" class="headerlink" title="一、编辑器:sparkling_heart:"></a>一、编辑器<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f496.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f496.png?v8">💖</span></h1><h2 id="移动点工具"><a href="#移动点工具" class="headerlink" title="移动点工具"></a>移动点工具</h2><p><strong>相对移动</strong>，指定x、y坐标的增量。省略不写。</p>
+<h2 id="分割工具"><a href="#分割工具" class="headerlink" title="分割工具"></a>分割工具</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%88%86%E5%89%B2.gif" alt=""></p>
+<h2 id="构造点工具"><a href="#构造点工具" class="headerlink" title="构造点工具"></a>构造点工具</h2><p><strong>需要的要素：</strong></p>
+<ol>
+<li>线</li>
+<li>点(用于存放点，总得有个落脚的地方吧~)<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f445.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f445.png?v8">👅</span></li>
 </ol>
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="1-添加提交"><a href="#1-添加提交" class="headerlink" title="1. 添加提交"></a>1. 添加提交</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init
-<span class="token function">git</span> remote add origin 你新建仓库的HTTP或者SSH地址链接
-<span class="token function">git</span> pull origin master <span class="token comment" spellcheck="true">#将仓库拉取到本地文件夹</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> add <span class="token keyword">.</span>    <span class="token comment" spellcheck="true">#(.表示所有的)</span>
-<span class="token function">git</span> commit -m <span class="token string">'添加文件内容描述'</span> 
-<span class="token function">git</span> push origin master   <span class="token comment" spellcheck="true">#将本地仓库文件推送到GitHub新建的仓库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-添加远程关联仓库"><a href="#2-添加远程关联仓库" class="headerlink" title="2. 添加远程关联仓库"></a>2. 添加远程关联仓库</h3><pre class="line-numbers language-csharp"><code class="language-csharp">$ git remote <span class="token keyword">add</span> origin https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>guanpengchn<span class="token operator">/</span>demo<span class="token punctuation">.</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="3-查看远程关联"><a href="#3-查看远程关联" class="headerlink" title="3. 查看远程关联"></a>3. 查看远程关联</h3><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">git</span> remote -v
-origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
-origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>步骤：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E6%9E%84%E9%80%A0%E7%82%B9.gif" alt=""></p>
+<h2 id="平行复制工具"><a href="#平行复制工具" class="headerlink" title="平行复制工具"></a>平行复制工具</h2><p>①选中线</p>
+<p>②选择平行复制工具</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%B9%B3%E8%A1%8C%E5%A4%8D%E5%88%B6.gif" alt=""></p>
+<h2 id="整型要素工具"><a href="#整型要素工具" class="headerlink" title="整型要素工具"></a>整型要素工具</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E6%95%B4%E5%9E%8B%E8%A6%81%E7%B4%A0%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<h2 id="裁剪面工具"><a href="#裁剪面工具" class="headerlink" title="裁剪面工具"></a>裁剪面工具</h2><p>①选中所要切割的面要素</p>
+<p>②选择裁剪面工具</p>
+<p>③进行裁剪</p>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/270c.png?v8">✌</span></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E8%A3%81%E5%89%AA%E9%9D%A2%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<h2 id="分割工具-1"><a href="#分割工具-1" class="headerlink" title="分割工具"></a>分割工具</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%88%86%E5%89%B2%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<hr>
+<h1 id="二、高级编辑-full-moon-with-face"><a href="#二、高级编辑-full-moon-with-face" class="headerlink" title="二、高级编辑:full_moon_with_face:"></a>二、高级编辑<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31d.png?v8">🌝</span></h1><h2 id="复制要素工具"><a href="#复制要素工具" class="headerlink" title="复制要素工具"></a>复制要素工具</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%A4%8D%E5%88%B6%E8%A6%81%E7%B4%A0%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<h2 id="内圆角工具-star2"><a href="#内圆角工具-star2" class="headerlink" title="内圆角工具:star2:"></a>内圆角工具<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f31f.png?v8">🌟</span></h2><p><strong>神奇的发现，神奇的工具</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%86%85%E5%9C%86%E8%A7%92%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<h2 id="延伸工具"><a href="#延伸工具" class="headerlink" title="延伸工具"></a>延伸工具</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%BB%B6%E4%BC%B8%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<h2 id="修剪工具"><a href="#修剪工具" class="headerlink" title="修剪工具"></a>修剪工具</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E4%BF%AE%E5%89%AA%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<h2 id="线相交-坑还在-cry"><a href="#线相交-坑还在-cry" class="headerlink" title="线相交(坑还在:cry: )"></a>线相交(坑还在<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">😢</span> )</h2><h2 id="构造大地要素"><a href="#构造大地要素" class="headerlink" title="构造大地要素"></a>构造大地要素</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%A4%A7%E5%9C%B0.gif" alt=""></p>
+<h2 id="对齐至形状-sob"><a href="#对齐至形状-sob" class="headerlink" title="对齐至形状:sob:"></a>对齐至形状<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62d.png?v8">😭</span></h2><p>……</p>
+<h2 id="替换几何工具"><a href="#替换几何工具" class="headerlink" title="替换几何工具"></a>替换几何工具</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E6%9B%BF%E6%8D%A2%E5%87%A0%E4%BD%95%E5%B7%A5%E5%85%B7.gif" alt=""></p>
+<h2 id="构造面"><a href="#构造面" class="headerlink" title="构造面"></a>构造面</h2><h3 id="线要素未完全封闭状态"><a href="#线要素未完全封闭状态" class="headerlink" title="线要素未完全封闭状态"></a>线要素未完全封闭状态</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E6%9E%84%E9%80%A0%E9%9D%A20.gif" alt=""></p>
+<h3 id="线要素完全封闭状态"><a href="#线要素完全封闭状态" class="headerlink" title="线要素完全封闭状态"></a>线要素完全封闭状态</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E6%9E%84%E9%80%A0%E9%9D%A21.gif" alt=""></p>
+<h2 id="分割面"><a href="#分割面" class="headerlink" title="分割面"></a>分割面</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis%E7%BC%96%E8%BE%91%E5%99%A8%E5%88%86%E5%89%B2%E9%9D%A2.gif" alt=""></p>
+<h2 id="打断相交线-tired-face"><a href="#打断相交线-tired-face" class="headerlink" title="打断相交线:tired_face:"></a><strong>打断相交线</strong><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f62b.png?v8">😫</span></h2><p>……</p>
+<h2 id="ScreenToGif-film-projector"><a href="#ScreenToGif-film-projector" class="headerlink" title="ScreenToGif:film_projector:"></a><strong>ScreenToGif<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4fd.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4fd.png?v8">📽</span></strong></h2><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/octocat.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/octocat.png?v8"> </span></p>
+<p>力推ScreenToGif，很棒的GIF录制软件</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -568,7 +582,7 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/02/14/github-shi-yong-xiao-ji-qiao/">https://lishiyu.vip/2020/02/14/github-shi-yong-xiao-ji-qiao/</a>
+                    <a href="https://lishiyu.vip/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/">https://lishiyu.vip/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -606,8 +620,8 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/GitHub/">
-                                    <span class="chip bg-color">GitHub</span>
+                                <a href="/tags/ArcGIS/">
+                                    <span class="chip bg-color">ArcGIS</span>
                                 </a>
                             
                         </div>
@@ -1036,45 +1050,47 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/17/kong-jian-jian-mo-yu-fen-xi/">
+                <a href="/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.gif" class="responsive-img" alt="空间建模与分析">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/arcgis编辑器内圆角工具.gif" class="responsive-img" alt="ArcGIS编辑器及其高级编辑">
                         
-                        <span class="card-title">空间建模与分析</span>
+                        <span class="card-title">ArcGIS编辑器及其高级编辑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            R
+                            ArcGIS编辑器、高级编辑
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/R/" class="post-category">
-                                    R
+                            <a href="/categories/GIS/" class="post-category">
+                                    GIS
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/R/">
-                        <span class="chip bg-color">R</span>
+                    <a href="/tags/ArcGIS/">
+                        <span class="chip bg-color">ArcGIS</span>
                     </a>
                     
                 </div>
@@ -1088,30 +1104,34 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/08/beautifulsoup-ku/">
+                <a href="/2020/03/14/qu-yu-tian-chong-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/1.jpg" class="responsive-img" alt="Python爬虫">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/6.jpg" class="responsive-img" alt="区域填充算法">
                         
-                        <span class="card-title">Python爬虫</span>
+                        <span class="card-title">区域填充算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python爬虫笔记
+                            计算机图形学中种子填色(Seed Filling)算法、扫描线填色(Scan-Line Filling)算法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-14
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
+                                    计算机图形学
+                                </a>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -1121,16 +1141,20 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
+                        <span class="chip bg-color">计算机图形学</span>
                     </a>
                     
-                    <a href="/tags/BeautifulSoup/">
-                        <span class="chip bg-color">BeautifulSoup</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C#</span>
                     </a>
                     
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
+                        <span class="chip bg-color">种子填色</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
+                        <span class="chip bg-color">扫描线填色</span>
                     </a>
                     
                 </div>
@@ -1275,7 +1299,7 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">16.4k</span>&nbsp;字
+                class="white-color">17.2k</span>&nbsp;字
             
             
             
@@ -1492,6 +1516,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
