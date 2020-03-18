@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="中点画圆算法, 世昱">
-    <meta name="description" content="中点画圆法、圆弧扫描算法以及角度DDA法">
+    <meta name="keywords" content="ggplot, 世昱">
+    <meta name="description" content="ggplot函数！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>中点画圆算法 | 世昱</title>
+    <title>ggplot | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -317,12 +317,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-13738e5d68444eb.gif')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/ggplotTest2.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">中点画圆算法</h1>
+                    <h1 class="description center-align post-title">ggplot</h1>
                 </div>
             </div>
         </div>
@@ -439,20 +439,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                                <span class="chip bg-color">计算机图形学</span>
+                            <a href="/tags/R/">
+                                <span class="chip bg-color">R</span>
                             </a>
                         
-                            <a href="/tags/DDA/">
-                                <span class="chip bg-color">DDA</span>
-                            </a>
-                        
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C#</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
-                                <span class="chip bg-color">中点画圆法</span>
+                            <a href="/tags/ggplot/">
+                                <span class="chip bg-color">ggplot</span>
                             </a>
                         
                     </div>
@@ -463,12 +455,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                计算机图形学
-                            </a>
-                        
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/R/" class="post-category">
+                                R
                             </a>
                         
                     </div>
@@ -480,21 +468,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-04
+                    2020-03-18
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-14
+                    2020-03-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    437
+                    475
                 </div>
                 
 
@@ -518,176 +506,247 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、中点画圆法"><a href="#一、中点画圆法" class="headerlink" title="一、中点画圆法"></a>一、中点画圆法</h2><h3 id="1、算法分析"><a href="#1、算法分析" class="headerlink" title="1、算法分析"></a>1、算法分析</h3><p>利用圆的对称性，只须讨论1/8圆。</p>
-<p>开局一张图:smile:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDAyuan.JPG" alt=""></p>
-<p>P为当前点亮象素，那么，下一个点亮的象素可能是P1（Xi+1，Yi）或P2（Xi +1，Yi -1)。</p>
+                <h1 id="玫瑰图"><a href="#玫瑰图" class="headerlink" title="玫瑰图"></a>玫瑰图</h1><h2 id="他山之石"><a href="#他山之石" class="headerlink" title="他山之石"></a>他山之石</h2><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/ggplotTest2.png" alt=""></p>
+<h3 id="R实现"><a href="#R实现" class="headerlink" title="R实现"></a>R实现</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("A:/学习材料/R/COG玫瑰图")
+library(ggplot2)
+
+#read.table()--------------------------------------
+#读取数据，seq（3）sep
+#分开数据的分隔符。默认sep=""。
+#read.table()函数可以将1个或多个空格、tab制表符、换行符或回车符作为分隔符。
+f<-read.table("cog_lab", header=T, sep="\t")
+#展示数据
+f
+
+#as.vetor()----------------------------------------
+#is.vector(A)：判断A是否为向量；
+#as.vector(A)：如A是矩阵（数组），as.vector就是将矩阵转化为向量；
+myLabel = as.vector(f$lab)
+
+#添加百分比！(๑•̀ㅂ•́)و✧
+myLabel = paste(myLabel, " (", round(f$mag / sum(f$mag) * 100, 2), "%) ", sep = "")
+
+p<-ggplot(f,
+          aes(x=dir,y=factor(mag),fill=dir)
+          )+
+
+  ## y轴数据直接来自于原始数据框
+  geom_bar(stat='identity')+
+  #极坐标转换：可以做出蜘蛛图或饼图的效果。若不设置则默认柱状图
+  coord_polar()+
+
+  #标注
+  labs(x = "",
+       y = "Number of Unigenes",
+       title = "COG Function Classification of Unigene Sequence")+
+
+  #axis.ticks坐标轴刻度线---------------------
+  theme(axis.ticks = element_blank())+
+  #图例标题-----------------------------------
+  theme(legend.title = element_blank())+
+  #面板背景-----------------------------------
+  theme(panel.background=element_blank())+
+
+  #设置颜色标尺
+  #breaks设置中断
+  #cairo 是一个让用于提供矢量图形绘图的免费库
+  scale_fill_discrete(breaks = f$dir,
+                      labels = myLabel
+                      )
+png("Test1.png",width = 8200,height = 5400,res = 600,type = "cairo")
+p
+dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="控制台及实验数据"><a href="#控制台及实验数据" class="headerlink" title="控制台及实验数据"></a>控制台及实验数据</h3><p>数据已通过 <strong>f</strong> 展示出来。也可以CSV、excel输入。</p>
 <blockquote>
-<p>构造函数：</p>
-<p>F（X，Y）=X2 + Y2 - R2 ；则</p>
-<p>F（X，Y）= 0 （X，Y）在圆上；</p>
-<p>F（X，Y）&lt; 0 （X，Y）在圆内；</p>
-<p>F（X，Y）&gt; 0 （X，Y）在圆外。</p>
-<p>设M为P1、P2间的中点，M=(Xi+1,Yi-1/2)</p>
-<p>有如下结论：</p>
-<p> F（M）&lt; 0 → M在圆内 取P1</p>
-<p> F（M）&gt;= 0 → M在圆外 取P2</p>
+<p>fir为指标</p>
+<p>mag为数据</p>
+<p>lab为标签</p>
 </blockquote>
-<blockquote>
-<p>为此，可采用如下判别式： </p>
-<p>di = F(M) = F (xi + 1,yi – 1/2)</p>
-<p>​        =(xi + 1)2 + (yi - 1/2) 2 - R2 </p>
-<p>若d&lt;0, 则P1 为下一个象素，那么再下一个象素的判别式为：</p>
-<p>​     di+1 = F (xi + 2, yi – 1/2)</p>
-<p>​       = (xi + 2)2 + (yi - 1/2) 2 - R2</p>
-<p>​             = di + 2xi +3</p>
-<p>  即di 的增量为 2xi +3.</p>
-<p>  若d&gt;=0, 则P2 为下一个象素，那么再下一个象素的判别式为：</p>
-<p>​    di = F (xi + 2, yi – 3/2)</p>
-<p>​       = (xi + 2)2 + (yi – 3/2) 2 - R2</p>
-<p>​           = di + （2xi + 3）+（-2 yi + 2）</p>
-<p>  即di的增量为 2 (xi - yi) +5.</p>
-<p>  di的初值:</p>
-<p>  d0 = F(1, R-1/2)</p>
-<p>​     = 1 + (R-1/2)2 - R2</p>
-<p>​     = 1/4 - R</p>
-</blockquote>
-<h3 id="2、算法实现C"><a href="#2、算法实现C" class="headerlink" title="2、算法实现C#"></a>2、算法实现C#</h3><h4 id="①代码结构"><a href="#①代码结构" class="headerlink" title="①代码结构"></a>①代码结构</h4><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E7%AE%A1%E7%90%86%E5%99%A8.JPG" alt=""></p>
-<h4 id="star-②算法部分-star"><a href="#star-②算法部分-star" class="headerlink" title=":star:②算法部分:star:"></a>:star:②算法部分:star:</h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+<pre><code>&gt; rm(list = ls())
+&gt; setwd("A:/学习材料/R/COG玫瑰图")
+&gt; library(ggplot2)
+&gt; 
+&gt; #read.table()--------------------------------------
+&gt; #读取数据，seq（3）sep
+&gt; #分开数据的分隔符。默认sep=""。
+&gt; #read.table()函数可以将1个或多个空格、tab制表符、换行符或回车符作为分隔符。
+&gt; f&lt;-read.table("cog_lab", header=T, sep="\t")
+&gt; #展示数据
+&gt; f
+   dir mag                                                             lab
+1    A   4                             [A] RNA processing and modification
+2    B  10                            [B] Chromatin structure and dynamics
+3   C   42                            [C] Energy production and conversion
+4    D   8    [D] Cell cycle control cell division chromosome partitioning
+5    E  38                         [E] Amino acid transport and metabolism
+6    F  20                         [F] Nucleotide transport and metabolism
+7    G  16                       [G] Carbohydrate transport and metabolism
+8    H   8                           [H] Coenzyme transport and metabolism
+9    I  27                              [I] Lipid transport and metabolism
+10   J  45              [J] Translation ribosomal structure and biogenesis
+11   K  30                                               [K] Transcription
+12   L  31                        [L] Replication recombination and repair
+13   M   9                      [M] Cell wall/membrane/envelope biogenesis
+14   N   1                                               [N] Cell motility
+15   O  55  [O] Posttranslational modification protein turnover chaperones
+16   P  17                      [P] Inorganic ion transport and metabolism
+17   Q  28 [Q] Secondary metabolites biosynthesis transport and catabolism
+18   R 110                            [R] General function prediction only
+19   S   7                                            [S] Function unknown
+20   T  36                              [T] Signal transduction mechanisms
+21   U  18 [U] Intracellular trafficking secretion and vesicular transport
+22   V   3                                          [V] Defense mechanisms
+23   Y   1                                           [Y] Nuclear structure
+24   Z  10                                                [Z] Cytoskeleton
+&gt; 
+&gt; #as.vetor()----------------------------------------
+&gt; #is.vector(A)：判断A是否为向量；
+&gt; #as.vector(A)：如A是矩阵（数组），as.vector就是将矩阵转化为向量；
+&gt; myLabel = as.vector(f$lab)
+&gt; 
+&gt; #添加百分比！(๑•̀ㅂ•́)و✧
+&gt; myLabel = paste(myLabel, " (", round(f$mag / sum(f$mag) * 100, 2), "%) ", sep = "")
+&gt; 
+&gt; p&lt;-ggplot(f,
++           aes(x=dir,y=factor(mag),fill=dir)
++           )+
++   
++   ## y轴数据直接来自于原始数据框
++   geom_bar(stat='identity')+
++   #极坐标转换：可以做出蜘蛛图或饼图的效果。若不设置则默认柱状图
++   coord_polar()+
++   
++   #标注
++   labs(x = "",
++        y = "Number of Unigenes",
++        title = "COG Function Classification of Unigene Sequence")+
++   
++   #axis.ticks坐标轴刻度线---------------------
++   theme(axis.ticks = element_blank())+
++   #图例标题-----------------------------------
++   theme(legend.title = element_blank())+
++   #面板背景-----------------------------------
++   theme(panel.background=element_blank())+
++   
++   #设置颜色标尺
++   #breaks设置中断
++   #cairo 是一个让用于提供矢量图形绘图的免费库
++   scale_fill_discrete(breaks = f$dir,
++                       labels = myLabel
++                       )
+&gt; png("Test2.png",width = 8200,height = 5400,res = 600,type = "cairo")
+&gt; p
+&gt; dev.off()
+null device 
+          1 </code></pre><h3 id="其中涉及到的函数"><a href="#其中涉及到的函数" class="headerlink" title="其中涉及到的函数"></a>其中涉及到的函数</h3><p>round控制小数点位数函数、有效数字倍数signif、设定种子数、……</p>
+<pre class="line-numbers language-R"><code class="language-R">#round控制小数点位数函数-----
+x=3.1415926
+round(x,3)
 
-namespace DDABresenham
-{
-    public partial class MainForm : Form
-    {
-        public void Circle(int x0,int y0,int r,Color color)
-        {
-            int x, y, p;//x、y为动态坐标，p为判别式
-            x = 0;
-            y = r;//初始化
-            p = 1 / 4 - r;//2的整数次幂，对计算机来说很“简单”，1/4不足道也
-
-            drawponits(x0, y0, x, y, color);
-            while (x<=y)//当为True，为b系
-            {
-                x++;
-                if (p<0)//真正圆上的点处于中点上方，y无增量
-                {
-                    p+=2*x + 3;
-                }
-                else //真正圆上的点处于中点下方，y-1
-                {
-                    p+=2*(x - y) + 5;
-                    y--;
-                }
-                drawponits(x0, y0, x, y, color);
-            }
-        }
-        public void drawponits(int x0,int y0,int x,int y,Color color)
-        {
-            #region 同时画八个象限的点
-
-            bitmap.SetPixel(x0 + x, y0 + y, color);//1b
-            bitmap.SetPixel(x0 + y, y0 + x, color);//1a
-
-            bitmap.SetPixel(x0 - y, y0 + x, color);//2a
-            bitmap.SetPixel(x0 - x, y0 + y, color);//2b
-
-            bitmap.SetPixel(x0 - x, y0 - y, color);//3b
-            bitmap.SetPixel(x0 - y, y0 - x, color);//3a
-
-            bitmap.SetPixel(x0 + x, y0 - y, color);//4b
-            bitmap.SetPixel(x0 + y, y0 - x, color);//4a
-
-            #endregion
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="③实现部分"><a href="#③实现部分" class="headerlink" title="③实现部分"></a>③实现部分</h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DDABresenham
-{
-    public partial class MainForm : Form
-    {
-        Graphics graphics;
-        Bitmap bitmap;
-        public MainForm()
-        {
-            InitializeComponent();
-            graphics = panel1.CreateGraphics();
-            bitmap = new Bitmap(panel1.Width,panel1.Height);
-        }
-
-        private void buttonDDA_Click(object sender, EventArgs e)
-        {
-            DDA(300, 300, 800, 400, Color.Blue);//1a
-            graphics.DrawImage(bitmap,0,0,panel1.Width,panel1.Height);
-        }
-
-        private void buttonBresenham_Click(object sender, EventArgs e)
-        {
-            Bresenham(300, 300, 500, 500, Color.Red);//一象限对角线
-            Bresenham(300, 300, 100, 500, Color.Blue);//二象限对角线
-            Bresenham(300, 300, 100, 100, Color.Black);//三象限对角线
-            Bresenham(300, 300, 500, 100, Color.DarkOrange);//四象限对角线
+y=0.000000000013
+round(y,3)
+#有效数字倍数signif----
+y=0.0000000000133
+signif(y,3)
 
 
-            Bresenham(300, 300, 300, 600, Color.Red);//向下
-            Bresenham(300, 300, 300, 100, Color.Blue);//2a
-            Bresenham(300, 300, 100, 300, Color.Black);//3a
-            Bresenham(300, 300, 500, 300, Color.Yellow);//4a
+#ggplot2提供了22个填充色设置的标尺函数（线条颜色也一样）
+ls("package:ggplot2", pattern="^scale_fill.+")
 
+#设定种子数------------------------------------------------------
+#种子是为了让结果具有重复性。如果不设定种子，生成的随机数无法重现。
+set.seed(100)
 
-            Bresenham(300, 300, 400, 500, Color.Green);//1b
-            Bresenham(300, 300, 250, 500, Color.Blue);//2b
-            Bresenham(300, 300, 250, 100, Color.Black);//3b
-            Bresenham(300, 300, 350, 100, Color.DarkBlue);//4b
+rm(list = ls())
+#在不设定种子数的情况下，随机生成的数不会重复。------------
+r=rnorm(10)#随机生成10个随机数
+r
+r=rnorm(10)#再随机生成10个随机数
+r
+#设定了种子数后，会重复----------------------------------
 
+set.seed(5)
+m=rnorm(10)#再随机生成10个随机数
+m
+set.seed(5)#必须再设一次，数字相同则会产生相同的随机数。****
+n=rnorm(10)
+n
+#括号里的数字可以是任意数字，相同数字会得到相同的随机数结果。****
 
-            Bresenham(300, 300, 500, 400, Color.Red);//1a
-            Bresenham(300, 300, 0, 400, Color.Blue);//2a
-            Bresenham(300, 300, 100, 250, Color.Black);//3a
-            Bresenham(300, 300, 500, 200, Color.Yellow);//4a
+? scale_fill_discrete()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>输出</p>
+<pre class="line-numbers language-R"><code class="language-R">> #round控制小数点位数函数-----
+> x=3.1415926
+> round(x,3)
+[1] 3.142
+> 
+> y=0.000000000013
+> round(y,3)
+[1] 0
+> #有效数字倍数signif----
+> y=0.0000000000133
+> signif(y,3)
+[1] 1.33e-11
+> 
+> 
+> #ggplot2提供了22个填充色设置的标尺函数（线条颜色也一样）
+> ls("package:ggplot2", pattern="^scale_fill.+")
+ [1] "scale_fill_binned"     "scale_fill_brewer"     "scale_fill_continuous"
+ [4] "scale_fill_date"       "scale_fill_datetime"   "scale_fill_discrete"  
+ [7] "scale_fill_distiller"  "scale_fill_fermenter"  "scale_fill_gradient"  
+[10] "scale_fill_gradient2"  "scale_fill_gradientn"  "scale_fill_grey"      
+[13] "scale_fill_hue"        "scale_fill_identity"   "scale_fill_manual"    
+[16] "scale_fill_ordinal"    "scale_fill_steps"      "scale_fill_steps2"    
+[19] "scale_fill_stepsn"     "scale_fill_viridis_b"  "scale_fill_viridis_c" 
+[22] "scale_fill_viridis_d" 
+> 
+>
+> #设定种子数----------------------------------------------------------
+> #种子是为了让结果具有重复性。如果不设定种子，生成的随机数无法重现。
+> set.seed(100)
+> 
+> rm(list = ls())
+> #在不设定种子数的情况下，随机生成的数不会重复。----------
+> r=rnorm(10)#随机生成10个随机数
+> r
+ [1] -0.50219235  0.13153117 -0.07891709  0.88678481  0.11697127  0.31863009
+ [7] -0.58179068  0.71453271 -0.82525943 -0.35986213
+> r=rnorm(10)#再随机生成10个随机数
+> r
+ [1]  0.08988614  0.09627446 -0.20163395  0.73984050  0.12337950 -0.02931671
+ [7] -0.38885425  0.51085626 -0.91381419  2.31029682
+> #设定了种子数后，会重复-----------------------------------
+> set.seed(5)
+> m=rnorm(10)#再随机生成10个随机数
+> m
+ [1] -0.84085548  1.38435934 -1.25549186  0.07014277  1.71144087 -0.60290798
+ [7] -0.47216639 -0.63537131 -0.28577363  0.13810822
+> set.seed(5)#必须再设一次，数字相同则会产生相同的随机数。****
+> n=rnorm(10)
+> n
+ [1] -0.84085548  1.38435934 -1.25549186  0.07014277  1.71144087 -0.60290798
+ [7] -0.47216639 -0.63537131 -0.28577363  0.13810822
+> #括号里的数字可以是任意数字，相同数字会得到相同的随机数结果。****<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="清爽版-无注释"><a href="#清爽版-无注释" class="headerlink" title="清爽版(无注释)"></a>清爽版(无注释)</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("A:/学习材料/R/COG玫瑰图")
+library(ggplot2)
 
-            graphics.DrawImage(bitmap, 0, 0, panel1.Width, panel1.Height);
-        }
-
-        private void buttonExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void buttoncircle_Click(object sender, EventArgs e)
-        {
-
-            Circle(300, 300, 200, Color.Red);
-            graphics.DrawImage(bitmap, 0, 0, panel1.Width, panel1.Height);
-
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3、Visio流程图-cool-sparkles"><a href="#3、Visio流程图-cool-sparkles" class="headerlink" title="3、Visio流程图:cool::sparkles:"></a>3、Visio流程图<span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f192.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f192.png?v8">🆒</span><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/2728.png?v8">✨</span></h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86.jpg" alt=""></p>
-<h3 id="4、运行结果-1"><a href="#4、运行结果-1" class="headerlink" title="4、运行结果:+1:"></a>4、运行结果:+1:</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.JPG" alt=""></p>
-<hr>
-<h2 id="二、圆弧扫描算法（未尝试）"><a href="#二、圆弧扫描算法（未尝试）" class="headerlink" title="二、圆弧扫描算法（未尝试）"></a>二、圆弧扫描算法（未尝试）</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E5%9C%86%E5%BC%A7.JPG" alt=""></p>
-<hr>
-<h2 id="三、角度DDA法（未尝试）"><a href="#三、角度DDA法（未尝试）" class="headerlink" title="三、角度DDA法（未尝试）"></a>三、角度DDA法（未尝试）</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/DDA%E5%9C%86%E5%BC%A7.JPG" alt=""></p>
-<hr>
+f<-read.table("cog_lab", header=T, sep="\t")
+f
+myLabel = as.vector(f$lab)
+myLabel = paste(myLabel, " (", round(f$mag / sum(f$mag) * 100, 2), "%) ", sep = "")
+p<-ggplot(f,aes(x=dir,y=factor(mag),fill=dir))+geom_bar(stat='identity')+coord_polar()+
+labs(x = "",
+       y = "Number of Unigenes",
+       title = "COG Function Classification of Unigene Sequence")+
+  theme(axis.ticks = element_blank())+
+  theme(legend.title = element_blank())+
+  theme(panel.background=element_blank())+
+  scale_fill_discrete(breaks = f$dir,labels = myLabel)
+png("COG.png",width = 8200,height = 5400,res = 600,type = "cairo")
+p
+dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -731,7 +790,7 @@ namespace DDABresenham
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/03/04/zhong-dian-hua-yuan-suan-fa/">https://lishiyu.vip/2020/03/04/zhong-dian-hua-yuan-suan-fa/</a>
+                    <a href="https://lishiyu.vip/2020/03/18/ggplot/">https://lishiyu.vip/2020/03/18/ggplot/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -769,20 +828,12 @@ namespace DDABresenham
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                                    <span class="chip bg-color">计算机图形学</span>
+                                <a href="/tags/R/">
+                                    <span class="chip bg-color">R</span>
                                 </a>
                             
-                                <a href="/tags/DDA/">
-                                    <span class="chip bg-color">DDA</span>
-                                </a>
-                            
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C#</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
-                                    <span class="chip bg-color">中点画圆法</span>
+                                <a href="/tags/ggplot/">
+                                    <span class="chip bg-color">ggplot</span>
                                 </a>
                             
                         </div>
@@ -1211,61 +1262,51 @@ namespace DDABresenham
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/14/qu-yu-tian-chong-suan-fa/">
+                <a href="/2020/03/18/ggplot/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/6.jpg" class="responsive-img" alt="区域填充算法">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/ggplotTest2.png" class="responsive-img" alt="ggplot">
                         
-                        <span class="card-title">区域填充算法</span>
+                        <span class="card-title">ggplot</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            计算机图形学中种子填色(Seed Filling)算法、扫描线填色(Scan-Line Filling)算法
+                            ggplot函数！
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                    计算机图形学
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/R/" class="post-category">
+                                    R
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                        <span class="chip bg-color">计算机图形学</span>
+                    <a href="/tags/R/">
+                        <span class="chip bg-color">R</span>
                     </a>
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
-                        <span class="chip bg-color">种子填色</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
-                        <span class="chip bg-color">扫描线填色</span>
+                    <a href="/tags/ggplot/">
+                        <span class="chip bg-color">ggplot</span>
                     </a>
                     
                 </div>
@@ -1279,34 +1320,30 @@ namespace DDABresenham
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/04/zhi-xian-bresenham-suan-fa/">
+                <a href="/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-4be455130c08809f.gif" class="responsive-img" alt="直线Bresenham算法(2)">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-350cf87650247db7.gif" class="responsive-img" alt="ArcGIS编辑器及其高级编辑">
                         
-                        <span class="card-title">直线Bresenham算法(2)</span>
+                        <span class="card-title">ArcGIS编辑器及其高级编辑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Bresenham直线生成算法
+                            ArcGIS编辑器、高级编辑
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                    计算机图形学
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/GIS/" class="post-category">
+                                    GIS
                                 </a>
                             
                             
@@ -1316,16 +1353,8 @@ namespace DDABresenham
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                        <span class="chip bg-color">计算机图形学</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
-                    <a href="/tags/Bresenham/">
-                        <span class="chip bg-color">Bresenham</span>
+                    <a href="/tags/ArcGIS/">
+                        <span class="chip bg-color">ArcGIS</span>
                     </a>
                     
                 </div>
