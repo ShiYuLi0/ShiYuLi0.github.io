@@ -231,8 +231,6 @@
             
             <tag> 栅格计算器 </tag>
             
-            <tag> Con函数 </tag>
-            
         </tags>
       
     </entry>
@@ -424,34 +422,7 @@
             
             <tag> Python </tag>
             
-            <tag> BeautifulSoup </tag>
-            
             <tag> 爬虫 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2020/01/15/hello-world/"/>
-      <url>/2020/01/15/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to 李世昱的博客</p><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f642.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f642.png?v8">🙂</span></p><p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f606.png?v8">😆</span></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-      
-      
-      <categories>
-          
-          <category> Hello World </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Test </tag>
             
         </tags>
       
