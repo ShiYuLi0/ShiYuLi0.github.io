@@ -471,7 +471,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-18
+                    2020-03-20
                 </div>
                 
 
@@ -502,7 +502,9 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一、文件操作"><a href="#一、文件操作" class="headerlink" title="一、文件操作"></a>一、文件操作</h2><h3 id="1、工作路径"><a href="#1、工作路径" class="headerlink" title="1、工作路径"></a><strong>1、工作路径</strong></h3><p>getwd() 列出当前工作路径；</p>
+                <h2 id="目录导航"><a href="#目录导航" class="headerlink" title="目录导航"></a>目录导航</h2><p>[TOC]</p>
+<hr>
+<h2 id="一、文件操作"><a href="#一、文件操作" class="headerlink" title="一、文件操作"></a>一、文件操作</h2><h3 id="1、工作路径"><a href="#1、工作路径" class="headerlink" title="1、工作路径"></a><strong>1、工作路径</strong></h3><p>getwd() 列出当前工作路径；</p>
 <p>setwd(dir) 设置工作路径，参数dir是要设置的路径。</p>
 <h3 id="2、list-files函数列出目录下文件"><a href="#2、list-files函数列出目录下文件" class="headerlink" title="2、list.files函数列出目录下文件"></a><strong>2、list.files函数列出目录下文件</strong></h3><p>函数list.files和dir用法完全一样，可以列出路径下所有文件（包括目录）；函数list.dirs只列出路径下所有目录。</p>
 <pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> getwd<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">#当前工作目录</span>
@@ -903,7 +905,7 @@ Time difference of -0.1538639 secs
   用户   系统   流逝 
   3.59   0.76 203.90<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="11、source"><a href="#11、source" class="headerlink" title="11、source()"></a>11、source()</h3><p>引用并运行其他位置的代码文件</p>
-<pre><code>source("B:/Temps/降水年总和批量输出.R",encoding='GB18030')</code></pre><hr>
+<pre><code>source(&quot;B:/Temps/降水年总和批量输出.R&quot;,encoding=&#39;GB18030&#39;)</code></pre><hr>
 <h2 id="二、Plots图表"><a href="#二、Plots图表" class="headerlink" title="二、Plots图表"></a>二、Plots图表</h2><h3 id="读取数据文件"><a href="#读取数据文件" class="headerlink" title="读取数据文件"></a>读取数据文件</h3><pre class="line-numbers language-r"><code class="language-r"><span class="token operator">></span> rm<span class="token punctuation">(</span>list<span class="token operator">=</span>ls<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token operator">></span> data<span class="token operator">=</span>read.csv<span class="token punctuation">(</span><span class="token string">"B:/Temp1/高考.csv"</span><span class="token punctuation">,</span>header<span class="token operator">=</span>T<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">#读取csv数据,还有read.table</span>
 <span class="token operator">></span> data   <span class="token comment" spellcheck="true">#查看数据</span>
@@ -1301,7 +1303,7 @@ list.dirs()<span aria-hidden="true" class="line-numbers-rows"><span></span><span
 <p>#创建一个3级子目录./a1/b2/c3<br>setwd(“B:/Temp2/“)<br>getwd()<br>[1] “B:/Temp2”<br>list.dirs()<br> [1] “.”                                            “./data”                                       “./test”<br> [4] “./test/3组李世昱组”                           “./test/3组李世昱组/2017016427李世昱”          “./test/3组李世昱组/2017016427李世昱/R脚本”<br> [7] “./test/3组李世昱组/2017016427李世昱/tiff文件” “./test/3组李世昱组/2017016427李世昱1”         “./test/3组李世昱组/2017016427李世昱2”<br>[10] “./外文件夹_1”                                 “./外文件夹_10”                                “./外文件夹_2”<br>[13] “./外文件夹_3”                                 “./外文件夹_4”                                 “./外文件夹_5”<br>[16] “./外文件夹_6”                                 “./外文件夹_7”                                 “./外文件夹_8”<br>[19] “./外文件夹_9”                                 “./外文件夹1”                                  “./外文件夹1/内文件夹”<br>[22] “./外文件夹10”                                 “./外文件夹10/内文件夹”                        “./外文件夹2”<br>[25] “./外文件夹2/内文件夹”                         “./外文件夹3”                                  “./外文件夹3/内文件夹”<br>[28] “./外文件夹4”                                  “./外文件夹4/内文件夹”                         “./外文件夹5”<br>[31] “./外文件夹5/内文件夹”                         “./外文件夹6”                                  “./外文件夹6/内文件夹”<br>[34] “./外文件夹7”                                  “./外文件夹7/内文件夹”                         “./外文件夹8”<br>[37] “./外文件夹8/内文件夹”                         “./外文件夹9”                                  “./外文件夹9/内文件夹”<br>[40] “./月数据格点数据集”                           “./月数据格点数据集/降水”                      “./月数据格点数据集/气温”<br>dir.create(path = “a1/b2/c3”) #直接创建，出错<br>Warning message:<br>In dir.create(path = “a1/b2/c3”) :<br>由于’No such file or directory’的原因，无法建立’a1\b2\c3’文件目录<br>dir.create(path=”a1/b2/c3”,recursive = TRUE)<br>system(“tree”)<br>卷 新加卷 的文件夹 PATH 列表<br>卷序列号为 3001-56A6<br>B:.<br>├─a1<br>│  └─b2<br>│      └─c3<br>├─data<br>├─test<br>│  └─3组李世昱组<br>│      ├─2017016427李世昱<br>│      │  ├─R脚本<br>│      │  └─tiff文件<br>│      ├─2017016427李世昱1<br>│      └─2017016427李世昱2<br>├─外文件夹1<br>│  └─内文件夹<br>├─外文件夹10<br>│  └─内文件夹<br>├─外文件夹2<br>│  └─内文件夹<br>├─外文件夹3<br>│  └─内文件夹<br>├─外文件夹4<br>│  └─内文件夹<br>├─外文件夹5<br>│  └─内文件夹<br>├─外文件夹6<br>│  └─内文件夹<br>├─外文件夹7<br>│  └─内文件夹<br>├─外文件夹8<br>│  └─内文件夹<br>├─外文件夹9<br>│  └─内文件夹<br>├─外文件夹_1<br>├─外文件夹_10<br>├─外文件夹_2<br>├─外文件夹_3<br>├─外文件夹_4<br>├─外文件夹_5<br>├─外文件夹_6<br>├─外文件夹_7<br>├─外文件夹_8<br>├─外文件夹_9<br>└─月数据格点数据集<br>├─气温<br>└─降水<br>[1] 0</p>
 </blockquote>
 <h2 id="Paste函数"><a href="#Paste函数" class="headerlink" title="Paste函数"></a>Paste函数</h2><blockquote>
-<pre><code>paste(..., sep = " ", collapse = NULL)</code></pre><p><strong>…</strong> - 表示要组合的任何数量的参数。</p>
+<pre><code>paste(..., sep = &quot; &quot;, collapse = NULL)</code></pre><p><strong>…</strong> - 表示要组合的任何数量的参数。</p>
 <p><strong>sep</strong> - 表示参数之间的分隔符。它是任选的。</p>
 <p><strong>collapse</strong> - 用于消除两个字符串之间的空间。但不是在一个字符串的两个词的空间</p>
 </blockquote>
@@ -1436,25 +1438,7 @@ writeRaster(r/12,
 )
 print(r/12) #查看栅格信息
 print("Succeeded! 完成各年最高气温平均计算")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -2395,6 +2379,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
