@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="GitHub, 世昱的博客">
-    <meta name="description" content="总结一些零碎的GitHub小知识">
+    <meta name="keywords" content="R气象数据批处理, 世昱的博客">
+    <meta name="description" content="R语言批处理中国地面气候资料日值数据集(V3.0)]">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>GitHub | 世昱的博客</title>
+    <title>R气象数据批处理 | 世昱的博客</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -318,12 +318,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/六/数据.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">GitHub</h1>
+                    <h1 class="description center-align post-title">R气象数据批处理</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +440,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/GitHub/">
-                                <span class="chip bg-color">GitHub</span>
+                            <a href="/tags/R/">
+                                <span class="chip bg-color">R</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE%E6%89%B9%E5%A4%84%E7%90%86/">
+                                <span class="chip bg-color">气象数据批处理</span>
                             </a>
                         
                     </div>
@@ -452,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/GitHub/" class="post-category">
-                                GitHub
+                            <a href="/categories/R/" class="post-category">
+                                R
                             </a>
                         
                     </div>
@@ -465,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-14
+                    2020-03-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-15
+                    2020-03-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    399
+                    390
                 </div>
                 
 
@@ -503,48 +507,76 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h1><h2 id="README-md"><a href="#README-md" class="headerlink" title="README.md"></a>README.md</h2><p>想在README.md里面插入项目的截图,<br>插入图片的关键就是知道README.md的链接规则,当在README.md中插入链接时可以插入相对路径,这是通用的适用于所有链接<br>例如:<br> <code>![图片](a.png)</code>:显示项目中的 /a.png</p>
-<p><code>![图片b](/screenshots/b.png)</code>显示项目中的 /screenshots/b.png </p>
-<p>“<a href=""></a>“ :”[]”中为名称，‘“()”中为链接地址。显示一个链接到其他地址的链接</p>
-<h2 id="GitHub搜索"><a href="#GitHub搜索" class="headerlink" title="GitHub搜索"></a>GitHub搜索</h2><ol>
-<li><p>搜索名字中带着spring boot，stars数超过3000的仓库</p>
-<pre><code> in:name spring boot stars:&gt;3000</code></pre></li>
-<li><p>搜索名字中带着spring boot，stars数超过3000，forks数超过300的仓库</p>
-<pre><code> in:name spring boot stars:&gt;3000 forks:&gt;300</code></pre></li>
-<li><p>搜索readme中带spring boot的仓库</p>
-<pre><code> in:readme spring boot</code></pre></li>
-<li><p>搜索描述中带有“微服务”关键词，语言为Java，pushed，最新日期要在2019-09-10之后</p>
-<pre><code> in:description 微服务 language:java pushed:&gt;2019-09-10</code></pre></li>
-</ol>
-<h2 id="git"><a href="#git" class="headerlink" title="git"></a>git</h2><h3 id="1-添加提交"><a href="#1-添加提交" class="headerlink" title="1. 添加提交"></a>1. 添加提交</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> init
-<span class="token function">git</span> remote add origin 你新建仓库的HTTP或者SSH地址链接
-<span class="token function">git</span> pull origin master <span class="token comment" spellcheck="true">#将仓库拉取到本地文件夹</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">git</span> add <span class="token keyword">.</span>    <span class="token comment" spellcheck="true">#(.表示所有的)</span>
-<span class="token function">git</span> commit -m <span class="token string">'添加文件内容描述'</span> 
-<span class="token function">git</span> push origin master   <span class="token comment" spellcheck="true">#将本地仓库文件推送到GitHub新建的仓库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="2-添加远程关联仓库"><a href="#2-添加远程关联仓库" class="headerlink" title="2. 添加远程关联仓库"></a>2. 添加远程关联仓库</h3><pre class="line-numbers language-csharp"><code class="language-csharp">$ git remote <span class="token keyword">add</span> origin https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>guanpengchn<span class="token operator">/</span>demo<span class="token punctuation">.</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="3-查看远程关联"><a href="#3-查看远程关联" class="headerlink" title="3. 查看远程关联"></a>3. 查看远程关联</h3><pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">git</span> remote -v
-origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">(</span>fetch<span class="token punctuation">)</span>
-origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">(</span>push<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+                <p><strong>R语言批处理<a href="http://data.cma.cn/data/cdcdetail/dataCode/SURF_CLI_CHN_MUL_DAY_V3.0.html" target="_blank" rel="noopener">中国地面气候资料日值数据集(V3.0)</a>本文的处理数据、说明文档以及脚本，在这儿👉:m:</strong></p>
+<h2 id="一、数据结构简介"><a href="#一、数据结构简介" class="headerlink" title="一、数据结构简介"></a>一、数据结构简介</h2><p>以月为单位，每个文件代表一个月，每个文件中包括所有站点的详细数据(可能是全国的气象站点)</p>
+<blockquote>
+<p>“中国地面气候资料日值数据集（V3.0）”包含了中国699个基准、基本气象站1951年1月以来本站气压、气温、降水量、蒸发量、相对湿度、风向风速、日照时数和0cm地温要素的日值数据。</p>
+</blockquote>
+<p>如图，</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD/%E6%95%B0%E6%8D%AE.png" alt=""></p>
+<p>其中各列含义依次为</p>
+<blockquote>
+<p>“站点”,”纬度”,”经度”,”海拔”, “年”,”月”,”日”,”平均气温”, “最大气温”,”最小气温”</p>
+</blockquote>
+<h2 id="二、所要实现的效果"><a href="#二、所要实现的效果" class="headerlink" title="二、所要实现的效果"></a>二、所要实现的效果</h2><p>源数据是以月为单位，月文件下包含各个站点信息。</p>
+<p><strong>所要实现的效果是，以站点为单位，每个站点为一独立文件，该文件下包括各月数据。</strong></p>
+<blockquote>
+<p>本次要单独提出几个站点数据，代号为50136,51470,52602,54351的站点，即每个月文件下的第一列数据。</p>
+<p>若要提取所有数据，代码更改部分下文已有简单说明</p>
+<p>ps:平均、最大、最小气温数据需要进行单独处理，除10.</p>
+</blockquote>
+<p>最终效果图示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD/%E6%95%88%E6%9E%9C.png" alt=""></p>
+<h2 id="三、R脚本实现"><a href="#三、R脚本实现" class="headerlink" title="三、R脚本实现"></a>三、R脚本实现</h2><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("B:/Temp3/test")
+
+#筛选出所有数据文件，以“SURF_CLI_CHN_MUL_DAY-TEM”为搜索关键词----
+flies=list.files(pattern = "SURF_CLI_CHN_MUL_DAY-TEM")
+#检索每一个文件内容----------------------------------------------
+for (flie in 1:length(flies)) {
+  data<-read.table(file = flies[flie])
+  #将数据按照V1列分组(站点列)
+  sites=split(data,f=data$V1)
+  #定义所需站点数组，若要提取所有数据，只需更改此处，以及site
+  #即以下三列，for控制改为length(sites)
+  partldata=c(50136,51470,52602,54351)
+  for (i in partldata) {
+    #单独一个站点的数据(dataframe格式)
+    site=data.frame(sites[[paste(i)]])
+    write.table(site[,1:10],#只取前10列
+                paste(sites[[paste(i)]][1,1],
+                      "站点.csv"),#文件名
+                sep = "," ,#以“，”分割才能有正常格式，很迷
+                append = T,#每个文件(每个月份)的数据都依次追加
+                row.names = F,
+                col.names = F)
+    print(paste(i,"完成"))
+  }
+  print("Yeah! 又完成了一个文件")
+}
+print("Good!")
+
+#为其添加列名,并处理气温数据-------------------------------------
+#搜索出完成的文件，以“5”开头、“.csv”为结尾为特征搜索
+data5=list.files(pattern = "5*.csv$")
+for (j in 1:length(data5)) {
+  datacsv=read.csv(data5[j],header = F)
+  names(datacsv)<-c("站点","纬度","经度","海拔",
+                    "年","月","日","平均气温",
+                    "最大气温","最小气温") 
+  #datacsv$平均气温<-datacsv$平均气温/10
+  #datacsv$最大气温<-datacsv$最大气温/10
+  #datacsv$最小气温<-datacsv$最小气温/10
+  write.table(datacsv,
+              paste(data5[j]),
+              sep = "," ,
+              append=F,
+              row.names = F)
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>:sunny::sunny::sunny:</p>
+<p>WelcomToMyBlog</p>
+<p>欢迎光临我的网站:<a href="https://lishiyu.vip">https://lishiyu.vip</a></p>
+
             </div>
             <hr/>
 
@@ -569,7 +601,7 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/02/14/github/">https://lishiyu.vip/2020/02/14/github/</a>
+                    <a href="https://lishiyu.vip/2020/03/24/r-qi-xiang-shu-ju-pi-chu-li/">https://lishiyu.vip/2020/03/24/r-qi-xiang-shu-ju-pi-chu-li/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -607,8 +639,12 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/GitHub/">
-                                    <span class="chip bg-color">GitHub</span>
+                                <a href="/tags/R/">
+                                    <span class="chip bg-color">R</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE%E6%89%B9%E5%A4%84%E7%90%86/">
+                                    <span class="chip bg-color">气象数据批处理</span>
                                 </a>
                             
                         </div>
@@ -1037,28 +1073,82 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/17/r-ji-chu/">
+                <a href="/2020/03/24/r-qi-xiang-shu-ju-pi-chu-li/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.gif" class="responsive-img" alt="R基础">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/六/数据.png" class="responsive-img" alt="R气象数据批处理">
                         
-                        <span class="card-title">R基础</span>
+                        <span class="card-title">R气象数据批处理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            R的基础文件操作、部分plot图表函数、Dataframe和空间数据矢量栅格操作部分
+                            R语言批处理中国地面气候资料日值数据集(V3.0)]
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-17
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/R/" class="post-category">
+                                    R
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/R/">
+                        <span class="chip bg-color">R</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%B0%94%E8%B1%A1%E6%95%B0%E6%8D%AE%E6%89%B9%E5%A4%84%E7%90%86/">
+                        <span class="chip bg-color">气象数据批处理</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/03/18/ggplot/">
+                    <div class="card-image">
+                        
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/ggplotTest2.png" class="responsive-img" alt="ggplot">
+                        
+                        <span class="card-title">ggplot</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            ggplot函数！
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-18
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1078,56 +1168,8 @@ origin  https://github.com/guanpengchn/demo.git <span class="token punctuation">
                         <span class="chip bg-color">R</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/02/08/python-pa-chong/">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/1.jpg" class="responsive-img" alt="Python爬虫">
-                        
-                        <span class="card-title">Python爬虫</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Python爬虫。bs4库、BeautifulSoup等
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%88%AC%E8%99%AB/">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/ggplot/">
+                        <span class="chip bg-color">ggplot</span>
                     </a>
                     
                 </div>
