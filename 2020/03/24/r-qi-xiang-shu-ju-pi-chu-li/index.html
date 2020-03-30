@@ -476,7 +476,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-30
+                    2020-03-31
                 </div>
                 
 
@@ -575,12 +575,12 @@ for (j in 1:length(data5)) {
               row.names = F)
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="终极版本——全部站点处理"><a href="#终极版本——全部站点处理" class="headerlink" title="终极版本——全部站点处理"></a><strong>终极版本——全部站点处理</strong></h3><pre class="line-numbers language-R"><code class="language-R">
-
 rm(list = ls())
-setwd("B:/Temp3/test")
+setwd("B:/Temp3/test1")
 
 #筛选出所有数据文件，以“SURF_CLI_CHN_MUL_DAY-TEM”为搜索关键词----
 flies=list.files(pattern = "SURF_CLI_CHN_MUL_DAY-TEM")
+flies
 #检索每一个文件内容----------------------------------------------
 for (flie in 1:length(flies)) {
   data<-read.table(file = flies[flie])
@@ -597,7 +597,7 @@ for (flie in 1:length(flies)) {
                 append = T,#每个文件(每个月份)的数据都依次追加
                 row.names = F,
                 col.names = F)
-    print(paste(i,"完成"))
+    print(sites[[i]][1,1])
   }
   print("Yeah! 又完成了一个文件")
 }
@@ -606,22 +606,35 @@ print("Good!")
 #为其添加列名,并处理气温数据-------------------------------------
 #搜索出完成的文件，以“5”开头、“.csv”为结尾为特征搜索
 data5=list.files(pattern = "5*.csv$")
+
 for (j in 1:length(data5)) {
   datacsv=read.csv(data5[j],header = F)
-  names(datacsv)<-c("站点","纬度","经度","海拔",
-                    "年","月","日","平均气温",
-                    "最大气温","最小气温") 
-  #datacsv$平均气温<-datacsv$平均气温/10
-  #datacsv$最大气温<-datacsv$最大气温/10
-  #datacsv$最小气温<-datacsv$最小气温/10
+  #names(datacsv)<-c("站点","纬度","经度","海拔",
+  #                  "年","月","日","平均气温",
+  #                  "最大气温","最小气温") 
+  datacsv$V8<-datacsv$V8/10
+  datacsv$V9<-datacsv$V9/10
+  datacsv$V10<-datacsv$V10/10
+
   write.table(datacsv,
               paste(data5[j]),
               sep = "," ,
               append=F,
-              row.names = F)
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="他山之石——老师版本"><a href="#他山之石——老师版本" class="headerlink" title="他山之石——老师版本"></a>他山之石——老师版本</h3><p><strong>很清晰，不过用的方法一样</strong></p>
+              row.names = F,
+              col.names=F
+              )
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>P.S. 代码后期做了微小的调整。</strong></p>
+<blockquote>
+<p>①对经纬度进行除100</p>
+<p>②对三个气温进行除10</p>
+<p>③去掉了加入列名代码，因为后期处理不方便</p>
+</blockquote>
+<p><strong>终极版本运行环境如下(包含运行结果)</strong></p>
+<p>环境下为各个气象TXT文件，运行各个站点文件则直接放在该目录下。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD%E7%8E%AF%E5%A2%831.png" alt=""></p>
+<hr>
+<h3 id="他山之石"><a href="#他山之石" class="headerlink" title="他山之石"></a>他山之石</h3><p><strong>1、很清晰，不过用的方法一样</strong></p>
 <p>不过环境得稍改一下</p>
 <pre class="line-numbers language-R"><code class="language-R">rm(list=ls())
 setwd("B:/Temp3/")
@@ -643,6 +656,82 @@ for(i in 1:length(file))
   print(i)
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>2、另一种~，也很棒！</p>
+<pre class="line-numbers language-R"><code class="language-R">rm(list=ls())
+setwd("B:/Temp3/test")
+
+flies=list.files(pattern = "SURF_CLI_CHN_MUL_DAY-TEM")
+firstflie<-read.table('SURF_CLI_CHN_MUL_DAY-TEM-12001-201101.TXT')
+getnum<-firstflie$V1#提取所有站点
+
+getnum<-getnum[!duplicated(getnum)]#重复数据删除
+
+for(j in getnum)
+{
+  name<-paste(as.character(j),".txt",sep="")
+  #vcsv<-paste(as.character(j),".csv",sep="")
+  for(i in 1:length(files))
+  {
+    df_single <- read.table(files[i])#每一个文件
+    sdf<- subset(df_single, V1 == j) #分割文件，方法：将v1列的值与每一个站点匹配。
+    sdf<- sdf[,1:10]#只取前十列
+    write.table(sdf, name, append = T, col.names = F, row.names = F)
+  }
+  print(name)
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、继续统计各个站点所有年月份的气温总和"><a href="#四、继续统计各个站点所有年月份的气温总和" class="headerlink" title="四、继续统计各个站点所有年月份的气温总和"></a>四、继续统计各个站点所有年月份的气温总和</h2><h3 id="运行环境"><a href="#运行环境" class="headerlink" title="运行环境"></a>运行环境</h3><p>在以上处理结果的基础上，对各个分开的各个站点进行汇总统计。</p>
+<p>具体来说，也就是，在步骤三的基础上👇(所有的站点)</p>
+<p>已经生成好了所有的站点文件。其中，result文件夹为存放结果数据。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%ADdata2.JPG" alt=""></p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("B:/Temp3/test1")
+#导包-----------------------------------------------------
+library(maptools)
+library(rgdal)
+library(sp)
+#读取数据--------------------------------------------------
+data5=list.files(pattern = "5*.csv$")
+#汇总数据-------------------------------------------------
+for (j in 1:length(data5)) {
+   datacsv=read.csv(data5[j],header = F)
+   id=datacsv[1,1]
+   longitude=datacsv[1,2]
+   latitude=datacsv[1,3]
+   SumTem=sum(datacsv[,8])#计算该站点所有年月份的气温总和
+   datacsv=matrix(c(id,longitude,latitude,SumTem),1)
+   write.table(datacsv,
+              "result/sitelocation.csv",
+              sep = "," ,
+              append=T,
+              row.names = F,
+              col.names = F)
+}
+#添加列名----------------------------------------------------
+resultdata=read.csv("result/sitelocation.csv",header = F)
+names(resultdata)<-c("site","Lat","Lon","tem")
+write.table(resultdata,"result/sitelocation.csv",sep = "," ,append=F,row.names = F)
+#生成shp文件-------------------------------------------------
+resultdata=read.csv("result/sitelocation.csv",header = T)
+coordinates(resultdata)<-~Lon+Lat
+proj4string(resultdata)<-CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
+writeOGR(resultdata,
+         dsn = "B:/Temp3/test1/result",#设置输出路径
+         layer = "result",#设置保存名称
+         driver = "ESRI Shapefile",#设置输出类型
+         overwrite_layer = T) #是否覆盖)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>#proj4坐标系网站：</p>
+<ul>
+<li><a href="https://spatialreference.org/" target="_blank" rel="noopener">https://spatialreference.org/</a></li>
+<li><a href="https://spatialreference.org/ref/sr-org/8909/proj4/" target="_blank" rel="noopener">https://spatialreference.org/ref/sr-org/8909/proj4/</a></li>
+</ul>
+<p><strong>P.S 生成shp文件时，尽量不要用汉字列名<del>不要用汉字</del>不要用汉字~</strong></p>
+<p><strong>特别是设置其坐标参考系参数的时候~</strong></p>
+<h3 id="结果环境及成果"><a href="#结果环境及成果" class="headerlink" title="结果环境及成果"></a>结果环境及成果</h3><p>运行汇总的所有气温数据均放在一个csv中，并将shp文件放在同目录下，运行结果环境如下👇</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD20200331001707.png" alt=""></p>
+<p>shp文件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD20200331002003.png" alt=""></p>
 <p>:sunny::sunny::sunny:</p>
 <p><strong>WelcomToMyBlog</strong></p>
 <p><strong>欢迎光临我的网站</strong>:<a href="https://lishiyu.vip">https://lishiyu.vip</a></p>
