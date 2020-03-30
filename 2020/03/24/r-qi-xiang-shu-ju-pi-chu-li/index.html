@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-24
+                    2020-03-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    390
+                    398
                 </div>
                 
 
@@ -507,7 +507,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><strong>R语言批处理<a href="http://data.cma.cn/data/cdcdetail/dataCode/SURF_CLI_CHN_MUL_DAY_V3.0.html" target="_blank" rel="noopener">中国地面气候资料日值数据集(V3.0)</a>本文的处理数据、说明文档以及脚本，在这儿👉:m:</strong></p>
+                <p><strong>R语言批处理<a href="http://data.cma.cn/data/cdcdetail/dataCode/SURF_CLI_CHN_MUL_DAY_V3.0.html" target="_blank" rel="noopener">中国地面气候资料日值数据集(V3.0)</a>本文的处理数据、说明文档以及脚本，在这儿👇</strong></p>
+<p><strong><a href="https://download.csdn.net/download/weixin_44318841/12267979" target="_blank" rel="noopener">:m:</a></strong></p>
 <h2 id="一、数据结构简介"><a href="#一、数据结构简介" class="headerlink" title="一、数据结构简介"></a>一、数据结构简介</h2><p>以月为单位，每个文件代表一个月，每个文件中包括所有站点的详细数据(可能是全国的气象站点)</p>
 <blockquote>
 <p>“中国地面气候资料日值数据集（V3.0）”包含了中国699个基准、基本气象站1951年1月以来本站气压、气温、降水量、蒸发量、相对湿度、风向风速、日照时数和0cm地温要素的日值数据。</p>
@@ -527,7 +528,7 @@
 </blockquote>
 <p>最终效果图示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD/%E6%95%88%E6%9E%9C.png" alt=""></p>
-<h2 id="三、R脚本实现"><a href="#三、R脚本实现" class="headerlink" title="三、R脚本实现"></a>三、R脚本实现</h2><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+<h2 id="三、R脚本实现"><a href="#三、R脚本实现" class="headerlink" title="三、R脚本实现"></a>三、R脚本实现</h2><h3 id="部分指定站点处理"><a href="#部分指定站点处理" class="headerlink" title="部分指定站点处理"></a>部分指定站点处理</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
 setwd("B:/Temp3/test")
 
 #筛选出所有数据文件，以“SURF_CLI_CHN_MUL_DAY-TEM”为搜索关键词----
@@ -573,9 +574,56 @@ for (j in 1:length(data5)) {
               append=F,
               row.names = F)
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="全部站点处理"><a href="#全部站点处理" class="headerlink" title="全部站点处理"></a><strong>全部站点处理</strong></h3><pre class="line-numbers language-R"><code class="language-R">
+
+rm(list = ls())
+setwd("B:/Temp3/test")
+
+#筛选出所有数据文件，以“SURF_CLI_CHN_MUL_DAY-TEM”为搜索关键词----
+flies=list.files(pattern = "SURF_CLI_CHN_MUL_DAY-TEM")
+#检索每一个文件内容----------------------------------------------
+for (flie in 1:length(flies)) {
+  data<-read.table(file = flies[flie])
+  #将数据按照V1列分组(站点列)
+  sites=split(data,f=data$V1)
+
+  for (i in 1:length(sites)) {
+    #单独一个站点的数据(dataframe格式)
+    site=data.frame(sites[i])
+    write.table(site[,1:10],#只取前10列
+                paste(sites[[i]][1,1],
+                      "站点.csv"),#文件名
+                sep = "," ,#以“，”分割才能有正常格式，很迷
+                append = T,#每个文件(每个月份)的数据都依次追加
+                row.names = F,
+                col.names = F)
+    print(paste(i,"完成"))
+  }
+  print("Yeah! 又完成了一个文件")
+}
+print("Good!")
+
+#为其添加列名,并处理气温数据-------------------------------------
+#搜索出完成的文件，以“5”开头、“.csv”为结尾为特征搜索
+data5=list.files(pattern = "5*.csv$")
+for (j in 1:length(data5)) {
+  datacsv=read.csv(data5[j],header = F)
+  names(datacsv)<-c("站点","纬度","经度","海拔",
+                    "年","月","日","平均气温",
+                    "最大气温","最小气温") 
+  #datacsv$平均气温<-datacsv$平均气温/10
+  #datacsv$最大气温<-datacsv$最大气温/10
+  #datacsv$最小气温<-datacsv$最小气温/10
+  write.table(datacsv,
+              paste(data5[j]),
+              sep = "," ,
+              append=F,
+              row.names = F)
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>:sunny::sunny::sunny:</p>
-<p>WelcomToMyBlog</p>
-<p>欢迎光临我的网站:<a href="https://lishiyu.vip">https://lishiyu.vip</a></p>
+<p><strong>WelcomToMyBlog</strong></p>
+<p><strong>欢迎光临我的网站</strong>:<a href="https://lishiyu.vip">https://lishiyu.vip</a></p>
 
             </div>
             <hr/>
@@ -1531,6 +1579,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
