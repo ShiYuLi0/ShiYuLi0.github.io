@@ -621,6 +621,28 @@ for (j in 1:length(data5)) {
               row.names = F)
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="他山之石——老师版本"><a href="#他山之石——老师版本" class="headerlink" title="他山之石——老师版本"></a>他山之石——老师版本</h3><p><strong>很清晰，不过用的方法一样</strong></p>
+<p>不过环境得稍改一下</p>
+<pre class="line-numbers language-R"><code class="language-R">rm(list=ls())
+setwd("B:/Temp3/")
+
+file <- list.files('TEM', full.names = T)
+
+for(i in 1:length(file))
+{
+  df <- read.table(file[i])
+  df <- df[,1:10]
+  out <- split(df, f = df$V1)
+  for(j in 1:length(out))
+  {
+    ddf   <- out[[j]]
+    id    <- ddf[1,1]
+    path  <- paste(id, '.txt', sep = "")
+    write.table(ddf, path, append = T, row.names = F, col.names = F, sep = ' ')
+  }
+  print(i)
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>:sunny::sunny::sunny:</p>
 <p><strong>WelcomToMyBlog</strong></p>
 <p><strong>欢迎光临我的网站</strong>:<a href="https://lishiyu.vip">https://lishiyu.vip</a></p>
