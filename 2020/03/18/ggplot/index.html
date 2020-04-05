@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    475
+                    452
                 </div>
                 
 
@@ -565,14 +565,14 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <p>lab为标签</p>
 </blockquote>
 <pre><code>&gt; rm(list = ls())
-&gt; setwd("A:/学习材料/R/COG玫瑰图")
+&gt; setwd(&quot;A:/学习材料/R/COG玫瑰图&quot;)
 &gt; library(ggplot2)
 &gt; 
 &gt; #read.table()--------------------------------------
 &gt; #读取数据，seq（3）sep
-&gt; #分开数据的分隔符。默认sep=""。
+&gt; #分开数据的分隔符。默认sep=&quot;&quot;。
 &gt; #read.table()函数可以将1个或多个空格、tab制表符、换行符或回车符作为分隔符。
-&gt; f&lt;-read.table("cog_lab", header=T, sep="\t")
+&gt; f&lt;-read.table(&quot;cog_lab&quot;, header=T, sep=&quot;\t&quot;)
 &gt; #展示数据
 &gt; f
    dir mag                                                             lab
@@ -607,21 +607,21 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 &gt; myLabel = as.vector(f$lab)
 &gt; 
 &gt; #添加百分比！(๑•̀ㅂ•́)و✧
-&gt; myLabel = paste(myLabel, " (", round(f$mag / sum(f$mag) * 100, 2), "%) ", sep = "")
+&gt; myLabel = paste(myLabel, &quot; (&quot;, round(f$mag / sum(f$mag) * 100, 2), &quot;%) &quot;, sep = &quot;&quot;)
 &gt; 
 &gt; p&lt;-ggplot(f,
 +           aes(x=dir,y=factor(mag),fill=dir)
 +           )+
 +   
 +   ## y轴数据直接来自于原始数据框
-+   geom_bar(stat='identity')+
++   geom_bar(stat=&#39;identity&#39;)+
 +   #极坐标转换：可以做出蜘蛛图或饼图的效果。若不设置则默认柱状图
 +   coord_polar()+
 +   
 +   #标注
-+   labs(x = "",
-+        y = "Number of Unigenes",
-+        title = "COG Function Classification of Unigene Sequence")+
++   labs(x = &quot;&quot;,
++        y = &quot;Number of Unigenes&quot;,
++        title = &quot;COG Function Classification of Unigene Sequence&quot;)+
 +   
 +   #axis.ticks坐标轴刻度线---------------------
 +   theme(axis.ticks = element_blank())+
@@ -636,7 +636,7 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 +   scale_fill_discrete(breaks = f$dir,
 +                       labels = myLabel
 +                       )
-&gt; png("Test2.png",width = 8200,height = 5400,res = 600,type = "cairo")
+&gt; png(&quot;Test2.png&quot;,width = 8200,height = 5400,res = 600,type = &quot;cairo&quot;)
 &gt; p
 &gt; dev.off()
 null device 
@@ -748,25 +748,7 @@ labs(x = "",
 png("COG.png",width = 8200,height = 5400,res = 600,type = "cairo")
 p
 dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
@@ -1498,7 +1480,7 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">21.8k</span>&nbsp;字
+                class="white-color">21.2k</span>&nbsp;字
             
             
             
@@ -1715,6 +1697,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
