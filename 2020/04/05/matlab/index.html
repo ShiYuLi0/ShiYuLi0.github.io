@@ -510,11 +510,11 @@
 <p><strong>命令：</strong></p>
 <p><strong>clc()</strong>用于清除命令行的命令。</p>
 <p><strong>clear()</strong>用于清除工作区的变量。</p>
-<h2 id="三、Matlab基础数学运算"><a href="#三、Matlab基础数学运算" class="headerlink" title="三、Matlab基础数学运算"></a>三、Matlab基础数学运算</h2><h3 id="3-1-MATLAB的变量与注释"><a href="#3-1-MATLAB的变量与注释" class="headerlink" title="3.1 MATLAB的变量与注释"></a>3.1 MATLAB的变量与注释</h3><p>l 可不声明变量，和python一样。(或者说，python和他一样……)</p>
+<h2 id="二、Matlab基础数学运算"><a href="#二、Matlab基础数学运算" class="headerlink" title="二、Matlab基础数学运算"></a>二、Matlab基础数学运算</h2><h3 id="2-1-MATLAB的变量与注释"><a href="#2-1-MATLAB的变量与注释" class="headerlink" title="2.1 MATLAB的变量与注释"></a>2.1 MATLAB的变量与注释</h3><p>l 可不声明变量，和python一样。(或者说，python和他一样……)</p>
 <p>l 变量名由一个字母引导，后面可以跟字母、数字、下划线等，且区分大小写。<strong>不能以数字、下划线开头~，区分大小写。</strong></p>
 <p>l 注释用%。也可用快捷键“ctrl+R”进行注释，</p>
 <p>l 取消多行注释，则在选中的基础上，快捷键“ctrl+T”。</p>
-<h3 id="3-2-MATLAB基本语句"><a href="#3-2-MATLAB基本语句" class="headerlink" title="3.2 MATLAB基本语句"></a>3.2 MATLAB基本语句</h3><h4 id="3-2-1直接赋值语句"><a href="#3-2-1直接赋值语句" class="headerlink" title="3.2.1直接赋值语句"></a>3.2.1直接赋值语句</h4><p>格式：赋值变量=赋值表达式</p>
+<h3 id="2-2-MATLAB基本语句"><a href="#2-2-MATLAB基本语句" class="headerlink" title="2.2 MATLAB基本语句"></a>2.2 MATLAB基本语句</h3><h4 id="2-2-1直接赋值语句"><a href="#2-2-1直接赋值语句" class="headerlink" title="2.2.1直接赋值语句"></a>2.2.1直接赋值语句</h4><p>格式：赋值变量=赋值表达式</p>
 <p> <strong>分号</strong></p>
 <p>若赋值表达式后无分号，则为变量赋值并显示结果</p>
 <p>若赋值表达式后有分号。则为变量赋值不显示结果。</p>
@@ -557,7 +557,7 @@ ans <span class="token operator">=</span>
     <span class="token number">3.1416</span>
 
 <span class="token operator">></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>l <strong>Log**</strong>函数(内置与非内置计算)**</p>
+<p><strong>Log**</strong>函数(内置与非内置计算)**</p>
 <pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> <span class="token function">log2</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">%以2为底5的对数</span>
 
 ans <span class="token operator">=</span>
@@ -606,12 +606,12 @@ y =
 &gt;&gt; </code></pre><p><strong>数据类型怎么转换?</strong></p>
 <p><strong>问题未解决……</strong></p>
 <hr>
-<h4 id="3-2-2函数调用语句-自定义函数"><a href="#3-2-2函数调用语句-自定义函数" class="headerlink" title="3.2.2函数调用语句(自定义函数)"></a>3.2.2函数调用语句(自定义函数)</h4><p>自定义函数</p>
+<h4 id="2-2-2函数调用语句-自定义函数"><a href="#2-2-2函数调用语句-自定义函数" class="headerlink" title="2.2.2函数调用语句(自定义函数)"></a>2.2.2函数调用语句(自定义函数)</h4><p>自定义函数</p>
 <p>可直接在定义：function y=fun2(x)</p>
 <p>进行自定义函数。将elseiftest函数改造如下，</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="file:///C:/Users/YU/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg" alt="img"></p>
 <p><strong>注意：使用函数的时候，要用文件名，跟y=fun1没关系。</strong></p>
-<h3 id="3-3矩阵运算"><a href="#3-3矩阵运算" class="headerlink" title="3.3矩阵运算"></a>3.3矩阵运算</h3><h4 id="3-3-1-矩阵生成"><a href="#3-3-1-矩阵生成" class="headerlink" title="3.3.1 矩阵生成"></a>3.3.1 矩阵生成</h4><h5 id="①-直接输入矩阵"><a href="#①-直接输入矩阵" class="headerlink" title="① 直接输入矩阵"></a>① 直接输入矩阵</h5><p>对于较小的简单的矩阵，可以从键盘上直接输入矩阵元素，输入时遵循下面的几个原则：</p>
+<h3 id="2-3矩阵运算"><a href="#2-3矩阵运算" class="headerlink" title="2.3矩阵运算"></a>2.3矩阵运算</h3><h4 id="2-3-1-矩阵生成"><a href="#2-3-1-矩阵生成" class="headerlink" title="2.3.1 矩阵生成"></a>2.3.1 矩阵生成</h4><h5 id="①-直接输入矩阵"><a href="#①-直接输入矩阵" class="headerlink" title="① 直接输入矩阵"></a>① 直接输入矩阵</h5><p>对于较小的简单的矩阵，可以从键盘上直接输入矩阵元素，输入时遵循下面的几个原则：</p>
 <p>a)    矩阵每一行的元素必须用空格或逗号分开；</p>
 <p>b)    在矩阵中，采用分号或回车表明每一行的结束；</p>
 <p>c)    整个输入矩阵必须包含在方括号中。</p>
@@ -806,7 +806,7 @@ B <span class="token operator">=</span>
     <span class="token operator">-</span><span class="token number">7</span>    <span class="token operator">-</span><span class="token number">5</span>    <span class="token operator">-</span><span class="token number">9</span>    <span class="token operator">-</span><span class="token number">2</span>     <span class="token number">0</span>    <span class="token operator">-</span><span class="token number">4</span>     <span class="token number">3</span>     <span class="token number">5</span>     <span class="token number">1</span>
 
 <span class="token operator">></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="3-4-循环控制语句"><a href="#3-4-循环控制语句" class="headerlink" title="3.4 循环控制语句"></a>3.4 循环控制语句</h3><h4 id="for和while"><a href="#for和while" class="headerlink" title="for和while"></a>for和while</h4><p>用for和while来计算1—100的数之和。</p>
+<h3 id="2-4-循环控制语句"><a href="#2-4-循环控制语句" class="headerlink" title="2.4 循环控制语句"></a>2.4 循环控制语句</h3><h4 id="for和while"><a href="#for和while" class="headerlink" title="for和while"></a>for和while</h4><p>用for和while来计算1—100的数之和。</p>
 <p><strong>For</strong></p>
 <pre class="line-numbers language-matlab"><code class="language-matlab">s<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>          <span class="token comment" spellcheck="true">%初始化</span>
 <span class="token keyword">for</span> k<span class="token operator">=</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token number">100</span> <span class="token comment" spellcheck="true">%第一个冒号之前的1是k的初始值，两个冒号之间的1是k增加的步长，最后一个冒号之后的100是结束值。</span>
@@ -862,8 +862,8 @@ y <span class="token operator">=</span>
         <span class="token number">9999</span>
 
 <span class="token operator">></span><span class="token operator">></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="四、基于MATLAB平台的数字图像认知"><a href="#四、基于MATLAB平台的数字图像认知" class="headerlink" title="四、基于MATLAB平台的数字图像认知"></a>四、基于MATLAB平台的数字图像认知</h2><p>在 MATLAB 的安装目录下可以找到 MATLAB 自带的图片资源，以 MATLAB 2016b 版本为例，可以在 MATLAB\R2016b\toolbox\images\imdata 目录下找到图片资源。</p>
-<h3 id="4-1照片读取imread-函数"><a href="#4-1照片读取imread-函数" class="headerlink" title="4.1照片读取imread()函数"></a>4.1照片读取imread()函数</h3><pre class="line-numbers language-matlab"><code class="language-matlab">A<span class="token operator">=</span><span class="token function">imread</span><span class="token punctuation">(</span><span class="token string">'cameraman.tif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%可以在工作区看到A是一个 256*256的uint8格式数组</span>
+<h2 id="三、基于MATLAB平台的数字图像认知"><a href="#三、基于MATLAB平台的数字图像认知" class="headerlink" title="三、基于MATLAB平台的数字图像认知"></a>三、基于MATLAB平台的数字图像认知</h2><p>在 MATLAB 的安装目录下可以找到 MATLAB 自带的图片资源，以 MATLAB 2016b 版本为例，可以在 MATLAB\R2016b\toolbox\images\imdata 目录下找到图片资源。</p>
+<h3 id="3-1照片读取imread-函数"><a href="#3-1照片读取imread-函数" class="headerlink" title="3.1照片读取imread()函数"></a>3.1照片读取imread()函数</h3><pre class="line-numbers language-matlab"><code class="language-matlab">A<span class="token operator">=</span><span class="token function">imread</span><span class="token punctuation">(</span><span class="token string">'cameraman.tif'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%可以在工作区看到A是一个 256*256的uint8格式数组</span>
 A
 B<span class="token operator">=</span><span class="token function">imread</span><span class="token punctuation">(</span><span class="token string">'yellowlily.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%可以在工作区看到B是一个1632*1224*3的uint8格式数组</span>
 <span class="token function">figure</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token function">imshow</span><span class="token punctuation">(</span>A<span class="token punctuation">)</span><span class="token comment" spellcheck="true">%打开图形窗口1，显示A图片。</span>
@@ -872,7 +872,7 @@ B<span class="token operator">=</span><span class="token function">imread</span>
 <p>图像A的矩阵行列为256<em>256，因为其大小即256</em>256</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Matlab/%E5%9F%BA%E7%A1%80%E7%85%A7%E7%89%87%E5%A4%A7%E5%B0%8F.jpg" alt=""></p>
 <p>因为是灰度，所以没有标识的整型uint8，且每一个值的范围为0~255。</p>
-<h3 id="4-2图像灰度反转"><a href="#4-2图像灰度反转" class="headerlink" title="4.2图像灰度反转"></a>4.2图像灰度反转</h3><p>图像读取进来为矩阵。</p>
+<h3 id="3-2图像灰度反转"><a href="#3-2图像灰度反转" class="headerlink" title="3.2图像灰度反转"></a>3.2图像灰度反转</h3><p>图像读取进来为矩阵。</p>
 <p>矩阵可以进行计算。</p>
 <p>255-A可得该图像的灰度图的反转</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Matlab/%E5%9F%BA%E7%A1%80%E5%8F%8D%E8%BD%AC.jpg" alt=""></p>
@@ -883,10 +883,10 @@ B<span class="token operator">=</span><span class="token function">imread</span>
 <span class="token comment" spellcheck="true">%灰度反转</span>
 C<span class="token operator">=</span><span class="token number">255</span><span class="token operator">-</span>A<span class="token punctuation">;</span>
 <span class="token function">imshow</span><span class="token punctuation">(</span>C<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">%也会显示在图形窗口1，覆盖掉A</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4-3彩色图像"><a href="#4-3彩色图像" class="headerlink" title="4.3彩色图像"></a>4.3彩色图像</h3><p>是三维矩阵。R、G、B三个通道去显示。</p>
+<h3 id="3-3彩色图像"><a href="#3-3彩色图像" class="headerlink" title="3.3彩色图像"></a>3.3彩色图像</h3><p>是三维矩阵。R、G、B三个通道去显示。</p>
 <p>读取彩色tif默认为灰度图。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Matlab/%E5%9F%BA%E7%A1%80c%E5%8F%8D%E8%BD%AC%E5%BD%A9%E8%89%B2.jpg" alt=""></p>
-<h2 id="五、遇到过的问题"><a href="#五、遇到过的问题" class="headerlink" title="五、遇到过的问题"></a>五、遇到过的问题</h2><h3 id="5-1-字体改为Consolas后编辑器注释中文乱码问题"><a href="#5-1-字体改为Consolas后编辑器注释中文乱码问题" class="headerlink" title="5.1 字体改为Consolas后编辑器注释中文乱码问题"></a>5.1 字体改为Consolas后编辑器注释中文乱码问题</h3><p>安装完毕后，越写越觉得Matlab的字体真不咋地，于是乎，将字体改为心心爱爱的Consolas字体，然鹅，发现注释中的中文出现了方框问号的乱码问题……。</p>
+<h2 id="四、遇到过的问题"><a href="#四、遇到过的问题" class="headerlink" title="四、遇到过的问题"></a>四、遇到过的问题</h2><h3 id="4-1-字体改为Consolas后编辑器注释中文乱码问题"><a href="#4-1-字体改为Consolas后编辑器注释中文乱码问题" class="headerlink" title="4.1 字体改为Consolas后编辑器注释中文乱码问题"></a>4.1 字体改为Consolas后编辑器注释中文乱码问题</h3><p>安装完毕后，越写越觉得Matlab的字体真不咋地，于是乎，将字体改为心心爱爱的Consolas字体，然鹅，发现注释中的中文出现了方框问号的乱码问题……。</p>
 <p><strong>原因：</strong></p>
 <p><strong>Matlab中缺少Consolas字体，导致其显示不正确。</strong></p>
 <p><strong>解决：下载Consolas-with-Yahei-master.zip字体(4个)，将其放在matlab字体路径下即可。</strong></p>
@@ -900,12 +900,12 @@ C<span class="token operator">=</span><span class="token number">255</span><span
 </blockquote>
 <p>这种字体是一种 <strong>Consolas</strong> 和 <strong>微软雅黑</strong> 的混合字体，这样既保证了代码的显示效果，而且也兼容了中文显示。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Matlab/%E4%B9%B1%E7%A0%81%E5%AD%97%E4%BD%93%E8%B7%AF%E5%BE%84.jpg" alt=""></p>
-<h3 id="5-2-ASV文件"><a href="#5-2-ASV文件" class="headerlink" title="5.2 ASV文件"></a>5.2 ASV文件</h3><p>在写代码的时候，无意间发现，哎~？创建的脚本旁边还有有个同名的兄弟文件，后缀为CSV。很有趣，</p>
+<h3 id="4-2-ASV文件"><a href="#4-2-ASV文件" class="headerlink" title="4.2 ASV文件"></a>4.2 ASV文件</h3><p>在写代码的时候，无意间发现，哎~？创建的脚本旁边还有有个同名的兄弟文件，后缀为CSV。很有趣，</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Matlab/ASVASV%E6%96%87%E4%BB%B6.jpg" alt=""></p>
 <p>asv就是autosave的意思，<em>.asv文件的内容和相应的</em>.m文件内容一样，用记事本和matlab都能打开它。它可以作为*.m文件的“备份”。</p>
 <p>可以在预设中通过设置取消自动备份功能：编辑器/调试器→备份文件。把勾选去掉就行了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Matlab/ASV%E8%AE%BE%E7%BD%AE.jpg" alt=""></p>
-<h3 id="5-3反函数finverse求log52"><a href="#5-3反函数finverse求log52" class="headerlink" title="5.3反函数finverse求log52"></a>5.3反函数finverse求log52</h3><pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> y<span class="token operator">=</span><span class="token number">5</span><span class="token operator">^</span><span class="token number">2</span>
+<h3 id="4-3反函数finverse求log52"><a href="#4-3反函数finverse求log52" class="headerlink" title="4.3反函数finverse求log52"></a>4.3反函数finverse求log52</h3><pre class="line-numbers language-matlab"><code class="language-matlab"><span class="token operator">></span><span class="token operator">></span> y<span class="token operator">=</span><span class="token number">5</span><span class="token operator">^</span><span class="token number">2</span>
 
 y <span class="token operator">=</span>
 
@@ -1861,6 +1861,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
