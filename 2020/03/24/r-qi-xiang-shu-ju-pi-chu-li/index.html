@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="R气象数据批处理, 世昱的博客">
+    <meta name="keywords" content="R气象数据批处理, 世昱">
     <meta name="description" content="R语言批处理中国地面气候资料日值数据集(V3.0)]">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>R气象数据批处理 | 世昱的博客</title>
+    <title>R气象数据批处理 | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -196,7 +196,7 @@
         
         <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif" class="logo-img circle responsive-img">
         
-        <div class="logo-name">世昱的博客</div>
+        <div class="logo-name">世昱</div>
         <div class="logo-desc">
             
             有时间，我们一起去散步吧
@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-01
+                    2020-04-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    403
+                    406
                 </div>
                 
 
@@ -509,7 +509,7 @@
             <div id="articleContent">
                 <p><strong>R语言批处理<a href="http://data.cma.cn/data/cdcdetail/dataCode/SURF_CLI_CHN_MUL_DAY_V3.0.html" target="_blank" rel="noopener">中国地面气候资料日值数据集(V3.0)</a>本文的处理数据、说明文档以及脚本，在这儿👇</strong></p>
 <p><strong><a href="https://download.csdn.net/download/weixin_44318841/12267979" target="_blank" rel="noopener">:m:</a></strong></p>
-<h2 id="一、数据结构简介"><a href="#一、数据结构简介" class="headerlink" title="一、数据结构简介"></a>一、数据结构简介</h2><p>以月为单位，每个文件代表一个月，每个文件中包括所有站点的详细数据(可能是全国的气象站点)</p>
+<h2 id="一、数据内容结构简介"><a href="#一、数据内容结构简介" class="headerlink" title="一、数据内容结构简介"></a>一、数据内容结构简介</h2><p>以月为单位，每个文件代表一个月，每个文件中包括所有站点的详细数据(可能是全国的气象站点)</p>
 <blockquote>
 <p>“中国地面气候资料日值数据集（V3.0）”包含了中国699个基准、基本气象站1951年1月以来本站气压、气温、降水量、蒸发量、相对湿度、风向风速、日照时数和0cm地温要素的日值数据。</p>
 </blockquote>
@@ -528,7 +528,7 @@
 </blockquote>
 <p>最终效果图示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD/%E6%95%88%E6%9E%9C.png" alt=""></p>
-<h2 id="三、R脚本实现"><a href="#三、R脚本实现" class="headerlink" title="三、R脚本实现"></a>三、R脚本实现</h2><h3 id="初级版本——部分指定站点处理"><a href="#初级版本——部分指定站点处理" class="headerlink" title="初级版本——部分指定站点处理"></a>初级版本——部分指定站点处理</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+<h2 id="三、R脚本实现"><a href="#三、R脚本实现" class="headerlink" title="三、R脚本实现"></a>三、R脚本实现</h2><h3 id="3-1-初级版本——部分指定站点处理"><a href="#3-1-初级版本——部分指定站点处理" class="headerlink" title="3.1 初级版本——部分指定站点处理"></a>3.1 初级版本——部分指定站点处理</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
 setwd("B:/Temp3/test")
 
 #筛选出所有数据文件，以“SURF_CLI_CHN_MUL_DAY-TEM”为搜索关键词----
@@ -574,7 +574,7 @@ for (j in 1:length(data5)) {
               append=F,
               row.names = F)
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="终极版本——全部站点处理"><a href="#终极版本——全部站点处理" class="headerlink" title="终极版本——全部站点处理"></a><strong>终极版本——全部站点处理</strong></h3><pre class="line-numbers language-R"><code class="language-R">
+<h3 id="3-2-终极版本——全部站点处理"><a href="#3-2-终极版本——全部站点处理" class="headerlink" title="3.2 终极版本——全部站点处理"></a><strong>3.2 终极版本——全部站点处理</strong></h3><pre class="line-numbers language-R"><code class="language-R">
 rm(list = ls())
 setwd("B:/Temp3/test1")
 
@@ -634,7 +634,7 @@ for (j in 1:length(data5)) {
 <p>环境下为各个气象TXT文件，运行各个站点文件则直接放在该目录下。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%85%AD%E7%8E%AF%E5%A2%831.png" alt=""></p>
 <hr>
-<h3 id="他山之石"><a href="#他山之石" class="headerlink" title="他山之石"></a>他山之石</h3><p><strong>1、很清晰，不过用的方法一样</strong></p>
+<h3 id="3-3-他山之石"><a href="#3-3-他山之石" class="headerlink" title="3.3 他山之石"></a>3.3 他山之石</h3><p><strong>1、很清晰，不过用的方法一样</strong></p>
 <p>不过环境得稍改一下</p>
 <pre class="line-numbers language-R"><code class="language-R">rm(list=ls())
 setwd("B:/Temp3/")
@@ -721,11 +721,13 @@ writeOGR(resultdata,
          driver = "ESRI Shapefile",#设置输出类型
          overwrite_layer = T) #是否覆盖)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>#proj4坐标系网站：</p>
+<blockquote>
+<p>proj4坐标系网站：</p>
 <ul>
 <li><a href="https://spatialreference.org/" target="_blank" rel="noopener">https://spatialreference.org/</a></li>
 <li><a href="https://spatialreference.org/ref/sr-org/8909/proj4/" target="_blank" rel="noopener">https://spatialreference.org/ref/sr-org/8909/proj4/</a></li>
 </ul>
+</blockquote>
 <p><strong>P.S 生成shp文件时，尽量不要用汉字列名<del>不要用汉字</del>不要用汉字~</strong></p>
 <p><strong>特别是设置其坐标参考系参数的时候~</strong></p>
 <h3 id="结果环境及成果"><a href="#结果环境及成果" class="headerlink" title="结果环境及成果"></a>结果环境及成果</h3><p>运行汇总的所有气温数据均放在一个csv中，并将shp文件放在同目录下，运行结果环境如下👇</p>
@@ -1467,7 +1469,7 @@ writeOGR(resultdata,
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">21.2k</span>&nbsp;字
+                class="white-color">24.7k</span>&nbsp;字
             
             
             

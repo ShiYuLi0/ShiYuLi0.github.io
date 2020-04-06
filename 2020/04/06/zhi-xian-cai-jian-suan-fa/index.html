@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="区域填充算法, 世昱">
-    <meta name="description" content="计算机图形学中种子填色(Seed Filling)算法、扫描线填色(Scan-Line Filling)算法">
+    <meta name="keywords" content="直线裁剪算法, 世昱">
+    <meta name="description" content="直线裁剪算法。Sutherland-Cohen算法">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>区域填充算法 | 世昱</title>
+    <title>直线裁剪算法 | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -318,12 +318,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/计算机图形学/直线裁剪yunx行05.gif')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">区域填充算法</h1>
+                    <h1 class="description center-align post-title">直线裁剪算法</h1>
                 </div>
             </div>
         </div>
@@ -440,20 +440,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                                <span class="chip bg-color">计算机图形学</span>
-                            </a>
-                        
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C#</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
-                                <span class="chip bg-color">种子填色</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
-                                <span class="chip bg-color">扫描线填色</span>
+                            <a href="/tags/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">-直线裁剪算法</span>
                             </a>
                         
                     </div>
@@ -464,12 +452,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                计算机图形学
-                            </a>
-                        
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                算法
+                            <a href="/categories/%E7%AE%97%E6%B3%95-C/" class="post-category">
+                                -[算法] -[C#]
                             </a>
                         
                     </div>
@@ -481,28 +465,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-14
+                    2020-04-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-16
+                    2020-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    864
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    9 分
                 </div>
                 
 
@@ -519,125 +503,295 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、区域填充算法"><a href="#一、区域填充算法" class="headerlink" title="一、区域填充算法"></a>一、区域填充算法</h1><h2 id="分为两大类："><a href="#分为两大类：" class="headerlink" title="分为两大类："></a><strong>分为两大类：</strong></h2><h3 id="1、种子填色算法-Seed-Filling"><a href="#1、种子填色算法-Seed-Filling" class="headerlink" title="1、种子填色算法(Seed Filling)"></a>1、种子填色算法(Seed Filling)</h3><blockquote>
-<p>这类算法建立在多边形边边界的图象形式数据之上，并还需提供多边形界内一点的坐标。所以，它一般只能用于人机交互填色，而难以用于程序填色。</p>
+                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><strong>Sutherland-Cohen算法</strong>  </p>
+<p>它叫，“<del>苏泽兰抠恨算法</del>” ​ :smile:</p>
+<blockquote>
+<p>用矩形框裁剪直线。</p>
 </blockquote>
-<p>GIS中用于栅格填色</p>
-<h3 id="2、扫描线填色算法-Scan-Line-Filling"><a href="#2、扫描线填色算法-Scan-Line-Filling" class="headerlink" title="2、扫描线填色算法(Scan-Line Filling)"></a>2、扫描线填色算法(Scan-Line Filling)</h3><blockquote>
-<p>这类算法建立在多边形边边界的矢量形式数据之上，可用于程序填色，也可用交互填色。</p>
-</blockquote>
-<hr>
-<h1 id="二、种子填色算法-Seed-Filling"><a href="#二、种子填色算法-Seed-Filling" class="headerlink" title="二、种子填色算法(Seed Filling)"></a>二、种子填色算法(Seed Filling)</h1><blockquote>
-<p>种子填色又称边界填色（Boundary Filling）。</p>
-<p>它的功能是：给出多边形光栅化后的边界位置及边界色代码boundary，以及多边形之内的一点x, y位置，要求将颜色color填满多边形。 </p>
-</blockquote>
-<h2 id="算法分类"><a href="#算法分类" class="headerlink" title="算法分类"></a>算法分类</h2><p>分为四邻法（4-connected）和八邻法。 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6foureight.JPG" alt=""></p>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C#实现"></a>C#实现</h3><p>种子填充更适合用于栅格像元填色，知识有限。暂且用GDL+的矢量像元代替。</p>
-<h4 id="算法流程思路"><a href="#算法流程思路" class="headerlink" title="算法流程思路"></a>算法流程思路</h4><p>:satisfied:自认为很棒的思路哈哈哈~:laughing:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2Seed%E6%B5%81%E7%A8%8B.jpg" alt=""></p>
-<h4 id="代码实现-很巧-qi-妙-pa-的思路-relieved"><a href="#代码实现-很巧-qi-妙-pa-的思路-relieved" class="headerlink" title="代码实现(很巧(qi)妙(pa)的思路 :relieved: )"></a>代码实现(很巧(qi)妙(pa)的思路 :relieved: )</h4><h5 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h5><ol>
-<li><p>需要填充颜色的图形的边界颜色:rainbow:</p>
+<h3 id="整体思想"><a href="#整体思想" class="headerlink" title="整体思想"></a><strong>整体思想</strong></h3><ul>
+<li><p>首先，判断直线是否完全在裁剪矩形内，或者完全在矩形框外。</p>
 </li>
-<li><p>需要填充的颜色是什么:rainbow:</p>
+<li><p>若不能得出以上两种结论，则计算出线段与矩形边界的交点。交点把直线分成两段(若两个交点，则先看其中一个交点)，把完全在窗口外的舍去，然后再对另一条再做判断。</p>
 </li>
-<li><p>种子点，即填充图形内部中尚未填充颜色的任意一点，也是填充的起始点。:eight_pointed_black_star:</p>
-<p>(星星之火:fire:可以燎原呐~ )</p>
+</ul>
+<blockquote>
+<p>P.S 具体实现中，并非是将窗口外的舍去，其本质也就是找出新的两个线段端点(被切割部分)，然后再将其画出罢了。</p>
+</blockquote>
+<h2 id="二、实现效果"><a href="#二、实现效果" class="headerlink" title="二、实现效果"></a>二、实现效果</h2><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AAyunx%E8%A1%8C05.gif" alt=""></p>
+<h2 id="三、分区编码"><a href="#三、分区编码" class="headerlink" title="三、分区编码"></a>三、分区编码</h2><p><strong>先说说判断端点位置用的分区编码</strong></p>
+<p>将屏幕分成九个区域，用四位0、1编码为每一个区域编码。</p>
+<blockquote>
+<ol>
+<li>最中间，是裁剪的矩形框区域，内部为0000.</li>
+<li>其左侧部分，也就是x值小于XL部分，其第四位编码均为1；</li>
+<li>其右侧部分，也就是x值大于XR部分，其第三位编码均为1，</li>
+<li>其上部，也就是y值大于YT部分，其第一位编码均为1；</li>
+<li>其下部，也就是y值小于YB部分，第第二位编码均为1.</li>
+</ol>
+</blockquote>
+<p>如下，<u><strong>（笛卡尔平面坐标系，非屏幕坐标系）</strong></u></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA/%E6%88%AA%E5%9B%BE%E5%88%86%E5%8C%BA%E7%BC%96%E7%A0%81.jpg" alt=""></p>
+<h2 id="四、具体实现步骤"><a href="#四、具体实现步骤" class="headerlink" title="四、具体实现步骤"></a>四、具体实现步骤</h2><h3 id="4-1总体思路"><a href="#4-1总体思路" class="headerlink" title="4.1总体思路"></a>4.1总体思路</h3><ol>
+<li><p>对直线两端点p1、p2进行编码，</p>
+<p>p1、p2编码分别记为，code1、code2。</p>
+<p>code1={a1、b1、c1、d1}</p>
+<p>code2={a2、b2、c2、d2}</p>
+<blockquote>
+<p>其中，ai，bi，ci、di的取值范围为{0，1}，i={1，2}</p>
+</blockquote>
+</li>
+<li><p>若ai=bi=ci=di=0，此情况为直线在矩形<strong>同一外域</strong>，则显示整条直线。否则，进行第三步</p>
+</li>
+<li><p>对四位编码逐位判断。</p>
+<p>若a1=1或者a2=1，则该点在矩形框的上部，也就是“三、分区编码”中的情况“4”。则求直线与矩形框的纵坐标的y的最小值<strong><u><em>(屏幕坐标系)</em></u></strong>，<strong>将该点坐标移为交点(也就相当于删去交点以上部分)</strong></p>
+<p>若b1=1或者b2=1，则该点在矩形框的下部，也就是“三、分区编码”中的情况“5”。则求直线与矩形框的纵坐标的y的最大值<strong><u><em>(屏幕坐标系)</em></u></strong>，<strong>将该点坐标移为交点(也就相当于删去交点以下部分)</strong></p>
+<p>若c1=1或者c2=1，则该点在矩形框的右部，也就是“三、分区编码”中的情况“3”。则求直线与矩形框的横坐标的x的最大值<strong><u><em>(屏幕坐标系)</em></u></strong>，<strong>将该点坐标移为交点(也就相当于删去交点以右部分)</strong></p>
+<p>若d1=1或者d2=1，则该点在矩形框的左部，也就是“三、分区编码”中的情况“2”。则求直线与矩形框的横坐标的y的最小值<strong><u><em>(屏幕坐标系)</em></u></strong>，<strong>将该点坐标移为交点(也就相当于删去交点以左部分)</strong></p>
+<blockquote>
+<p>至于”矩形框的上部“，则是在视觉上而言。以上皆是。</p>
+</blockquote>
+</li>
+<li><p>画出直线。(此时会只画出被移动端点后的直线)</p>
 </li>
 </ol>
-<h5 id="具体思路"><a href="#具体思路" class="headerlink" title="具体思路"></a>具体思路</h5><p>利用中点画圆算法(中点画圆算法文章中已详细阐述)，画两个圆。</p>
-<ul>
-<li>第一个圆为目标填充圆，即，需要填充颜色的圆。</li>
-<li>第二个圆为取色圆，取其边界颜色，将其作为第一个圆填充的颜色。</li>
+<h3 id="4-2-C-代码实现"><a href="#4-2-C-代码实现" class="headerlink" title="4.2 C#代码实现"></a>4.2 C#代码实现</h3><h4 id="4-2-1-各参数含义"><a href="#4-2-1-各参数含义" class="headerlink" title="4.2.1 各参数含义"></a><strong>4.2.1 各参数含义</strong></h4><ul>
+<li>x1, y1, x2, y2：输入直线两端坐标；</li>
+<li>code1, code2：两端点的编码，各四位。</li>
+<li>done：是否剪裁完毕的标志，True：剪裁完。</li>
+<li>display：是否需显示的标志，True：显示直线x1, y1, x2, y2。</li>
+<li>m：直线之斜率。</li>
+<li>mark：是否需要进行交换标志。</li>
 </ul>
-<p>其实要定义第一个圆的填充颜色，亦可用交互方式来定义，即用户自定义颜色。有点麻烦，不想搞那么花里胡哨的了。</p>
-<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><p>硬核算法部分</p>
-<pre class="line-numbers language-c#"><code class="language-c#">using System.Drawing;
-
-namespace scan
-{
-    partial class Form1
-    {
-        public static void seedfill(Color boundcolor,Point pointseed,Color fillcolor,Bitmap bitmap)
-        {
-            //取出种子点(需要填充的图形边界内一点)的颜色
-            Color c = bitmap.GetPixel(pointseed.X, pointseed.Y);
-
-            //四邻法，对种子点的颜色进行判断。
-            if (c!=fillcolor && c!=boundcolor)
-            {
-                bitmap.SetPixel(pointseed.X, pointseed.Y, fillcolor);
-                seedfill(boundcolor, new Point(pointseed.X, pointseed.Y + 1), fillcolor, bitmap);
-                seedfill(boundcolor, new Point(pointseed.X, pointseed.Y - 1), fillcolor, bitmap);
-                seedfill(boundcolor, new Point(pointseed.X + 1, pointseed.Y), fillcolor, bitmap);
-                seedfill(boundcolor, new Point(pointseed.X - 1, pointseed.Y), fillcolor, bitmap);
-            }
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>使用部分</p>
-<pre class="line-numbers language-c#"><code class="language-c#">using System;
+<h4 id="4-2-1-方法功能描述"><a href="#4-2-1-方法功能描述" class="headerlink" title="4.2.1 方法功能描述"></a><strong>4.2.1 方法功能描述</strong></h4><p>1）主算法为clip_a_line。它调用四个子程序，功能分别为：</p>
+<p>2）encode(x, y, c)：功能为：判断点（x, y）所在的区域，赋予c以相应的编码。</p>
+<p>3）accept(c1, c2)：功能为：根据两端点的编码c1, c2，判断直线是否在窗口之内。</p>
+<p>4）reject(c1, c2)：功能为：根据两端点的编码c1, c2，判断直线是否在窗口之外。</p>
+<p>5）swap_if_needed(x1, y1, x2, y2, c1, c2)；功能为：判断（x1, y1）是否在窗口之外，如否，则将x1, y1, c1值与x2, y2, c2值交换</p>
+<h4 id="4-2-3-代码部分"><a href="#4-2-3-代码部分" class="headerlink" title="4.2.3 代码部分"></a>4.2.3 代码部分</h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace scan
+namespace Cohen_Sutherland
 {
     public partial class Form1 : Form
     {
-        Graphics graphics;
-        Bitmap bitmap;
+        static Graphics graphics;
+        static Bitmap bitmap;
         public Form1()
         {
             InitializeComponent();
             graphics = panel1.CreateGraphics();
             bitmap = new Bitmap(panel1.Width, panel1.Height);
         }
-        private void ButtonDraw_Click(object sender, EventArgs e)
+
+        Pen linepen = new Pen(Color.Red, 2);//原始画线画笔
+        Pen linepen1 = new Pen(Color.Green, 2);//裁剪画笔
+        Pen Ectanglepen = new Pen(Color.Blue, 2);//矩形画笔
+        private void button_DrawrEctangle_Click(object sender, EventArgs e)
         {
-            //第一个圆为填充图形
-            circle(100, 100, 30, Color.Red);
+            Point p1 = new Point(260, 200);
+            Point p2 = new Point(410, 200);
+            Point p3 = new Point(410, 350);
+            Point p4 = new Point(260, 350);
+            Point[] points;
+            points = new Point[] { p1, p2, p3, p4 };
 
-            //第二个圆为取色图形
-            circle(290, 200, 10, Color.Blue);
 
-            graphics.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
+            graphics.DrawPolygon(Ectanglepen, points);
+            graphics.DrawImage(bitmap, 0, 0, panel1.Width, panel1.Height);
         }
-        private void ButtonFill_Click(object sender, EventArgs e)
+
+        private void button_DrawLine_Click(object sender, EventArgs e)
         {
-            //填充开始的点(种子点)，为第一个圆的圆心。
-            Point point = new Point(100, 100);
-
-            //参数1图形边界颜色：取点(100,90)。
-            //参数2开始填充的种子点：point(100,100).其为圆心。
-            //参数3想要填充的颜色：取自第二个圆的边界颜色，即点(200,190)。
-            //参数4在bitmap上进行操作。
-            seedfill(bitmap.GetPixel(100, 70), point, bitmap.GetPixel(290, 190), bitmap);
-            graphics.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
+            graphics.DrawLine(linepen, 190, 180, 460, 290);
         }
+        private void button_Clip_Click(object sender, EventArgs e)
+        {
+            clip_a_line(190, 180, 460, 290, 260, 200, 410, 350);
+        }
+
+        //为p1、p2端点编码
+        public void encode(int x, int y, int[] code, int xw_min, int xw_max, int yw_min, int yw_max)
+        {
+            int i;
+            for (i = 0; i < 4; i++)
+                code[i] = 0;
+            if (x < xw_min)
+                code[3] = 1;
+            else
+            if (x > xw_max)
+                code[2] = 1;
+            if (y > yw_max)
+                code[1] = 1;
+            else
+            if (y < yw_min)
+                code[0] = 1;
+        }
+
+        //主函数，总控
+        public void clip_a_line(int x1, int y1, int x2, int y2, int xw_min, int yw_min, int xw_max, int yw_max)
+        {
+            int[] code1 = new int[4];//p1端点的编码
+            int[] code2 = new int[4];//p2端点的编码
+            int done;
+            int display;
+            float m;//直线斜率
+            int x11, x22, y11, y22, mark;
+            done = 0;     // done为是否剪裁完毕的标志变量
+            display = 0;      // display为是否显示直线的标志变量
+            while (done == 0)
+            {
+                x11 = x1;
+                x22 = x2;
+                y11 = y1;
+                y22 = y2;
+                encode(x1, y1, code1, xw_min, xw_max, yw_min, yw_max);    // 为起点编码
+                encode(x2, y2, code2, xw_min, xw_max, yw_min, yw_max);    // 为终点编码
+                if (accept(code1, code2) == 1)         // 判断直线两端点是否都在剪裁框内，是则剪裁完毕，显示直线
+                {
+                    done = 1;
+                    display = 1;
+                    break;
+                }
+                else if (reject(code1, code2) == 1)  // 判断直线两端点是否在剪裁框的同一外域，是则剪裁完毕，显示直线
+                {
+                    done = 1;
+                    break;
+                }
+                //mark是否交换p1、p2的标志等于1则交换
+                //swap_if_needed方法只是判断出是否需要交换、并返回是否需要交换的标志mark
+                mark = swap_if_needed(code1, code2); // mark的意义是:swap_if_needed中是否交换过code1[4]和code2[4]
+                if (mark == 1)                     // 若交换过，mark = swap_if_needed = 1,否则mark = swap_if_needed = 0
+                {
+                    x1 = x22;                 // 若mark = 1，交换两端点坐标
+                    x2 = x11;
+                    y1 = y22;
+                    y2 = y11;
+                }
+                if (x1 == x2)                      // 斜率不存在的情况。即，x1=x2，则令斜率为 -1
+                    m = -1;
+                else
+                    m = (float)(y2 - y1) / (float)(x2 - x1);// 计算斜率
+
+                // 根据起点p1编码的每一位，对直线进行剪裁，实际上是移动起点的坐标
+                //【注意】：处于屏幕坐标系下
+                if (code1[0] == 1) //判断编码第一位，为1，则该点在视觉上处于“上侧”，屏幕坐标系上则p1纵坐标小于矩形纵坐标最小值。            
+                {
+                    if (x1 != x2)
+                        x1 += (int)((yw_min - y1) / m);//x1移动到直线与yw_min交点处。
+                    y1 = yw_min;//将p1的y1移为矩形纵坐标最小值。
+                }
+                else
+                if (code1[1] == 1)
+                {
+                    if (x1 != x2)
+                        x1 -= (int)((y1 - yw_max) / m);
+                    y1 = yw_max;
+                }
+                else
+                if (code1[2] == 1)
+                {
+                    y1 -= (int)((x1 - xw_max) * m);
+                    x1 = xw_max;
+                }
+                else
+                if (code1[3] == 1)
+                {
+                    y1 += (int)((xw_min - x1) * m);
+                    x1 = xw_min;
+                }
+            }
+            if (display == 1)
+            {// 若显示直线标志为1，则画出直线
+                graphics.Clear(Color.White);//清空屏幕
+                //画出裁剪矩形
+                Point p1 = new Point(xw_min, yw_min);
+                Point p2 = new Point(xw_max, yw_min);
+                Point p3 = new Point(xw_max, yw_max);
+                Point p4 = new Point(xw_min, yw_max);
+                Point[] points;
+                points = new Point[] { p1, p2, p3, p4 };
+                graphics.DrawPolygon(Ectanglepen, points);
+                //画出直线
+                graphics.DrawLine(linepen1, x1, y1, x2, y2);
+            }
+        }
+
+        //判断p1、p2是否都在矩形内部
+        public int accept(int[] code1, int[] code2)
+        {
+            int i, flag;
+            flag = 1;
+            for (i = 0; i < 4; i++)
+                if ((code1[i] == 1) || (code2[i] == 1))
+                {
+                    flag = 0;
+                    break;
+                }
+            return (flag);
+        }
+
+        //判断p1、p2是否都在矩形外部
+        public int reject(int[] code1, int[] code2)
+        {
+            int i, flag;
+            flag = 0;//否
+            for (i = 0; i < 4; i++)
+                if ((code1[i] == 1) && (code2[i] == 1))
+                {
+                    flag = 1;//是
+                    break;
+                }
+            return (flag);
+        }
+
+        //p1、p2是否需要被交换
+        public int swap_if_needed(int[] code1, int[] code2)
+        {
+            int i, flag1, flag2, tmp;
+            flag1 = 1;
+            for (i = 0; i < 4; i++)
+                if (code1[i] == 1)
+                {
+                    flag1 = 0;//code1中存在1，即在点外部。不需要交换
+                    break;
+                }
+            flag2 = 1;
+            for (i = 0; i < 4; i++)
+                if (code2[i] == 1)
+                {
+                    flag2 = 0;//code2中存在1，即点在外部。不需要交换
+                    break;
+                }
+            if ((flag1 == 0) && (flag2 == 0))//说明两个编码中的含有1，则不能交换
+                return (0);
+            if ((flag1 == 1) && (flag2 == 0))//此时code1需要被交换，code2不需要被交换，
+            {                                 //将二者编码进行交换。
+                for (i = 0; i < 4; i++)
+                {
+                    tmp = code1[i];
+                    code1[i] = code2[i];
+                    code2[i] = tmp;
+                }
+                return (1);                   //返回需要交换坐标的信号，在总控方法中对坐标进行交换
+            }
+            return (0);                        //返回不需要交换坐标的信号。
+        }
+
+
     }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>hhhhhh……</p>
-<h5 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C0.gif" alt=""></p>
-<h2 id="sunglasses"><a href="#sunglasses" class="headerlink" title=":sunglasses:"></a><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="五、流程图"><a href="#五、流程图" class="headerlink" title="五、流程图"></a>五、流程图</h2><h3 id="5-1clip-a-line-总控方法"><a href="#5-1clip-a-line-总控方法" class="headerlink" title="5.1clip_a_line(总控方法)"></a>5.1clip_a_line(总控方法)</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA/%E6%B5%81%E7%A8%8B%E5%9B%BEclip_a_line.jpg" alt=""></p>
+<hr>
+<h3 id="5-2-encode方法"><a href="#5-2-encode方法" class="headerlink" title="5.2 encode方法"></a>5.2 encode方法</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA/%E6%B5%81%E7%A8%8B%E5%9B%BEencode.jpg" alt=""></p>
+<hr>
+<h3 id="5-3-reject方法"><a href="#5-3-reject方法" class="headerlink" title="5.3 reject方法"></a>5.3 reject方法</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA/%E6%B5%81%E7%A8%8B%E5%9B%BEreject.jpg" alt=""></p>
+<hr>
+<h3 id="5-4-accept方法"><a href="#5-4-accept方法" class="headerlink" title="5.4 accept方法"></a>5.4 accept方法</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA/%E6%B5%81%E7%A8%8B%E5%9B%BEaccept.jpg" alt=""></p>
+<hr>
+<h3 id="5-5-swap-if-needed方法"><a href="#5-5-swap-if-needed方法" class="headerlink" title="5.5 swap_if_needed方法"></a>5.5 swap_if_needed方法</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA/%E6%B5%81%E7%A8%8B%E5%9B%BEswap_if_needed.jpg" alt=""></p>
+<hr>
+<h2 id="Over"><a href="#Over" class="headerlink" title="Over~"></a>Over~</h2>
             </div>
             <hr/>
 
@@ -662,7 +816,7 @@ namespace scan
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/03/14/qu-yu-tian-chong-suan-fa/">https://lishiyu.vip/2020/03/14/qu-yu-tian-chong-suan-fa/</a>
+                    <a href="https://lishiyu.vip/2020/04/06/zhi-xian-cai-jian-suan-fa/">https://lishiyu.vip/2020/04/06/zhi-xian-cai-jian-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -700,20 +854,8 @@ namespace scan
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                                    <span class="chip bg-color">计算机图形学</span>
-                                </a>
-                            
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C#</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
-                                    <span class="chip bg-color">种子填色</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
-                                    <span class="chip bg-color">扫描线填色</span>
+                                <a href="/tags/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">-直线裁剪算法</span>
                                 </a>
                             
                         </div>
@@ -1146,30 +1288,41 @@ namespace scan
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/">
+                <a href="/2020/04/06/sao-miao-tian-chong-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-350cf87650247db7.gif" class="responsive-img" alt="ArcGIS编辑器及其高级编辑">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/计算机图形学/ScanFill运行效果.gif" class="responsive-img" alt="扫描填充算法">
                         
-                        <span class="card-title">ArcGIS编辑器及其高级编辑</span>
+                        <span class="card-title">扫描填充算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ArcGIS编辑器、高级编辑
+                            效果图
+
+C#代码实现
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/GIS/" class="post-category">
-                                    GIS
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            <a href="/categories/C/" class="post-category">
+                                    C#
                                 </a>
                             
                             
@@ -1179,8 +1332,8 @@ namespace scan
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ArcGIS/">
-                        <span class="chip bg-color">ArcGIS</span>
+                    <a href="/tags/%E6%89%AB%E6%8F%8F%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">扫描填充算法</span>
                     </a>
                     
                 </div>
@@ -1194,34 +1347,30 @@ namespace scan
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/04/zhong-dian-hua-yuan-suan-fa/">
+                <a href="/2020/04/05/matlab/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-13738e5d68444eb.gif" class="responsive-img" alt="中点画圆算法">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/Matlab/基础ei.jpg" class="responsive-img" alt="Matlab">
                         
-                        <span class="card-title">中点画圆算法</span>
+                        <span class="card-title">Matlab</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            中点画圆法、圆弧扫描算法以及角度DDA法
+                            熟悉Matlab平台、基础语法函数、数字图像读取
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                    计算机图形学
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/Matlab/" class="post-category">
+                                    Matlab
                                 </a>
                             
                             
@@ -1231,20 +1380,8 @@ namespace scan
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                        <span class="chip bg-color">计算机图形学</span>
-                    </a>
-                    
-                    <a href="/tags/DDA/">
-                        <span class="chip bg-color">DDA</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
-                        <span class="chip bg-color">中点画圆法</span>
+                    <a href="/tags/Matlab/">
+                        <span class="chip bg-color">Matlab</span>
                     </a>
                     
                 </div>

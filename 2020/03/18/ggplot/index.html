@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ggplot, 世昱的博客">
+    <meta name="keywords" content="ggplot, 世昱">
     <meta name="description" content="ggplot函数！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ggplot | 世昱的博客</title>
+    <title>ggplot | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -196,7 +196,7 @@
         
         <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif" class="logo-img circle responsive-img">
         
-        <div class="logo-name">世昱的博客</div>
+        <div class="logo-name">世昱</div>
         <div class="logo-desc">
             
             有时间，我们一起去散步吧
@@ -483,7 +483,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    452
+                    475
                 </div>
                 
 
@@ -565,14 +565,14 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 <p>lab为标签</p>
 </blockquote>
 <pre><code>&gt; rm(list = ls())
-&gt; setwd(&quot;A:/学习材料/R/COG玫瑰图&quot;)
+&gt; setwd("A:/学习材料/R/COG玫瑰图")
 &gt; library(ggplot2)
 &gt; 
 &gt; #read.table()--------------------------------------
 &gt; #读取数据，seq（3）sep
-&gt; #分开数据的分隔符。默认sep=&quot;&quot;。
+&gt; #分开数据的分隔符。默认sep=""。
 &gt; #read.table()函数可以将1个或多个空格、tab制表符、换行符或回车符作为分隔符。
-&gt; f&lt;-read.table(&quot;cog_lab&quot;, header=T, sep=&quot;\t&quot;)
+&gt; f&lt;-read.table("cog_lab", header=T, sep="\t")
 &gt; #展示数据
 &gt; f
    dir mag                                                             lab
@@ -607,21 +607,21 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 &gt; myLabel = as.vector(f$lab)
 &gt; 
 &gt; #添加百分比！(๑•̀ㅂ•́)و✧
-&gt; myLabel = paste(myLabel, &quot; (&quot;, round(f$mag / sum(f$mag) * 100, 2), &quot;%) &quot;, sep = &quot;&quot;)
+&gt; myLabel = paste(myLabel, " (", round(f$mag / sum(f$mag) * 100, 2), "%) ", sep = "")
 &gt; 
 &gt; p&lt;-ggplot(f,
 +           aes(x=dir,y=factor(mag),fill=dir)
 +           )+
 +   
 +   ## y轴数据直接来自于原始数据框
-+   geom_bar(stat=&#39;identity&#39;)+
++   geom_bar(stat='identity')+
 +   #极坐标转换：可以做出蜘蛛图或饼图的效果。若不设置则默认柱状图
 +   coord_polar()+
 +   
 +   #标注
-+   labs(x = &quot;&quot;,
-+        y = &quot;Number of Unigenes&quot;,
-+        title = &quot;COG Function Classification of Unigene Sequence&quot;)+
++   labs(x = "",
++        y = "Number of Unigenes",
++        title = "COG Function Classification of Unigene Sequence")+
 +   
 +   #axis.ticks坐标轴刻度线---------------------
 +   theme(axis.ticks = element_blank())+
@@ -636,7 +636,7 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 +   scale_fill_discrete(breaks = f$dir,
 +                       labels = myLabel
 +                       )
-&gt; png(&quot;Test2.png&quot;,width = 8200,height = 5400,res = 600,type = &quot;cairo&quot;)
+&gt; png("Test2.png",width = 8200,height = 5400,res = 600,type = "cairo")
 &gt; p
 &gt; dev.off()
 null device 
@@ -748,7 +748,25 @@ labs(x = "",
 png("COG.png",width = 8200,height = 5400,res = 600,type = "cairo")
 p
 dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
             </div>
             <hr/>
 
@@ -1480,7 +1498,7 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">21.2k</span>&nbsp;字
+                class="white-color">24.7k</span>&nbsp;字
             
             
             

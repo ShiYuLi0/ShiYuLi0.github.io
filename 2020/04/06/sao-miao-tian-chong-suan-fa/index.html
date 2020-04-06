@@ -7,8 +7,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="区域填充算法, 世昱">
-    <meta name="description" content="计算机图形学中种子填色(Seed Filling)算法、扫描线填色(Scan-Line Filling)算法">
+    <meta name="keywords" content="扫描填充算法, 世昱">
+    <meta name="description" content="效果图
+
+C#代码实现
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +23,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>区域填充算法 | 世昱</title>
+    <title>扫描填充算法 | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -318,12 +325,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/计算机图形学/ScanFill运行效果.gif')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">区域填充算法</h1>
+                    <h1 class="description center-align post-title">扫描填充算法</h1>
                 </div>
             </div>
         </div>
@@ -440,20 +447,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                                <span class="chip bg-color">计算机图形学</span>
-                            </a>
-                        
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C#</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
-                                <span class="chip bg-color">种子填色</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
-                                <span class="chip bg-color">扫描线填色</span>
+                            <a href="/tags/%E6%89%AB%E6%8F%8F%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">扫描填充算法</span>
                             </a>
                         
                     </div>
@@ -464,12 +459,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                计算机图形学
-                            </a>
-                        
                             <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
                                 算法
+                            </a>
+                        
+                            <a href="/categories/C/" class="post-category">
+                                C#
                             </a>
                         
                     </div>
@@ -481,28 +476,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-14
+                    2020-04-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-16
+                    2020-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    864
+                    839
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -519,125 +514,296 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、区域填充算法"><a href="#一、区域填充算法" class="headerlink" title="一、区域填充算法"></a>一、区域填充算法</h1><h2 id="分为两大类："><a href="#分为两大类：" class="headerlink" title="分为两大类："></a><strong>分为两大类：</strong></h2><h3 id="1、种子填色算法-Seed-Filling"><a href="#1、种子填色算法-Seed-Filling" class="headerlink" title="1、种子填色算法(Seed Filling)"></a>1、种子填色算法(Seed Filling)</h3><blockquote>
-<p>这类算法建立在多边形边边界的图象形式数据之上，并还需提供多边形界内一点的坐标。所以，它一般只能用于人机交互填色，而难以用于程序填色。</p>
-</blockquote>
-<p>GIS中用于栅格填色</p>
-<h3 id="2、扫描线填色算法-Scan-Line-Filling"><a href="#2、扫描线填色算法-Scan-Line-Filling" class="headerlink" title="2、扫描线填色算法(Scan-Line Filling)"></a>2、扫描线填色算法(Scan-Line Filling)</h3><blockquote>
-<p>这类算法建立在多边形边边界的矢量形式数据之上，可用于程序填色，也可用交互填色。</p>
-</blockquote>
-<hr>
-<h1 id="二、种子填色算法-Seed-Filling"><a href="#二、种子填色算法-Seed-Filling" class="headerlink" title="二、种子填色算法(Seed Filling)"></a>二、种子填色算法(Seed Filling)</h1><blockquote>
-<p>种子填色又称边界填色（Boundary Filling）。</p>
-<p>它的功能是：给出多边形光栅化后的边界位置及边界色代码boundary，以及多边形之内的一点x, y位置，要求将颜色color填满多边形。 </p>
-</blockquote>
-<h2 id="算法分类"><a href="#算法分类" class="headerlink" title="算法分类"></a>算法分类</h2><p>分为四邻法（4-connected）和八邻法。 </p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6foureight.JPG" alt=""></p>
-<h3 id="C-实现"><a href="#C-实现" class="headerlink" title="C#实现"></a>C#实现</h3><p>种子填充更适合用于栅格像元填色，知识有限。暂且用GDL+的矢量像元代替。</p>
-<h4 id="算法流程思路"><a href="#算法流程思路" class="headerlink" title="算法流程思路"></a>算法流程思路</h4><p>:satisfied:自认为很棒的思路哈哈哈~:laughing:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2Seed%E6%B5%81%E7%A8%8B.jpg" alt=""></p>
-<h4 id="代码实现-很巧-qi-妙-pa-的思路-relieved"><a href="#代码实现-很巧-qi-妙-pa-的思路-relieved" class="headerlink" title="代码实现(很巧(qi)妙(pa)的思路 :relieved: )"></a>代码实现(很巧(qi)妙(pa)的思路 :relieved: )</h4><h5 id="重要参数"><a href="#重要参数" class="headerlink" title="重要参数"></a>重要参数</h5><ol>
-<li><p>需要填充颜色的图形的边界颜色:rainbow:</p>
-</li>
-<li><p>需要填充的颜色是什么:rainbow:</p>
-</li>
-<li><p>种子点，即填充图形内部中尚未填充颜色的任意一点，也是填充的起始点。:eight_pointed_black_star:</p>
-<p>(星星之火:fire:可以燎原呐~ )</p>
-</li>
-</ol>
-<h5 id="具体思路"><a href="#具体思路" class="headerlink" title="具体思路"></a>具体思路</h5><p>利用中点画圆算法(中点画圆算法文章中已详细阐述)，画两个圆。</p>
-<ul>
-<li>第一个圆为目标填充圆，即，需要填充颜色的圆。</li>
-<li>第二个圆为取色圆，取其边界颜色，将其作为第一个圆填充的颜色。</li>
-</ul>
-<p>其实要定义第一个圆的填充颜色，亦可用交互方式来定义，即用户自定义颜色。有点麻烦，不想搞那么花里胡哨的了。</p>
-<h5 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h5><p>硬核算法部分</p>
-<pre class="line-numbers language-c#"><code class="language-c#">using System.Drawing;
-
-namespace scan
-{
-    partial class Form1
-    {
-        public static void seedfill(Color boundcolor,Point pointseed,Color fillcolor,Bitmap bitmap)
-        {
-            //取出种子点(需要填充的图形边界内一点)的颜色
-            Color c = bitmap.GetPixel(pointseed.X, pointseed.Y);
-
-            //四邻法，对种子点的颜色进行判断。
-            if (c!=fillcolor && c!=boundcolor)
-            {
-                bitmap.SetPixel(pointseed.X, pointseed.Y, fillcolor);
-                seedfill(boundcolor, new Point(pointseed.X, pointseed.Y + 1), fillcolor, bitmap);
-                seedfill(boundcolor, new Point(pointseed.X, pointseed.Y - 1), fillcolor, bitmap);
-                seedfill(boundcolor, new Point(pointseed.X + 1, pointseed.Y), fillcolor, bitmap);
-                seedfill(boundcolor, new Point(pointseed.X - 1, pointseed.Y), fillcolor, bitmap);
-            }
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>使用部分</p>
+                <p>效果图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/ScanFill%E8%BF%90%E8%A1%8C%E6%95%88%E6%9E%9C.gif" alt=""></p>
+<p>C#代码实现</p>
 <pre class="line-numbers language-c#"><code class="language-c#">using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace scan
+using System.Windows.Shapes;
+
+namespace ScanFill
 {
     public partial class Form1 : Form
     {
-        Graphics graphics;
-        Bitmap bitmap;
+        static Graphics graphics;
+        static Bitmap bitmap;
+        Polygon mypolygon = new Polygon();
+        Point[] points;
         public Form1()
         {
             InitializeComponent();
             graphics = panel1.CreateGraphics();
             bitmap = new Bitmap(panel1.Width, panel1.Height);
         }
-        private void ButtonDraw_Click(object sender, EventArgs e)
+
+
+    //画出多边形
+        private void button1_Click(object sender, EventArgs e)
         {
-            //第一个圆为填充图形
-            circle(100, 100, 30, Color.Red);
+            Point p1 = new Point(200, 200);
+            Point p2 = new Point(300, 200);
+            Point p3 = new Point(150, 400);
+            Point p4 = new Point(400, 450);
+            //Point p1 = new Point(200, 0);
+            //Point p2 = new Point(50, 100);
+            //Point p3 = new Point(150, 200);
+            //Point p4 = new Point(350, 200);
+            //Point p5 = new Point(250, 100);
 
-            //第二个圆为取色图形
-            circle(290, 200, 10, Color.Blue);
+            points = new Point[] { p1, p2, p3, p4 };
+            Pen Mypen = new Pen(Color.Blue, 2);
+            graphics.DrawPolygon(Mypen, points);
+            graphics.DrawImage(bitmap, 0, 0, panel1.Width, panel1.Height);
 
-            graphics.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
         }
-        private void ButtonFill_Click(object sender, EventArgs e)
+        //填充多边形。调用方法
+        private void button_Fill_Click(object sender, EventArgs e)
         {
-            //填充开始的点(种子点)，为第一个圆的圆心。
-            Point point = new Point(100, 100);
+            draw.ScanFill(points, Color.Red,graphics);
+        }
 
-            //参数1图形边界颜色：取点(100,90)。
-            //参数2开始填充的种子点：point(100,100).其为圆心。
-            //参数3想要填充的颜色：取自第二个圆的边界颜色，即点(200,190)。
-            //参数4在bitmap上进行操作。
-            seedfill(bitmap.GetPixel(100, 70), point, bitmap.GetPixel(290, 190), bitmap);
-            graphics.DrawImage(bitmap, 0, 0, bitmap.Width, bitmap.Height);
+        public class draw
+        {
+            static int frist_s = 0;
+            static int last_s = 0;
+
+            #region 定义活性边表元素类
+            //参与运算的四个量
+            class Sideinfo
+            {
+                public int y_top;//某边的最大纵坐标（y_max）
+                public double x_int;//某边与当前扫描线交点的横坐标，它在不断的变化。
+                public int delat_y;//当前扫描线与某边最小纵坐标之差，即该边的生命值。
+                public double x_change_per_san;//每一次变化x的累计值。当前扫描线每向下移动一次，某边与其交点横坐标的变化值。
+                //构造函数
+                public Sideinfo()//构造方法
+                {
+                    y_top = 0;
+                    x_int = 0f;//float类型
+                    delat_y = 0;
+                    x_change_per_san = 0f;
+                }
+            }
+            #endregion
+            static List<Sideinfo> sides;
+
+            //主算法。也是调度算法。相当于main函数
+            public static void ScanFill(Point[] points, Color color, Graphics graphics)
+            {
+                int count = points.Length;//多边形中所有的顶点的数量
+                Point[] RegionVertexes = new Point[count];
+                Array.Copy(points, RegionVertexes, count);
+                sides = new List<Sideinfo>();//新建一个活性边表
+                int bottomscan = BuildSidesList(RegionVertexes, graphics, color);
+                SortSidesList();//对边进行排序整理
+                int scan;
+                frist_s = 0;
+                last_s = 0;
+                for (scan=sides[0].y_top; scan>bottomscan; scan--)//bottomscan是整个多边形的最小的y值
+                {
+                    //扫描线scan从最高点开始到最低点的扫描
+                    update_frist_and_last(sides.Count, scan);//更新标志变量。即frist和last就位。圈定了求交点的范围
+                    int x_int_count = process_x_intersections(scan);//处理各交点的x横坐标。x要按大小进行排序，才能确定其奇偶顺序等……
+                    draw_lines(scan, x_int_count, frist_s, graphics, color);//画出扫描线
+                    update_sides_list();//更新活性边表
+                }
+                sides.Clear();//清空边表
+                graphics.DrawPolygon(new Pen(Color.Red,2f),RegionVertexes);//画出多边形的边框
+            }
+
+
+            #region 建立活性边表。为边排序
+            //按每条边的较大y值排序，为建立活性边表做准备
+            //左右顶点等的判定
+            public static int BuildSidesList(Point[]Vertexes,Graphics graphics,Color color)
+            {
+                int n = Vertexes.Length;
+                int p1, p2, p3;//目的是判断p2是左右顶点
+                p1 = n - 1;
+                int bottomscan = Vertexes[p1].Y;
+
+                for (int i = 0; i < n; i++)
+                {
+                    p2 = i;
+                    p3 = (i + 1) % n;//防止下标越界
+                    if (Vertexes[p2].Y==Vertexes[p1].Y)//水平边情况
+                    {
+                        graphics.DrawLine(new Pen(color, 1f), Vertexes[p1], Vertexes[p2]);//直接画出来
+                    }
+                    else
+                    {
+                        //以下就是算出该边在活性边表中的四个值。delt_y，x_change_per_san，x_int，y_top
+
+                        double change_perscan = (double)(Vertexes[p2].X - Vertexes[p1].X) / (double)(Vertexes[p2].Y - Vertexes[p1].Y);//每次扫描x的变化
+                        int x_int_tmp = Vertexes[p2].X;//x的临时交点
+                        sides.Add(new Sideinfo());//把边加到活性边表里
+
+                        sides[sides.Count - 1].delat_y = Math.Abs(Vertexes[p1].Y - Vertexes[p2].Y);//delt_y
+
+                        if ((Vertexes[p1].Y<Vertexes[p2].Y)&&(Vertexes[p2].Y<Vertexes[p3].Y))//左顶点
+                        {
+                            Vertexes[p2].Y--;
+                            x_int_tmp = Convert.ToInt32(Convert.ToDouble(x_int_tmp)-change_perscan);
+                            sides[sides.Count - 1].delat_y--;
+                        }
+                        else if((Vertexes[p1].Y>Vertexes[p2].Y)&&(Vertexes[p2].Y>Vertexes[p3].Y))//右顶点
+                        {
+                            Vertexes[p2].Y++;
+                            x_int_tmp = Vertexes[p1].X;
+                            sides[sides.Count - 1].delat_y--;
+                        }
+                        sides[sides.Count - 1].x_change_per_san = change_perscan;
+                        sides[sides.Count - 1].x_int = Vertexes[p1].Y > Vertexes[p2].Y ? Vertexes[p1].X : x_int_tmp;
+                        sides[sides.Count - 1].y_top = Math.Max(Vertexes[p1].Y, Vertexes[p2].Y);
+                    }
+                    if (Vertexes[p2].Y<bottomscan)
+                    {
+                        bottomscan = Vertexes[p2].Y;
+                    }
+                    p1 = p2;//更新p1、p2、p3.往下移。
+                }
+                return bottomscan;
+            }
+            #endregion
+
+            #region 对边进行排序.冒泡排序
+            //通过y值进行排序
+            static void SortSidesList()
+            {
+                Sideinfo tmpSide = new Sideinfo();
+                for (int i = sides.Count-1; i >0; i--)
+                {
+                    for (int j = 0; j < i; j++)
+                    {
+                        if (sides[j].y_top<sides[j+1].y_top)
+                        {
+                            tmpSide = sides[j];
+                            sides[j] = sides[j + 1];
+                            sides[j + 1] = tmpSide;
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            #region 在活性边表中前移当前边一个位置
+            private static void swap(int entry)
+            {
+                int i_tmp;
+                double f_tmp;
+
+                i_tmp = sides[entry].y_top;
+                sides[entry].y_top = sides[entry - 1].y_top;
+                sides[entry - 1].y_top = i_tmp;
+
+                f_tmp = sides[entry].x_int;
+                sides[entry].x_int = sides[entry - 1].x_int;
+                sides[entry - 1].x_int = f_tmp;
+
+                i_tmp = sides[entry].delat_y;
+                sides[entry].delat_y = sides[entry - 1].delat_y;
+                sides[entry - 1].delat_y = i_tmp;
+
+                f_tmp = sides[entry].x_change_per_san;
+                sides[entry].x_change_per_san = sides[entry - 1].x_change_per_san;
+                sides[entry - 1].x_change_per_san = f_tmp;
+            }
+            #endregion
+
+            #region 更新Frist和last标志
+            private static void update_frist_and_last(int count, int scan)
+            {
+                //frist和last更新的条件。
+                //在last_s<(count-1)，即last_s还没有移到最后和sides[last_s + 1].y_top
+                while (((last_s < (count - 1) && sides[last_s + 1].y_top >= scan)))//扫描线的y值小于了活性边表里的下一条边的y_top。也就是delat_y马上要缩小了
+                {
+                    last_s++;//>=scan,即last_s的下一边被扫描到时，last_s后移
+                }
+                while (sides[frist_s].delat_y == 0 && frist_s < last_s)
+                {
+                    frist_s++;//first_s只要所指边的delta_y为0，则first_s后移
+                }
+            }
+            #endregion
+
+            //若需要则按扫描线scan与多边形的交点x值大小将活性边表中first和last之间的边重新排序，以便按顺序画出填充线。
+            private static void sort_on_x(int entry)
+            {
+                //若有当前边鱼scan交点x值小于在活性边表中排在它之前的x值，则它前移
+                while ((entry>frist_s)&&(sides[entry].x_int<sides[entry-1].x_int))
+                {
+                    swap(entry);//前移一个位置
+                    entry--;
+                }
+            }
+
+            //处理扫描线scan与多边形的交点x值
+            private static int process_x_intersections(int scan)
+            {
+                int k = 0;
+                int x_int_count = 0;
+                //通过for循环来具体找出，frist和last之间哪些在求交点，哪些没在求交点的边。
+                //通过循环来记录扫描线scan目前和多边形有几个交点，如需要按交点x值将活性边表重新排序，以便按顺序画出填充线
+                for (k = frist_s; k < last_s+1; k++)
+                {
+                    if (sides[k].delat_y>0)//delat_y>0就代表其正在求交点
+                    {
+                        x_int_count++;
+                        sort_on_x(k);//进行排序
+                    }
+                }
+                return x_int_count;
+            }
+
+            //画出扫描填充线，按照交点x值的奇偶特性进行画线
+            private static void draw_lines(int scan,int x_int_count,int index,Graphics graphics,Color color)
+            {
+                int k, x1, x2;
+                //找到奇数的线开始画线。
+                for (k = 1;  k<= (x_int_count)/2; k++)
+                {
+                    while (sides[index].delat_y==0)
+                    {
+                        index++;
+                    }
+                    x1 = (int)(sides[index].x_int);
+                    index++;
+                    while (sides[index].delat_y==0)
+                    {
+                        index++;
+                    }
+                    x2 = (int)(sides[index].x_int);
+                    graphics.DrawLine(new Pen(color,1f),x1,scan,x2,scan);
+                    index++;
+                }
+            }
+
+            //更新活性边表。主要是delta_y 和x_int两项。
+            private static void update_sides_list()
+            {
+                int k;
+                for ( k = frist_s; k < last_s+1; k++)//更新只针对first和last之间的边。
+                {
+                    if (sides[k].delat_y>0)//条件是此边的delta_y>0，表明它正在被扫描
+                    {
+                        sides[k].delat_y--; //delat_y减一
+                        //x_int减去每次扫描中横坐标的变化量，对于每条边他们搁置的变化量(x_change_per_san)各不相同
+                        sides[k].x_int -= sides[k].x_change_per_san;
+                    }
+                }
+            }
         }
     }
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>hhhhhh……</p>
-<h5 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h5><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C0.gif" alt=""></p>
-<h2 id="sunglasses"><a href="#sunglasses" class="headerlink" title=":sunglasses:"></a><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f60e.png?v8">😎</span></h2><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr/>
 
@@ -662,7 +828,7 @@ namespace scan
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/03/14/qu-yu-tian-chong-suan-fa/">https://lishiyu.vip/2020/03/14/qu-yu-tian-chong-suan-fa/</a>
+                    <a href="https://lishiyu.vip/2020/04/06/sao-miao-tian-chong-suan-fa/">https://lishiyu.vip/2020/04/06/sao-miao-tian-chong-suan-fa/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -700,20 +866,8 @@ namespace scan
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                                    <span class="chip bg-color">计算机图形学</span>
-                                </a>
-                            
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C#</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%A7%8D%E5%AD%90%E5%A1%AB%E8%89%B2/">
-                                    <span class="chip bg-color">种子填色</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%89%AB%E6%8F%8F%E7%BA%BF%E5%A1%AB%E8%89%B2/">
-                                    <span class="chip bg-color">扫描线填色</span>
+                                <a href="/tags/%E6%89%AB%E6%8F%8F%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">扫描填充算法</span>
                                 </a>
                             
                         </div>
@@ -1142,45 +1296,58 @@ namespace scan
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/">
+                <a href="/2020/04/06/sao-miao-tian-chong-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-350cf87650247db7.gif" class="responsive-img" alt="ArcGIS编辑器及其高级编辑">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/计算机图形学/ScanFill运行效果.gif" class="responsive-img" alt="扫描填充算法">
                         
-                        <span class="card-title">ArcGIS编辑器及其高级编辑</span>
+                        <span class="card-title">扫描填充算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ArcGIS编辑器、高级编辑
+                            效果图
+
+C#代码实现
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/GIS/" class="post-category">
-                                    GIS
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            <a href="/categories/C/" class="post-category">
+                                    C#
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ArcGIS/">
-                        <span class="chip bg-color">ArcGIS</span>
+                    <a href="/tags/%E6%89%AB%E6%8F%8F%E5%A1%AB%E5%85%85%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">扫描填充算法</span>
                     </a>
                     
                 </div>
@@ -1194,34 +1361,30 @@ namespace scan
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/03/04/zhong-dian-hua-yuan-suan-fa/">
+                <a href="/2020/04/06/zhi-xian-cai-jian-suan-fa/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/-13738e5d68444eb.gif" class="responsive-img" alt="中点画圆算法">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/计算机图形学/直线裁剪yunx行05.gif" class="responsive-img" alt="直线裁剪算法">
                         
-                        <span class="card-title">中点画圆算法</span>
+                        <span class="card-title">直线裁剪算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            中点画圆法、圆弧扫描算法以及角度DDA法
+                            直线裁剪算法。Sutherland-Cohen算法
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                    计算机图形学
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
+                            <a href="/categories/%E7%AE%97%E6%B3%95-C/" class="post-category">
+                                    -[算法] -[C#]
                                 </a>
                             
                             
@@ -1231,20 +1394,8 @@ namespace scan
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                        <span class="chip bg-color">计算机图形学</span>
-                    </a>
-                    
-                    <a href="/tags/DDA/">
-                        <span class="chip bg-color">DDA</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%AD%E7%82%B9%E7%94%BB%E5%9C%86%E6%B3%95/">
-                        <span class="chip bg-color">中点画圆法</span>
+                    <a href="/tags/%E7%9B%B4%E7%BA%BF%E8%A3%81%E5%89%AA%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">-直线裁剪算法</span>
                     </a>
                     
                 </div>
