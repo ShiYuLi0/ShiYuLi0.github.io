@@ -40,14 +40,20 @@
       
       <categories>
           
-          <category> -[算法] -[C#] </category>
+          <category> 计算机图形学 </category>
+          
+          <category> 算法 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> -直线裁剪算法 </tag>
+            <tag> 计算机图形学 </tag>
+            
+            <tag> C# </tag>
+            
+            <tag> 直线裁剪算法 </tag>
             
         </tags>
       
