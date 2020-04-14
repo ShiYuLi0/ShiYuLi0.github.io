@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="ggplot, 世昱">
-    <meta name="description" content="ggplot函数！">
+    <meta name="description" content="如切如磋，如琢如磨">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -318,7 +318,7 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/ggplotTest2.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/七2020-04-14_213257.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -476,14 +476,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-03-18
+                    2020-04-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    475
+                    449
                 </div>
                 
 
@@ -507,8 +507,390 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="玫瑰图"><a href="#玫瑰图" class="headerlink" title="玫瑰图"></a>玫瑰图</h1><h2 id="他山之石"><a href="#他山之石" class="headerlink" title="他山之石"></a>他山之石</h2><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/ggplotTest2.png" alt=""></p>
-<h3 id="R实现"><a href="#R实现" class="headerlink" title="R实现"></a>R实现</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+                <blockquote>
+<p><strong>如切如磋，如琢如磨</strong></p>
+</blockquote>
+<h2 id="一、折线图及柱状图"><a href="#一、折线图及柱状图" class="headerlink" title="一、折线图及柱状图"></a>一、折线图及柱状图</h2><h3 id="1-1-成果图"><a href="#1-1-成果图" class="headerlink" title="1.1 成果图"></a>1.1 成果图</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E4%B8%832020-04-14_213257.jpg" alt=""></p>
+<h3 id="1-2-代码"><a href="#1-2-代码" class="headerlink" title="1.2 代码"></a>1.2 代码</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("B:/Temp3")
+library(ggplot2)
+#ls("package:ggplot2", pattern="^geom_.+")#好东西
+library(readxl)
+data=read_xlsx("全国疫情整理-李世昱.xlsx")#读取数据
+
+#自定义字体---------------------------------------------
+windowsFonts(zhuanshu=windowsFont("迷你繁篆书"))
+windowsFonts(foxiti=windowsFont("演示佛系体"))
+
+#读取数据-----------------------------------------------
+time<-as.Date(data$报道时间,"%Y-%m-%d",tz = "NZ") #读取时间数据,tz为时区
+yuefen=c(data$月份)
+quezhen<-c(data$新增确诊) #读取确诊人数数据
+chuyuan<-c(data$新增出院) #读取出院人数数据
+siwang <-c(data$新增死亡) #读取死亡人数数据
+datas=data.frame(新增出院=chuyuan,报道时间=time,
+                     月份=yuefen,新增死亡=siwang,确诊人数=quezhen)
+
+#ggplot2.-----------------------------------------------
+tiff("全国疫情变化.tif",height = 3900,width = 7850,res = 550,unit="px",compression = "lzw")
+plot=ggplot(data = datas,aes(x=报道时间,y=确诊人数,color=factor(月份)))+
+  geom_bar(stat="identity",
+           aes(x=报道时间,y=确诊人数,fill=报道时间,group=factor(1)),color="white",
+           alpha=80,show.legend = FALSE)+#柱状图
+  geom_line(aes(x=报道时间,y=确诊人数),size=1,color="red")+
+  geom_line(aes(x=报道时间,y=新增出院),size=1)+
+  geom_point(aes(x=报道时间,y=确诊人数),size=2.2,shape=2,color="red")+
+  geom_point(aes(x=报道时间,y=新增出院),size=2.2,shape=1,color="black")+
+  scale_radius(range = c(2,4))+#缩放文本高度,配以aes的size
+  scale_color_manual(values = c('red','blue'),labels=c('新增确诊','新增出院'))+
+  facet_grid(~月份,scales="free")+#拆分，按月份
+  #添加新增确诊数据标签
+  geom_text(check_overlap = TRUE,#防覆盖重叠
+            aes(x=time,y=确诊人数,
+                size=quezhen,#字体大小即数据数值大小，为防止过大，配以scale_radius缩放
+                label = 确诊人数,
+                vjust = -0.8, hjust = 0.5),
+            color="black",#字体颜色
+            show.legend=FALSE)#新增确诊人数数据标签
+
+plot+ 
+  labs(x="",y="人数(/个)",title="全国1、2月部分疫情情况")+#三个标题
+  theme(
+    axis.text = element_text(colour = "blue",size = 10),#坐标轴标签
+    axis.title.y=element_text(family = "zhuanshu",size=18),#y轴标题
+    title=element_text(family = "foxiti",size=16),#整个图表标题
+    plot.background = element_rect(fill = "#f2be45"),#正张图的底色，赤金色！
+    legend.title=element_blank(),#删除图例名
+    legend.text = element_text(family = "zhuanshu", colour="red",size = 15),#图例字体
+    legend.position = c(.1,.8),#图例在整个图的位置，x、y方向用(0~1)表示
+    legend.justification = c("left", "top"),#图例位置
+    legend.box.just = "left",#图例内部要素位置
+    legend.margin = margin(6, 6, 6, 6),#图例距离
+    legend.box.background = element_rect(),#添加图例矩形
+    legend.box.margin = margin(6, 6, 6, 6),#图例内部距离
+    legend.key = element_rect(fill = "grey", colour = "black"),#内部要素方框的底色
+    strip.background = element_rect(color = "black", fill = "yellow"),#分割表头填充色
+    strip.text = element_text(family = "foxiti",size = 13)#分割标题表头字体字号
+  )
+#ggsave( file = "ggplot2.png",  type = "cairo", dpi = 800)#ggplot2输出 
+dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="1-3-用到的数据"><a href="#1-3-用到的数据" class="headerlink" title="1.3 用到的数据"></a>1.3 用到的数据</h3><table>
+<thead>
+<tr>
+<th>报道时间</th>
+<th>新增确诊</th>
+<th>新增出院</th>
+<th>新增死亡</th>
+<th>月份</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1月11日</td>
+<td>41</td>
+<td>2</td>
+<td>1</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月12日</td>
+<td>0</td>
+<td>4</td>
+<td>0</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月13日</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月16日</td>
+<td>0</td>
+<td>5</td>
+<td>1</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月17日</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月18日</td>
+<td>5</td>
+<td>4</td>
+<td>0</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月19日</td>
+<td>17</td>
+<td>4</td>
+<td>0</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月20日</td>
+<td>156</td>
+<td>6</td>
+<td>2</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月21日</td>
+<td>103</td>
+<td>0</td>
+<td>2</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月22日</td>
+<td>231</td>
+<td>5</td>
+<td>11</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月23日</td>
+<td>93</td>
+<td>3</td>
+<td>0</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月24日</td>
+<td>296</td>
+<td>6</td>
+<td>9</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月25日</td>
+<td>490</td>
+<td>4</td>
+<td>16</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月26日</td>
+<td>650</td>
+<td>10</td>
+<td>14</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月27日</td>
+<td>816</td>
+<td>9</td>
+<td>25</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月28日</td>
+<td>1770</td>
+<td>15</td>
+<td>25</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月29日</td>
+<td>1464</td>
+<td>41</td>
+<td>26</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月30日</td>
+<td>1743</td>
+<td>29</td>
+<td>38</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>1月31日</td>
+<td>2026</td>
+<td>46</td>
+<td>43</td>
+<td>01月</td>
+</tr>
+<tr>
+<td>2月1日</td>
+<td>2115</td>
+<td>74</td>
+<td>46</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月2日</td>
+<td>2578</td>
+<td>102</td>
+<td>46</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月3日</td>
+<td>2900</td>
+<td>136</td>
+<td>57</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月4日</td>
+<td>3191</td>
+<td>211</td>
+<td>65</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月5日</td>
+<td>3932</td>
+<td>258</td>
+<td>67</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月6日</td>
+<td>3712</td>
+<td>279</td>
+<td>72</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月7日</td>
+<td>3209</td>
+<td>443</td>
+<td>73</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月8日</td>
+<td>3428</td>
+<td>467</td>
+<td>85</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月9日</td>
+<td>2640</td>
+<td>738</td>
+<td>91</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月10日</td>
+<td>2969</td>
+<td>515</td>
+<td>95</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月11日</td>
+<td>2576</td>
+<td>669</td>
+<td>108</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月12日</td>
+<td>2058</td>
+<td>790</td>
+<td>99</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月13日</td>
+<td>15196</td>
+<td>1320</td>
+<td>254</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月14日</td>
+<td>4052</td>
+<td>862</td>
+<td>14</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月15日</td>
+<td>2723</td>
+<td>1409</td>
+<td>141</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月16日</td>
+<td>2110</td>
+<td>1258</td>
+<td>143</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月17日</td>
+<td>2153</td>
+<td>1507</td>
+<td>105</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月18日</td>
+<td>1988</td>
+<td>1684</td>
+<td>99</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月19日</td>
+<td>1848</td>
+<td>1832</td>
+<td>138</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月20日</td>
+<td>901</td>
+<td>1901</td>
+<td>118</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月21日</td>
+<td>1044</td>
+<td>1995</td>
+<td>120</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月22日</td>
+<td>713</td>
+<td>2542</td>
+<td>112</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月23日</td>
+<td>1000</td>
+<td>2045</td>
+<td>104</td>
+<td>02月</td>
+</tr>
+<tr>
+<td>2月24日</td>
+<td>605</td>
+<td>1920</td>
+<td>162</td>
+<td>02月</td>
+</tr>
+</tbody></table>
+<h3 id="1-4-涉及到的其他"><a href="#1-4-涉及到的其他" class="headerlink" title="1.4 涉及到的其他"></a>1.4 涉及到的其他</h3><p><strong>ggplot2</strong></p>
+<p><strong>超喜欢：</strong></p>
+<p>……</p>
+<h2 id="二、玫瑰图"><a href="#二、玫瑰图" class="headerlink" title="二、玫瑰图"></a>二、玫瑰图</h2><h3 id="2-1-他山之石"><a href="#2-1-他山之石" class="headerlink" title="2.1 他山之石"></a>2.1 他山之石</h3><h4 id="2-1-1-效果图"><a href="#2-1-1-效果图" class="headerlink" title="2.1.1 效果图"></a>2.1.1 效果图</h4><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/ggplotTest2.png" alt=""></p>
+<h4 id="2-1-2-R实现"><a href="#2-1-2-R实现" class="headerlink" title="2.1.2 R实现"></a>2.1.2 R实现</h4><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
 setwd("A:/学习材料/R/COG玫瑰图")
 library(ggplot2)
 
@@ -558,21 +940,21 @@ p<-ggplot(f,
 png("Test1.png",width = 8200,height = 5400,res = 600,type = "cairo")
 p
 dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="控制台及实验数据"><a href="#控制台及实验数据" class="headerlink" title="控制台及实验数据"></a>控制台及实验数据</h3><p>数据已通过 <strong>f</strong> 展示出来。也可以CSV、excel输入。</p>
+<h4 id="2-2-3-控制台及实验数据"><a href="#2-2-3-控制台及实验数据" class="headerlink" title="2.2.3 控制台及实验数据"></a>2.2.3 控制台及实验数据</h4><p>数据已通过 <strong>f</strong> 展示出来。也可以CSV、excel输入。</p>
 <blockquote>
 <p>fir为指标</p>
 <p>mag为数据</p>
 <p>lab为标签</p>
 </blockquote>
 <pre><code>&gt; rm(list = ls())
-&gt; setwd("A:/学习材料/R/COG玫瑰图")
+&gt; setwd(&quot;A:/学习材料/R/COG玫瑰图&quot;)
 &gt; library(ggplot2)
 &gt; 
 &gt; #read.table()--------------------------------------
 &gt; #读取数据，seq（3）sep
-&gt; #分开数据的分隔符。默认sep=""。
+&gt; #分开数据的分隔符。默认sep=&quot;&quot;。
 &gt; #read.table()函数可以将1个或多个空格、tab制表符、换行符或回车符作为分隔符。
-&gt; f&lt;-read.table("cog_lab", header=T, sep="\t")
+&gt; f&lt;-read.table(&quot;cog_lab&quot;, header=T, sep=&quot;\t&quot;)
 &gt; #展示数据
 &gt; f
    dir mag                                                             lab
@@ -607,21 +989,21 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 &gt; myLabel = as.vector(f$lab)
 &gt; 
 &gt; #添加百分比！(๑•̀ㅂ•́)و✧
-&gt; myLabel = paste(myLabel, " (", round(f$mag / sum(f$mag) * 100, 2), "%) ", sep = "")
+&gt; myLabel = paste(myLabel, &quot; (&quot;, round(f$mag / sum(f$mag) * 100, 2), &quot;%) &quot;, sep = &quot;&quot;)
 &gt; 
 &gt; p&lt;-ggplot(f,
 +           aes(x=dir,y=factor(mag),fill=dir)
 +           )+
 +   
 +   ## y轴数据直接来自于原始数据框
-+   geom_bar(stat='identity')+
++   geom_bar(stat=&#39;identity&#39;)+
 +   #极坐标转换：可以做出蜘蛛图或饼图的效果。若不设置则默认柱状图
 +   coord_polar()+
 +   
 +   #标注
-+   labs(x = "",
-+        y = "Number of Unigenes",
-+        title = "COG Function Classification of Unigene Sequence")+
++   labs(x = &quot;&quot;,
++        y = &quot;Number of Unigenes&quot;,
++        title = &quot;COG Function Classification of Unigene Sequence&quot;)+
 +   
 +   #axis.ticks坐标轴刻度线---------------------
 +   theme(axis.ticks = element_blank())+
@@ -636,11 +1018,11 @@ dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
 +   scale_fill_discrete(breaks = f$dir,
 +                       labels = myLabel
 +                       )
-&gt; png("Test2.png",width = 8200,height = 5400,res = 600,type = "cairo")
+&gt; png(&quot;Test2.png&quot;,width = 8200,height = 5400,res = 600,type = &quot;cairo&quot;)
 &gt; p
 &gt; dev.off()
 null device 
-          1 </code></pre><h3 id="其中涉及到的函数"><a href="#其中涉及到的函数" class="headerlink" title="其中涉及到的函数"></a>其中涉及到的函数</h3><p>round控制小数点位数函数、有效数字倍数signif、设定种子数、……</p>
+          1 </code></pre><h4 id="2-2-4-其中涉及到的函数"><a href="#2-2-4-其中涉及到的函数" class="headerlink" title="2.2.4 其中涉及到的函数"></a>2.2.4 其中涉及到的函数</h4><p>round控制小数点位数函数、有效数字倍数signif、设定种子数、……</p>
 <pre class="line-numbers language-R"><code class="language-R">#round控制小数点位数函数-----
 x=3.1415926
 round(x,3)
@@ -729,7 +1111,7 @@ n
  [1] -0.84085548  1.38435934 -1.25549186  0.07014277  1.71144087 -0.60290798
  [7] -0.47216639 -0.63537131 -0.28577363  0.13810822
 > #括号里的数字可以是任意数字，相同数字会得到相同的随机数结果。****<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="清爽版-无注释"><a href="#清爽版-无注释" class="headerlink" title="清爽版(无注释)"></a>清爽版(无注释)</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+<h4 id="2-2-5-清爽版-无注释"><a href="#2-2-5-清爽版-无注释" class="headerlink" title="2.2.5 清爽版(无注释)"></a>2.2.5 清爽版(无注释)</h4><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
 setwd("A:/学习材料/R/COG玫瑰图")
 library(ggplot2)
 
@@ -748,25 +1130,7 @@ labs(x = "",
 png("COG.png",width = 8200,height = 5400,res = 600,type = "cairo")
 p
 dev.off()<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
             </div>
             <hr/>
 
