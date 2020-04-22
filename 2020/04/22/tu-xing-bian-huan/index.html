@@ -540,7 +540,7 @@
 <li>作1的逆变换，即作平移Tx＝xa，Ty＝ya。 </li>
 </ol>
 <p>当比例因子Sx或Sy小于0时，对象不仅变化大小，而且分别按x轴，或y的轴被反射。</p>
-<h2 id="4、三维"><a href="#4、三维" class="headerlink" title="4、三维"></a>4、三维</h2><h4 id="4-1-平移"><a href="#4-1-平移" class="headerlink" title="4.1 平移"></a>4.1 平移</h4><p>公式为：</p>
+<h2 id="4、三维"><a href="#4、三维" class="headerlink" title="4、三维"></a>4、三维</h2><h3 id="4-1-平移"><a href="#4-1-平移" class="headerlink" title="4.1 平移"></a>4.1 平移</h3><p>公式为：</p>
 <blockquote>
 <p>x’=x+ Tx<br>y’=y+ Ty<br>z’=z+ Tz</p>
 </blockquote>
@@ -553,7 +553,7 @@ A<span class="token operator">=</span><span class="token punctuation">[</span><s
 <span class="token comment" spellcheck="true">%新坐标为：</span>
 <span class="token punctuation">[</span>x<span class="token operator">'</span><span class="token punctuation">,</span>y<span class="token operator">'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>A
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="4-2-缩放"><a href="#4-2-缩放" class="headerlink" title="4.2 缩放"></a>4.2 缩放</h4><p>公式为：</p>
+<h3 id="4-2-缩放"><a href="#4-2-缩放" class="headerlink" title="4.2 缩放"></a>4.2 缩放</h3><p>公式为：</p>
 <blockquote>
 <p>x’= Sx∙ x<br>y’= Sy∙ y<br>z’= Sz∙ z</p>
 </blockquote>
@@ -568,7 +568,7 @@ B<span class="token operator">=</span><span class="token punctuation">[</span>Sx
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="4-3-旋转"><a href="#4-3-旋转" class="headerlink" title="4.3 旋转"></a>4.3 旋转</h4><p>旋转分为三种基本旋转：<br><strong>绕z轴旋转，绕x轴旋转，绕y轴旋转。</strong></p>
 <p>在下述旋转变换公式中，设旋转的参考点在所绕的轴上，绕轴转θ角，方向是从轴所指处往原点看的逆时针方向。</p>
-<h5 id="4-3-1-绕z轴旋转"><a href="#4-3-1-绕z轴旋转" class="headerlink" title="4.3.1 绕z轴旋转"></a>4.3.1 绕z轴旋转</h5><p>绕z轴旋转的公式为：</p>
+<h4 id="4-3-1-绕z轴旋转"><a href="#4-3-1-绕z轴旋转" class="headerlink" title="4.3.1 绕z轴旋转"></a>4.3.1 绕z轴旋转</h4><p>绕z轴旋转的公式为：</p>
 <blockquote>
 <p>​         x′＝xcosθ－ysinθ<br>​         y′＝xsinθ＋ycosθ<br>​         z′＝z</p>
 </blockquote>
@@ -580,7 +580,7 @@ Mz<span class="token operator">=</span><span class="token punctuation">[</span>c
     <span class="token number">0</span><span class="token punctuation">,</span>      <span class="token number">0</span><span class="token punctuation">,</span>      <span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">%新坐标为：</span>
 <span class="token punctuation">[</span>x<span class="token operator">'</span><span class="token punctuation">,</span>y<span class="token operator">'</span><span class="token punctuation">,</span>z<span class="token operator">'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span>z<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>Mz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="4-3-2-绕x轴旋转"><a href="#4-3-2-绕x轴旋转" class="headerlink" title="4.3.2 绕x轴旋转"></a>4.3.2 绕x轴旋转</h5><p>绕x轴旋转的公式为：</p>
+<h4 id="4-3-2-绕x轴旋转"><a href="#4-3-2-绕x轴旋转" class="headerlink" title="4.3.2 绕x轴旋转"></a>4.3.2 绕x轴旋转</h4><p>绕x轴旋转的公式为：</p>
 <blockquote>
 <p>​         x′＝x<br>​         y′＝ycosθ－zsinθ<br>​         z′＝ysinθ＋zcosθ</p>
 </blockquote>
@@ -592,7 +592,7 @@ Mx<span class="token operator">=</span><span class="token punctuation">[</span><
     <span class="token number">0</span><span class="token punctuation">,</span>    <span class="token number">0</span><span class="token punctuation">,</span>    <span class="token number">0</span><span class="token punctuation">,</span>    <span class="token number">1</span><span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">%新坐标为：</span>
 <span class="token punctuation">[</span>x<span class="token operator">'</span><span class="token punctuation">,</span>y<span class="token operator">'</span><span class="token punctuation">,</span>z<span class="token operator">'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span>z<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>Mx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="4-3-3-绕y轴旋转"><a href="#4-3-3-绕y轴旋转" class="headerlink" title="4.3.3 绕y轴旋转"></a>4.3.3 绕y轴旋转</h5><p>绕y轴旋转的公式为：</p>
+<h4 id="4-3-3-绕y轴旋转"><a href="#4-3-3-绕y轴旋转" class="headerlink" title="4.3.3 绕y轴旋转"></a>4.3.3 绕y轴旋转</h4><p>绕y轴旋转的公式为：</p>
 <blockquote>
 <p>​         x′＝zsinθ＋xcosθ<br>​         y′＝y<br>​         z′＝zcosθ－xsinθ</p>
 </blockquote>
@@ -604,14 +604,14 @@ My<span class="token operator">=</span><span class="token punctuation">[</span>c
      <span class="token number">0</span><span class="token punctuation">,</span>     <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>     <span class="token number">1</span><span class="token punctuation">]</span>
 <span class="token comment" spellcheck="true">%新坐标为：</span>
 <span class="token punctuation">[</span>x<span class="token operator">'</span><span class="token punctuation">,</span>y<span class="token operator">'</span><span class="token punctuation">,</span>z<span class="token operator">'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span>z<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token operator">*</span>My<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="4-3-4-绕非坐标轴旋转"><a href="#4-3-4-绕非坐标轴旋转" class="headerlink" title="4.3.4 绕非坐标轴旋转"></a>4.3.4 绕非坐标轴旋转</h5><p>   如果旋转所绕的轴不是坐标轴，而是一根任意轴，则变换过程变显得较复杂。首先，对物体作平移和绕轴旋转变换，使得所绕之轴与某一根标准坐标轴重合。然后，绕该标准坐标轴作所需角度的旋转。最后，通过逆变换使所绕之轴恢复到原来位置。这个过程须由7个基本变换的级联才能完成。</p>
-<h3 id="5、圆锥曲线几何变换"><a href="#5、圆锥曲线几何变换" class="headerlink" title="5、圆锥曲线几何变换"></a>5、圆锥曲线几何变换</h3><p>圆锥曲线的二次方程是</p>
+<h4 id="4-3-4-绕非坐标轴旋转"><a href="#4-3-4-绕非坐标轴旋转" class="headerlink" title="4.3.4 绕非坐标轴旋转"></a>4.3.4 绕非坐标轴旋转</h4><p>   如果旋转所绕的轴不是坐标轴，而是一根任意轴，则变换过程变显得较复杂。首先，对物体作平移和绕轴旋转变换，使得所绕之轴与某一根标准坐标轴重合。然后，绕该标准坐标轴作所需角度的旋转。最后，通过逆变换使所绕之轴恢复到原来位置。这个过程须由7个基本变换的级联才能完成。</p>
+<h2 id="5、圆锥曲线几何变换"><a href="#5、圆锥曲线几何变换" class="headerlink" title="5、圆锥曲线几何变换"></a>5、圆锥曲线几何变换</h2><p>圆锥曲线的二次方程是</p>
 <blockquote>
 <p>Ax2＋Ｂxy＋Ｃy2＋Ｄx＋Ｅy＋Ｆ＝０</p>
 </blockquote>
 <p>其相应的矩阵表达式是：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2%E5%9C%86%E9%94%A5%E6%9B%B2%E7%BA%BF1.jpg" alt=""></p>
-<h4 id="5-1-平移变换"><a href="#5-1-平移变换" class="headerlink" title="5.1 平移变换"></a>5.1 平移变换</h4><p>若对圆锥曲线平移变换，平移矩阵是：</p>
+<h3 id="5-1-平移变换"><a href="#5-1-平移变换" class="headerlink" title="5.1 平移变换"></a>5.1 平移变换</h3><p>若对圆锥曲线平移变换，平移矩阵是：</p>
 <pre class="line-numbers language-matlab"><code class="language-matlab">A<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">;</span>
    <span class="token number">0</span><span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">;</span>
    m<span class="token punctuation">,</span>  n<span class="token punctuation">,</span>  <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -619,7 +619,7 @@ My<span class="token operator">=</span><span class="token punctuation">[</span>c
 <blockquote>
 <p>XASA’X’＝０</p>
 </blockquote>
-<h4 id="5-2-旋转变换"><a href="#5-2-旋转变换" class="headerlink" title="5.2 旋转变换"></a>5.2 旋转变换</h4><p>若对圆锥曲线相对坐标原点作旋转变换，旋转变换矩阵是 ：</p>
+<h3 id="5-2-旋转变换"><a href="#5-2-旋转变换" class="headerlink" title="5.2 旋转变换"></a>5.2 旋转变换</h3><p>若对圆锥曲线相对坐标原点作旋转变换，旋转变换矩阵是 ：</p>
 <pre class="line-numbers language-matlab"><code class="language-matlab">R<span class="token operator">=</span><span class="token punctuation">[</span>cosα<span class="token punctuation">,</span>  sinsα<span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">;</span>
    <span class="token operator">-</span>sinα<span class="token punctuation">,</span>  cosα<span class="token punctuation">,</span>    <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token number">0</span><span class="token punctuation">,</span>      <span class="token number">0</span><span class="token punctuation">,</span>      <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -628,7 +628,7 @@ My<span class="token operator">=</span><span class="token punctuation">[</span>c
 <p>XRSR’X’＝０</p>
 </blockquote>
 <p>若对圆锥曲线相对(m,n)点作旋转θ角变换，则旋转后的圆锥曲线是上述A、R变换的复合变换。</p>
-<h4 id="5-3-比例变换"><a href="#5-3-比例变换" class="headerlink" title="5.3 比例变换"></a>5.3 比例变换</h4><p>若对圆锥曲线相对(m,n)点比例变换，比例变换矩阵为 ：</p>
+<h3 id="5-3-比例变换"><a href="#5-3-比例变换" class="headerlink" title="5.3 比例变换"></a>5.3 比例变换</h3><p>若对圆锥曲线相对(m,n)点比例变换，比例变换矩阵为 ：</p>
 <pre class="line-numbers language-matlab"><code class="language-matlab">N<span class="token operator">=</span><span class="token punctuation">[</span>Sx<span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">;</span>
    <span class="token number">0</span><span class="token punctuation">,</span>   Sy<span class="token punctuation">,</span>  <span class="token number">0</span><span class="token punctuation">;</span>
    <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">0</span><span class="token punctuation">,</span>   <span class="token number">1</span><span class="token punctuation">;</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -636,14 +636,14 @@ My<span class="token operator">=</span><span class="token punctuation">[</span>c
 <blockquote>
 <p> XANSN’A’X’＝０</p>
 </blockquote>
-<h3 id="6、C-代码实现"><a href="#6、C-代码实现" class="headerlink" title="6、C#代码实现"></a>6、C#代码实现</h3><h4 id="6-1-目的："><a href="#6-1-目的：" class="headerlink" title="6.1 目的："></a>6.1 目的：</h4><ul>
+<h2 id="6、C-代码实现"><a href="#6、C-代码实现" class="headerlink" title="6、C#代码实现"></a>6、C#代码实现</h2><h3 id="6-1-目的："><a href="#6-1-目的：" class="headerlink" title="6.1 目的："></a>6.1 目的：</h3><ul>
 <li><strong>将屏幕坐标转换为人们习惯的笛卡尔坐标系，即坐标原点在左下角</strong></li>
 <li><strong>画线、画字</strong></li>
 </ul>
-<h4 id="6-2-效果"><a href="#6-2-效果" class="headerlink" title="6.2 效果"></a>6.2 效果</h4><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2results.gif" alt=""></p>
-<h4 id="6-3-代码"><a href="#6-3-代码" class="headerlink" title="6.3 代码"></a>6.3 代码</h4><h5 id="6-3-1-结构"><a href="#6-3-1-结构" class="headerlink" title="6.3.1 结构"></a>6.3.1 结构</h5><p>两个窗体：MainForm、Form1.</p>
+<h3 id="6-2-效果"><a href="#6-2-效果" class="headerlink" title="6.2 效果"></a>6.2 效果</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2results.gif" alt=""></p>
+<h3 id="6-3-代码"><a href="#6-3-代码" class="headerlink" title="6.3 代码"></a>6.3 代码</h3><h4 id="6-3-1-结构"><a href="#6-3-1-结构" class="headerlink" title="6.3.1 结构"></a>6.3.1 结构</h4><p>两个窗体：MainForm、Form1.</p>
 <p>Form1用于用户输入，输入直线的起点、终点坐标。并将其传给MainForm</p>
-<h5 id="6-3-2-MainForm窗体代码"><a href="#6-3-2-MainForm窗体代码" class="headerlink" title="6.3.2 MainForm窗体代码"></a>6.3.2 MainForm窗体代码</h5><pre class="line-numbers language-c#"><code class="language-c#">using System;
+<h4 id="6-3-2-MainForm窗体代码"><a href="#6-3-2-MainForm窗体代码" class="headerlink" title="6.3.2 MainForm窗体代码"></a>6.3.2 MainForm窗体代码</h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -712,7 +712,7 @@ namespace Me
         }
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="6-3-3-Form1窗体代码"><a href="#6-3-3-Form1窗体代码" class="headerlink" title="6.3.3 Form1窗体代码"></a>6.3.3 Form1窗体代码</h5><pre class="line-numbers language-c#"><code class="language-c#">using System;
+<h4 id="6-3-3-Form1窗体代码"><a href="#6-3-3-Form1窗体代码" class="headerlink" title="6.3.3 Form1窗体代码"></a>6.3.3 Form1窗体代码</h4><pre class="line-numbers language-c#"><code class="language-c#">using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -746,6 +746,7 @@ namespace Me
         }
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>:yellow_heart:</p>
 
             </div>
             <hr/>
@@ -1476,7 +1477,7 @@ namespace Me
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">27.2k</span>&nbsp;字
+                class="white-color">27.3k</span>&nbsp;字
             
             
             
