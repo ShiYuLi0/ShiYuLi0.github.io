@@ -8,9 +8,21 @@
       <link href="/2020/05/10/cad/"/>
       <url>/2020/05/10/cad/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="一、坐标系"><a href="#一、坐标系" class="headerlink" title="一、坐标系"></a>一、坐标系</h2><h3 id="1-1-分类"><a href="#1-1-分类" class="headerlink" title="1.1 分类"></a>1.1 分类</h3><ul><li>绝对坐标系/世界坐标系</li><li>相对坐标系/局部坐标系</li></ul><h3 id="1-2-联系与区别"><a href="#1-2-联系与区别" class="headerlink" title="1.2 联系与区别"></a>1.2 联系与区别</h3><p>示例：</p><blockquote><p>画出矩形及其一条对角线。长宽为200<em>100，*</em>左下角为坐标原点(0,0)**。</p><p>从其对角线开始画第二条线。</p><p>起点为该矩形的顶点；</p><p>终点在命令行中输入(50,30)。</p><ul><li><strong>若开启动态UCS，则第二条直线会以第二条直线的起点为坐标原点，其终点会出现下图所示状况。这就是相对坐标</strong></li><li><strong>若不开启UCS，则第二条直线的终点会依然以旧的坐标原点(也就是矩形的左下角)为坐标原点。这就是绝对坐标(世界坐标)</strong></li></ul><p>总之，绝对坐标的坐标原点为，该图层创建时最初始的坐标原点，</p><p>而相对坐标其参照会不断变化。</p><p>PS：若开启动态UCS，在命令行中会自动将输入的坐标的横坐标前加@，例如：(@100，300)。也可直接输入艾特。</p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/CAD2020-05-10_193241.jpg" alt=""></p>]]></content>
       
       
+      <categories>
+          
+          <category> CAD </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CAD </tag>
+            
+        </tags>
       
     </entry>
     
