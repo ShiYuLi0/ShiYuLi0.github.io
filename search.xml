@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title>CAD</title>
+      <link href="/2020/05/10/cad/"/>
+      <url>/2020/05/10/cad/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>块统计——R&amp;ArcGIS</title>
+      <link href="/2020/05/05/kuai-tong-ji-r-arcgis/"/>
+      <url>/2020/05/05/kuai-tong-ji-r-arcgis/</url>
+      
+        <content type="html"><![CDATA[<hr><h2 id="1-块统计"><a href="#1-块统计" class="headerlink" title="1. 块统计"></a>1. 块统计</h2><p>将栅格分成不重叠的小区域，在小区域中对栅格进行计算。</p><h4 id="ArcGIS块统计工具官方解释："><a href="#ArcGIS块统计工具官方解释：" class="headerlink" title="ArcGIS块统计工具官方解释："></a>ArcGIS块统计工具官方解释：</h4><blockquote><p><strong>将输入分割放入非重叠块中，然后计算每个块中值的统计数据。在输出中，将值分配给每个块中的所有像元。</strong></p></blockquote><p><strong>图解：</strong></p><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%9D%97%E7%BB%9F%E8%AE%A1%E5%B8%AE%E5%8A%A9.png" alt=""></p><p><strong>3*3，取该块中最大值。</strong></p><p>该图中，ArcGIS工具用法为：</p><p>OutRas = BlockStatistics(InRas1, NbrRectangle(3,3,MAP), “MAXIMUM”, “”)</p><h2 id="2-块统计的用途"><a href="#2-块统计的用途" class="headerlink" title="2. 块统计的用途"></a>2. 块统计的用途</h2><p>块统计工具可用于替代<a href="https://desktop.arcgis.com/zh-cn/arcmap/10.3/tools/data-management-toolbox/resample.htm" target="_blank" rel="noopener">重采样</a>工具将栅格从精细分辨率重采样到粗糙分辨率。但是，其不使用最邻近、双线性或三次卷积等重采样方法，而是为粗糙分辨率的栅格像元分配原精细分辨率下各像元的最大值、最小值或平均值。要完成此操作，应选用适当的统计数据，例如平均值或最大值。</p><h3 id="3-类似工具——聚合"><a href="#3-类似工具——聚合" class="headerlink" title="3. 类似工具——聚合"></a>3. 类似工具——聚合</h3><p>“制图综合”工具集中的<a href="https://desktop.arcgis.com/zh-cn/arcmap/10.3/tools/spatial-analyst-toolbox/aggregate.htm" target="_blank" rel="noopener">聚合</a>工具在以下方面与块统计类似：它允许根据空间窗口内各像元的总和值、平均值、中值、最小值或最大值（由所需输出分辨率确定）实现聚合。但这两种方法也存在两个主要区别：</p><ul><li>聚合工具生成的输出栅格会被重采样到所需分辨率。</li><li>聚合工具中不存在指定邻域这一概念。邻域与输出块完全相同，始终为矩形，且包含相同的像元位置。在聚合工具中，块的大小由达到期望分辨率所需的像元数来确定。</li></ul><hr><h3 id="4-R脚本"><a href="#4-R脚本" class="headerlink" title="4. R脚本"></a>4. R脚本</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())setwd("B:/BlockStaHomeWrok/")library(sp)library(raster)library(rgdal)rasterdata = raster("SJZ.tif")#读取raster文件RasterdataCrs = crs(rasterdata)#原始数据坐标系ExtentRaster=extent(rasterdata)data = as.matrix(rasterdata)#提取地类8------------------------------for (i in 1:nrow(rasterdata)) {  for (j in 1:ncol(rasterdata)) {    if (data[i, j] == 80) {      data[i, j] = 100    }    else      data[i, j] = 0  }}#聚合分块-该脚本的灵魂~--------------------------------------------AggData=aggregate(raster(data), fact=c(33,33),FUN=mean)#输出--------------------------------------------------writeRaster(AggData,"AggRaster", format = "GTiff",overwrite = TRUE)plot(AggData)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><hr><h3 id="5-ArcGIS块统计的使用"><a href="#5-ArcGIS块统计的使用" class="headerlink" title="5. ArcGIS块统计的使用"></a>5. ArcGIS块统计的使用</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%9D%97%E7%BB%9F%E8%AE%A12020-05-05_080128.jpg" alt=""></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> GIS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ArcGIS </tag>
+            
+            <tag> R </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>图形变换</title>
       <link href="/2020/04/22/tu-xing-bian-huan/"/>
       <url>/2020/04/22/tu-xing-bian-huan/</url>

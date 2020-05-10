@@ -7,8 +7,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo, 世昱">
-    <meta name="description" content="Hexo博客.本博客采用Hexo。">
+    <meta name="keywords" content="块统计——R&amp;ArcGIS, 世昱">
+    <meta name="description" content="块统计">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hexo | 世昱</title>
+    <title>块统计——R&amp;ArcGIS | 世昱</title>
       
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.giftpage3.giftpage3.gif">
 
@@ -318,12 +318,12 @@
  
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/hexofengm.gif')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/块统计帮助.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo</h1>
+                    <h1 class="description center-align post-title">块统计——R&amp;ArcGIS</h1>
                 </div>
             </div>
         </div>
@@ -440,8 +440,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
+                            <a href="/tags/ArcGIS/">
+                                <span class="chip bg-color">ArcGIS</span>
+                            </a>
+                        
+                            <a href="/tags/R/">
+                                <span class="chip bg-color">R</span>
                             </a>
                         
                     </div>
@@ -452,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Hexo/" class="post-category">
-                                Hexo
+                            <a href="/categories/GIS/" class="post-category">
+                                GIS
                             </a>
                         
                     </div>
@@ -465,21 +469,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-18
+                    2020-05-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-04-22
+                    2020-05-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    737
+                    524
                 </div>
                 
 
@@ -503,76 +507,50 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a><strong>代码高亮</strong></h2><pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">npm</span> i -S hexo-prism-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>修改博客根目录下_config.yml的配置。</p>
-<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token key atrule">highlight</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false </span><span class="token comment" spellcheck="true">#关闭默认高亮</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>新增如下配置</p>
-<pre class="line-numbers language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># hexo-prism-plugin 代码高亮插件</span>
-<span class="token key atrule">prism_plugin</span><span class="token punctuation">:</span>
-  <span class="token key atrule">mode</span><span class="token punctuation">:</span> <span class="token string">'preprocess'</span>    <span class="token comment" spellcheck="true"># realtime(实时处理)/preprocess(预处理)</span>
-  <span class="token key atrule">theme</span><span class="token punctuation">:</span> <span class="token string">'okaidia'</span>     <span class="token comment" spellcheck="true"># 主题 </span>
-  <span class="token comment" spellcheck="true">#theme: 'tomorrow'   </span>
-
-  <span class="token key atrule">line_number</span><span class="token punctuation">:</span> <span class="token boolean important">false     </span><span class="token comment" spellcheck="true"># 开启行数</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><a href="https://github.com/PrismJS/prism-themes.git" target="_blank" rel="noopener">其他代码高亮主题</a></p>
-<hr>
-<h2 id="Categories一文多分类"><a href="#Categories一文多分类" class="headerlink" title="Categories一文多分类"></a><strong>Categories一文多分类</strong></h2><p>按照官方的解释，categories 这个选项有两种配置方法（其实有三种）。那我们就来讲讲这三种配置方法。</p>
-<h3 id="子分类"><a href="#子分类" class="headerlink" title="子分类"></a><strong>子分类</strong></h3><p> 下面的分类会将该分章放到 Java/Servlet这个分类下。</p>
-<p>categories:</p>
+                <hr>
+<h2 id="1-块统计"><a href="#1-块统计" class="headerlink" title="1. 块统计"></a>1. 块统计</h2><p>将栅格分成不重叠的小区域，在小区域中对栅格进行计算。</p>
+<h4 id="ArcGIS块统计工具官方解释："><a href="#ArcGIS块统计工具官方解释：" class="headerlink" title="ArcGIS块统计工具官方解释："></a>ArcGIS块统计工具官方解释：</h4><blockquote>
+<p><strong>将输入分割放入非重叠块中，然后计算每个块中值的统计数据。在输出中，将值分配给每个块中的所有像元。</strong></p>
+</blockquote>
+<p><strong>图解：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%9D%97%E7%BB%9F%E8%AE%A1%E5%B8%AE%E5%8A%A9.png" alt=""></p>
+<p><strong>3*3，取该块中最大值。</strong></p>
+<p>该图中，ArcGIS工具用法为：</p>
+<p>OutRas = BlockStatistics(InRas1, NbrRectangle(3,3,MAP), “MAXIMUM”, “”)</p>
+<h2 id="2-块统计的用途"><a href="#2-块统计的用途" class="headerlink" title="2. 块统计的用途"></a>2. 块统计的用途</h2><p>块统计工具可用于替代<a href="https://desktop.arcgis.com/zh-cn/arcmap/10.3/tools/data-management-toolbox/resample.htm" target="_blank" rel="noopener">重采样</a>工具将栅格从精细分辨率重采样到粗糙分辨率。但是，其不使用最邻近、双线性或三次卷积等重采样方法，而是为粗糙分辨率的栅格像元分配原精细分辨率下各像元的最大值、最小值或平均值。要完成此操作，应选用适当的统计数据，例如平均值或最大值。</p>
+<h3 id="3-类似工具——聚合"><a href="#3-类似工具——聚合" class="headerlink" title="3. 类似工具——聚合"></a>3. 类似工具——聚合</h3><p>“制图综合”工具集中的<a href="https://desktop.arcgis.com/zh-cn/arcmap/10.3/tools/spatial-analyst-toolbox/aggregate.htm" target="_blank" rel="noopener">聚合</a>工具在以下方面与块统计类似：它允许根据空间窗口内各像元的总和值、平均值、中值、最小值或最大值（由所需输出分辨率确定）实现聚合。但这两种方法也存在两个主要区别：</p>
 <ul>
-<li>Java</li>
-<li>Servlet<br>同样的作用我们也可以这样写。</li>
+<li>聚合工具生成的输出栅格会被重采样到所需分辨率。</li>
+<li>聚合工具中不存在指定邻域这一概念。邻域与输出块完全相同，始终为矩形，且包含相同的像元位置。在聚合工具中，块的大小由达到期望分辨率所需的像元数来确定。</li>
 </ul>
-<p>categories: [Java, Servlet]<br>上面两种方法最终效果一样，都是将文章放在了一个子分类的目录下。</p>
-<h3 id="多个分类"><a href="#多个分类" class="headerlink" title="多个分类"></a><strong>多个分类</strong></h3><p>如果我们的要求是将文章同时分到多个不同的分类中呢，我们应该这样：</p>
-<p>categories:<br>  -[Java]<br>  -[Servlet]<br>这样，就可以将上面的文章分类到 Java 和 Servlet 这两个不同的目录中了。</p>
-<p>扩展一下，如果我们将其分类到 Java/Servlet 和 Programming 两个不同的目录下，我们应该如下写：</p>
-<p>categories:<br>  -[Java, Servlet]<br>  -[Programming]</p>
 <hr>
-<h2 id="域名GitHub-amp-Coding码云双解析"><a href="#域名GitHub-amp-Coding码云双解析" class="headerlink" title="域名GitHub&amp;Coding码云双解析"></a>域名GitHub&amp;Coding码云双解析</h2><p><strong>hexo致命问题——速度</strong></p>
-<blockquote>
-<p>Github速度实在不敢恭维。Coding稳定性让人头疼！</p>
-<p>开始只是鄙夷GitHub的速度，把博客只部署到了Coding，但是发布是两个仓库同时发布的。GitHub只做备份。</p>
-<p>现在发现，码云是真让人生气。双部署万岁！</p>
-</blockquote>
-<ol>
-<li>在/blog/source下新建文本文件txt。CNAME文件，输入域名，shiyu.vip保存。去掉文件txt后缀</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/hexo/source.JPG" alt=""></p>
-<ol start="2">
-<li>生成部署</li>
-</ol>
-<pre class="line-numbers language-bash"><code class="language-bash">hexo g -d<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="3">
-<li>进入阿里云控制台域名解析</li>
-</ol>
-<p>进行域名管理，添加解析。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/hexo/jeixi.JPG" alt=""></p>
-<ol start="4">
-<li>修改GitHub博客仓库设置</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/hexo/GitHubsetting.JPG" alt=""></p>
-<ol start="5">
-<li>:v:</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/hexo/jiemian.JPG" alt=""></p>
-<h2 id="网站SEO优化"><a href="#网站SEO优化" class="headerlink" title="网站SEO优化"></a>网站SEO优化</h2><blockquote>
-<p><code>SEO</code>是由英文<code>Search Engine Optimization</code>缩写而来， 中文意译为“搜索引擎优化”。<code>SEO</code>是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化。</p>
-</blockquote>
-<p>百度收录站点。</p>
-<h3 id="验证网站所有权"><a href="#验证网站所有权" class="headerlink" title="验证网站所有权"></a>验证网站所有权</h3><p>登录百度站长搜索资源平台：<a href="http://zhanzhang.baidu.com%2C/" target="_blank" rel="noopener">http://zhanzhang.baidu.com，</a> 只要有百度旗下的账号就可以登录，登录成功之后在站点管理中点击<a href="http://zhanzhang.baidu.com/site/siteadd" target="_blank" rel="noopener">添加网站</a>然后输入你的站点地址。</p>
-<blockquote>
-<p>​    注意，这里需要输入我们自己购买的域名,不能使用<code>xxx.github.io</code>之类域名.因为<code>github</code>是不允许百度的<code>spider</code>（蜘蛛）爬取<code>github</code>上的内容的，所以如果想让你的站点被百度收录，只能使用自己购买的域名</p>
-</blockquote>
-<p>在填完网址选择完网站的类型之后需要验证网站的所有权，验证网站所有权的方式有三种：</p>
-<ul>
-<li>文件验证。</li>
-<li><code>html</code>标签验证</li>
-<li><code>CNAME</code>解析验证（<strong>推荐使用</strong>）</li>
-</ul>
-<p><code>CNAME</code>验证，<code>CNAME</code>验证最为简单，只需加一条解析就好~</p>
-<p>添加云解析</p>
+<h3 id="4-R脚本"><a href="#4-R脚本" class="headerlink" title="4. R脚本"></a>4. R脚本</h3><pre class="line-numbers language-R"><code class="language-R">rm(list = ls())
+setwd("B:/BlockStaHomeWrok/")
+library(sp)
+library(raster)
+library(rgdal)
+rasterdata = raster("SJZ.tif")#读取raster文件
+RasterdataCrs = crs(rasterdata)#原始数据坐标系
+ExtentRaster=extent(rasterdata)
+data = as.matrix(rasterdata)
+#提取地类8------------------------------
+for (i in 1:nrow(rasterdata)) {
+  for (j in 1:ncol(rasterdata)) {
+    if (data[i, j] == 80) {
+      data[i, j] = 100
+    }
+    else
+      data[i, j] = 0
+  }
+}
+#聚合分块-该脚本的灵魂~--------------------------------------------
+AggData=aggregate(raster(data), fact=c(33,33),FUN=mean)
+#输出--------------------------------------------------
+writeRaster(AggData,"AggRaster", format = "GTiff",overwrite = TRUE)
+plot(AggData)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="5-ArcGIS块统计的使用"><a href="#5-ArcGIS块统计的使用" class="headerlink" title="5. ArcGIS块统计的使用"></a>5. ArcGIS块统计的使用</h3><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/R/%E5%9D%97%E7%BB%9F%E8%AE%A12020-05-05_080128.jpg" alt=""></p>
 
             </div>
             <hr/>
@@ -598,7 +576,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://lishiyu.vip/2020/02/18/hexo/">https://lishiyu.vip/2020/02/18/hexo/</a>
+                    <a href="https://lishiyu.vip/2020/05/05/kuai-tong-ji-r-arcgis/">https://lishiyu.vip/2020/05/05/kuai-tong-ji-r-arcgis/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -636,8 +614,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
+                                <a href="/tags/ArcGIS/">
+                                    <span class="chip bg-color">ArcGIS</span>
+                                </a>
+                            
+                                <a href="/tags/R/">
+                                    <span class="chip bg-color">R</span>
                                 </a>
                             
                         </div>
@@ -1070,59 +1052,32 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/19/dda-zhi-xian-sheng-cheng-suan-fa/">
+                <a href="/2020/05/10/cad/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/Post/cadp.JPG" class="responsive-img" alt="DDA直线生成算法(1)">
                         
-                        <span class="card-title">DDA直线生成算法(1)</span>
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="CAD">
+                        
+                        <span class="card-title">CAD</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            DDA & Bresenham算法
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-19
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" class="post-category">
-                                    计算机图形学
-                                </a>
-                            
-                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
-                                    算法
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            李世昱
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">
-                        <span class="chip bg-color">计算机图形学</span>
-                    </a>
-                    
-                    <a href="/tags/DDA/">
-                        <span class="chip bg-color">DDA</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C#</span>
-                    </a>
-                    
-                    <a href="/tags/Bresenham/">
-                        <span class="chip bg-color">Bresenham</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1134,30 +1089,34 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/17/r-ji-chu/">
+                <a href="/2020/04/22/tu-xing-bian-huan/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/libs/instantpage3.gif" class="responsive-img" alt="R基础">
+                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/计算机图形学/图形变换results.gif" class="responsive-img" alt="图形变换">
                         
-                        <span class="card-title">R基础</span>
+                        <span class="card-title">图形变换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            R的基础文件操作、部分plot图表函数、Dataframe和空间数据矢量栅格操作部分
+                            图形、坐标系的变换
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/R/" class="post-category">
-                                    R
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
+                            <a href="/categories/C/" class="post-category">
+                                    C#
                                 </a>
                             
                             
@@ -1167,8 +1126,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/R/">
-                        <span class="chip bg-color">R</span>
+                    <a href="/tags/%E5%9B%BE%E5%BD%A2%E5%8F%98%E6%8D%A2/">
+                        <span class="chip bg-color">图形变换</span>
                     </a>
                     
                 </div>
