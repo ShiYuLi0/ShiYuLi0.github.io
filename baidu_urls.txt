@@ -1,4 +1,3 @@
-https://lishiyu.vip/2020/05/10/cad/
 https://lishiyu.vip/2020/05/05/kuai-tong-ji-r-arcgis/
 https://lishiyu.vip/2020/04/22/tu-xing-bian-huan/
 https://lishiyu.vip/2020/04/17/tu-xiang-hui-du-zhi-fang-tu-ji-bian-yuan-ti-qu/
@@ -13,7 +12,6 @@ https://lishiyu.vip/2020/03/16/arcgis-bian-ji-qi-ji-qi-gao-ji-bian-ji/
 https://lishiyu.vip/2020/03/14/qu-yu-tian-chong-suan-fa/
 https://lishiyu.vip/2020/03/04/zhong-dian-hua-yuan-suan-fa/
 https://lishiyu.vip/2020/03/04/zhi-xian-bresenham-suan-fa/
-https://lishiyu.vip/2020/03/02/arcpy/
 https://lishiyu.vip/2020/02/25/plot/
 https://lishiyu.vip/2020/02/22/zha-ge-shu-xing-biao-chu-li/
 https://lishiyu.vip/2020/02/21/wei-tuo/
