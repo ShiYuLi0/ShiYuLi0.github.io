@@ -472,21 +472,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-07
+                    2021-01-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    797
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -503,7 +503,73 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="一、局域网"><a href="#一、局域网" class="headerlink" title="一、局域网"></a>一、局域网</h2><h3 id="1-1-简单局域网"><a href="#1-1-简单局域网" class="headerlink" title="1.1  简单局域网"></a>1.1  简单局域网</h3><ul>
+<li><p>局域网：内网</p>
+</li>
+<li><p>简单局域网构成：PC（其他IT终端）、交换机、网线</p>
+</li>
+<li><p>交换机：用来组建内网的局域网的设备。只有交换机不能用来上网</p>
+</li>
+</ul>
+<h3 id="1-2-IP"><a href="#1-2-IP" class="headerlink" title="1.2 IP"></a>1.2 IP</h3><p>IP地址形式：X.X.X.X </p>
+<blockquote>
+<p>其中X的范围：0-255</p>
+</blockquote>
+<ul>
+<li>IP地址就是一个唯一标识，是一段网络编码（二进制，下章学习），由32位组成（二进制）</li>
+</ul>
+<p>国际标准组织ISO定义地址分类：五大类 （是以IP地址的第一位进行区分的） </p>
+<blockquote>
+<p>A类： 1-126 默认子网掩码：255.0.0.0 </p>
+<p>B类： 128-191 默认子网掩码：255.255.0.0 </p>
+<p>C类： 192-223 默认子网掩码：255.255.255.0 </p>
+<p>D类： 224-239 组播地址 </p>
+<p>E类： 240-254 科研使用</p>
+</blockquote>
+<p>​        *<em>注： *</em></p>
+<p>​        *<em>1. 目前我们可以使用的只有A、B、C 三类 *</em></p>
+<p>​        <strong>2. ABC3类的子网掩码可以修改！</strong></p>
+<h3 id="1-3-子网掩码"><a href="#1-3-子网掩码" class="headerlink" title="1.3 子网掩码"></a>1.3 子网掩码</h3><p><strong>局域网通信规则：</strong>在同一个局域网中，所有的IP必须在同一网段中才可以互相通信！ </p>
+<p><strong>IP地址构成：</strong>网络位+主机位 （网络位相同的IP地址，为同一网段） </p>
+<p><strong>子网掩码：</strong> 用来确定IP地址的网络位 </p>
+<p>子网掩码如何确认网络位：与255对应的数字为网络位，与0对应的数字为主机位 </p>
+<p>​        <strong>255.0.0.0</strong> </p>
+<p>​        <strong>255.255.0.0</strong> </p>
+<p>​        <strong>255.255.255.0</strong></p>
+<blockquote>
+<p>如：</p>
+<p> 10.1.1.1    255.0.0.0 获知：10.1.1.1属于10.网段，名字叫.1.1.1 </p>
+<p>10.1.1.1    255.255.0.0 获知：10.1.1.1属于10.1.网段，名字叫.1.1 </p>
+<p>10.1.1.1    255.255.255.0 获知：10.1.1.1属于10.1.1网段，名字叫.1</p>
+</blockquote>
+<blockquote>
+<p>注意：1个IP地址，必须配套一个子网掩码</p>
+<p>相对于GIS中的元数据或者对数据的解释。</p>
+<p>比如给一个数字90，如果没有数据说明，它可能会是分数，可能会是温度……</p>
+</blockquote>
+<p><strong>案例1：</strong></p>
+<p>10.1.1.1 </p>
+<p>255.255.255.0 </p>
+<p>问：</p>
+<p>10.1.1.1属于哪个网段？所在网段有多少个可用的IP地址？该网段的广播地址是什么？ </p>
+<p>答：</p>
+<p> 10.1.1.1属于10.1.1.0网段。</p>
+<p> 10.1.1.0网段可用的IP地址范围：10.1.1.1-10.1.1.254</p>
+<p> 10.1.1.0网段的广播地址：10.1.1.255 </p>
+<p><strong>案例2：</strong> </p>
+<p>10.1.1.1 </p>
+<p>255.255.0.0 </p>
+<p>问：</p>
+<p>10.1.1.1属于哪个网段？所在网段有多少个IP地址？该网段的广播地址是什么？ </p>
+<p>答： </p>
+<p>10.1.1.1属于10.1.0.0网段。</p>
+<p> 10.1.0.0网段可用的IP地址范围：10.1.0.1-10.1.255.254（共65534个） </p>
+<p>10.1.1.0网段的广播地址：10.1.255.255</p>
+<h3 id="1-4-网关"><a href="#1-4-网关" class="headerlink" title="1.4 网关"></a>1.4 网关</h3><p><strong>网关：</strong>一个网络的出口，Gateway=GW，一般网关是在路由器上 </p>
+<p><strong>路由器：</strong>可用连接内外网的设备·。</p>
+<p>网关的路由器也占了一个内网的一个IP，只不过是内网中一个特殊的设备，它通向另一个世界——外网</p>
+<p>设置网关的IP地址的时候，通常按一般习惯可能是可用IP中的第一个或者最后一个数字。</p>
+
             </div>
             <hr/>
 
@@ -1266,7 +1332,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">27.1k</span>&nbsp;字
+                class="white-color">27.9k</span>&nbsp;字
             
             
             
@@ -1487,6 +1553,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
+<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
 
 </html>
