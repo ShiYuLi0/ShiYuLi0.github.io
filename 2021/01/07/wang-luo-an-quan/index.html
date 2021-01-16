@@ -444,6 +444,10 @@
                                 <span class="chip bg-color">网络安全</span>
                             </a>
                         
+                            <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
+                                <span class="chip bg-color">渗透测试</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -452,8 +456,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                笔记
+                            <a href="/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" class="post-category">
+                                网络安全
                             </a>
                         
                     </div>
@@ -472,21 +476,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-09
+                    2021-01-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -595,11 +599,32 @@
 <h3 id="2-4-网关"><a href="#2-4-网关" class="headerlink" title="2.4 网关"></a>2.4 网关</h3><p><strong>网关：</strong>一个网络的出口，Gateway=GW，一般网关是在路由器上 </p>
 <p><strong>路由器：</strong>可用连接内外网的设备·。</p>
 <p>​            网关的路由器也占了一个内网的一个IP，只不过是内网中一个特殊的设备，它通向另一个世界——外网</p>
-<p>​            设置网关的IP地址的时候，通常按一般习惯可能是可用IP中的第一个或者最后一个数字。</p>
+<p>​            <strong>设置网关的IP地址的时候，通常按一般习惯可能是可用IP中的第一个或者最后一个数字。</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E7%AC%94%E8%AE%B0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E7%BD%91%E5%85%B3.jpg" alt=""></p>
 <p><strong>心理活动：</strong></p>
-<p>首先检查两台PC是否处于同一网段。若处于同一网段，则不用向外发送，直接给交换机。</p>
+<ol>
+<li>首先检查两台PC是否处于同一网段</li>
+<li>如在同一网段，则直接发出去，而不找网关 </li>
+<li>如不在同一网段，则直接发包给网关</li>
+</ol>
+<h3 id="2-5-DNS"><a href="#2-5-DNS" class="headerlink" title="2.5 DNS"></a>2.5 DNS</h3><p>DNS：Domain Name Service 域名服务</p>
+<p><strong>1台PC需要连接外网，需要IP地址、子网掩码、网关、DNS四大参数</strong></p>
+<h4 id="2-5-1-PC对域名进行解析过程"><a href="#2-5-1-PC对域名进行解析过程" class="headerlink" title="2.5.1 PC对域名进行解析过程"></a><strong>2.5.1 PC对域名进行解析过程</strong></h4><pre><code>1.找DNS缓存,若无该域名,进行下一步
 
+2.找本地host文件解析文件,若无,进行下一步
+
+3.找DNS服务器。DNS服务器指向公网，有众多DNS服务器</code></pre><p><img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/banner/5-160914192R0-50.gif" data-original="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/%E7%AC%94%E8%AE%B0/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8DNS.jpg" alt=""></p>
+<h4 id="2-5-2-手动解析域名"><a href="#2-5-2-手动解析域名" class="headerlink" title="2.5.2 手动解析域名"></a><strong>2.5.2 手动解析域名</strong></h4><p>命令：nslookup  域名</p>
+<p>​        作用：手动解析域名</p>
+<pre><code>C:\Users\YU&gt;nslookup www.baidu.com
+服务器:  public1.114dns.com
+Address:  114.114.114.114            （表明此处114.114.114.114DNS域名服务器为我提供解析）
+
+非权威应答:
+名称:    www.a.shifen.com　　　　　　　　（百度的真实域名,可能已经屏蔽了）
+Addresses:  110.242.68.3    　　　　　　（百度的IP地址）
+          110.242.68.4
+Aliases:  www.baidu.com</code></pre>
             </div>
             <hr/>
 
@@ -664,6 +689,10 @@
                             
                                 <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
                                     <span class="chip bg-color">网络安全</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/">
+                                    <span class="chip bg-color">渗透测试</span>
                                 </a>
                             
                         </div>
@@ -1092,49 +1121,39 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/07/wang-luo-an-quan/">
+                <a href="/2021/01/12/dos-ming-ling/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/ShiYuLi0/PictureBolg/source/post/笔记/网络安全勃朗峰（Mont Blanc massif）.jpg" class="responsive-img" alt="网络安全">
                         
-                        <span class="card-title">网络安全</span>
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="DOS命令">
+                        
+                        <span class="card-title">DOS命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对于自由王国，我十分的渴望和努力
+                            
+一、DOS命令1.1 cmd1、开始---运行---输入cmd--回车，将调出C:\windows\system32\cmd.exe
+或者
+2、Win + R ---运行---输入cmd--回车1.2 基本命令1. 命令：color f0
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-12
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    笔记
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            李世昱
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">
-                        <span class="chip bg-color">网络安全</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1168,8 +1187,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    笔记
+                            <a href="/categories/GIS/" class="post-category">
+                                    GIS
                                 </a>
                             
                             
@@ -1362,7 +1381,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;博客总字数:&nbsp;<span
-                class="white-color">28.3k</span>&nbsp;字
+                class="white-color">29.2k</span>&nbsp;字
             
             
             
@@ -1583,6 +1602,6 @@ $(function () {
 	 (document.title = "别走!I'm Here!", clearTimeout(st)) : (document.title = "嘻🤭我知道你不会走", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
 	
 	
-<script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/tororo.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":1}});</script><script>!function(e){var c=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){for(var r=0;r<c.length;r++)t=c[r],0<=(n=t.getBoundingClientRect()).bottom&&0<=n.left&&n.top<=(e.innerHeight||document.documentElement.clientHeight)&&function(){var t,n,e,i,o=c[r];t=o,n=function(){c=c.filter(function(t){return o!==t})},e=new Image,i=t.getAttribute("data-original"),e.onload=function(){t.src=i,n&&n()},e.src=i}();var t,n}i(),e.addEventListener("scroll",function(){var t,n;t=i,n=e,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(n)},500)})}(this);</script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script></body>
 
 </html>
