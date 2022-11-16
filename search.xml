@@ -128,9 +128,9 @@
       
       <categories>
           
-          <category> 笔记 </category>
-          
           <category> 计算机图形学 </category>
+          
+          <category> 笔记 </category>
           
       </categories>
       
@@ -232,9 +232,9 @@
       
       <categories>
           
-          <category> 笔记 </category>
-          
           <category> 计算机图形学 </category>
+          
+          <category> 笔记 </category>
           
       </categories>
       
@@ -420,9 +420,9 @@
       
         <tags>
             
-            <tag> Plot函数 </tag>
-            
             <tag> R </tag>
+            
+            <tag> Plot函数 </tag>
             
         </tags>
       
